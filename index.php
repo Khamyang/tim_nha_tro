@@ -49,9 +49,10 @@
         </div>
       </div>
       <div>
-        kham-update
+        kham-update/ Kiamoua
       </div>
     </div>
     <?php include "layout/footer.php" ?>
+
 </body>
 </html>
