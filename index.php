@@ -49,7 +49,7 @@
         </div>
       </div>
       <div>
-        kham
+        kham-update
       </div>
     </div>
     <?php include "layout/footer.php" ?>
