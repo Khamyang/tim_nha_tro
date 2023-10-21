@@ -44,63 +44,48 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
 </head>
 
 <body id="top">
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
-                <img src="images/logo1.png" class="img-fluid logo-image">
-                <div class="d-flex flex-column">
-                    <strong class="logo-text">VT-APARTMENT</strong>
-                    <small class="logo-slogan">Online 24 th</small>
-                </div>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav align-items-center ms-lg-5">
-                    <li class="nav-item ">
-                        <a class="nav-link" href="?page=home" <?= ($curPageName == 'index.php') ? "style='background-color: #f65129;padding:  2px 10px 2px 10px; border-radius: 5px; color: #fff'" : ''; ?>>Trang chủ</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link " href="#" role="button" aria-expanded="false">Blog</a>
-                        
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link " href="#" role="button" aria-expanded="false">Quản lý nhà</a>
-                        
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.php" <?= ($curPageName == 'about.php') ? "style='background-color: #f65129;padding:  2px 10px 2px 10px; border-radius: 5px;color: #fff'" : ''; ?>>About VT-APM</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.php" <?= ($curPageName == 'contact.php') ? "style='background-color: #f65129;padding:  2px 10px 2px 10px; border-radius: 5px;color: #fff'" : ''; ?>>Contact</a>
-                    </li>
-                    <!-- <li class="nav-item ms-lg-auto">
-                        <a class="btn btn-danger btn-sm me-5" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
-                    </li> -->
-                    <li class="nav-item ms-lg-auto">
-                        <?php if ($curPageName == 'login.php') { ?>
-                            <a class="btn btn-sm me-5" href="login.php" style="background-color: #f65129;">Login</a>
-                        <?php } else { ?>
-                            <a class="btn btn-danger btn-sm me-5" href="login.php">Login</a>
-                            <!-- <a class="nav-link" href="about.php">About VT-APM</a> -->
-                        <?php } ?>
-
-                    </li>
-                    <?php $user_type = 3;
-                    if ($user_type == 1) { ?>
-                        <li class="nav-item" id="user_pro">
-                            <button class="btn btn-sm bg-success" id="btn_user_pro"><i class="fa-solid fa-user"></i></button>
-                            <ul class="popup_user_pro" id="popup_user_pro">
-                                <li><a href="#" id="lg_change1"><img src="images/icons/vietnam.png" width="20" alt="">Vietname</a></li>
-                                <li><a href="#" id="lg_change2"><img src="images/icons/laos.png" width="20" alt=""> Lao</a></li>
-                            </ul>
-                        </li>
-                    <?php } ?>
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-info p-3">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">DBook Inc</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class=" collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ms-auto ">
+            <li class="nav-item">
+              <a class="nav-link mx-2 active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="#">Products</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="#">Pricing</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Company
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Blog</a></li>
+                <li><a class="dropdown-item" href="#">About Us</a></li>
+                <li><a class="dropdown-item" href="#">Contact us</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
+            <li class="nav-item mx-2">
+              <a class="nav-link text-dark h5" href="" target="blank"><i class="fab fa-google-plus-square"></i></a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link text-dark h5" href="" target="blank"><i class="fab fa-twitter"></i></a>
+            </li>
+            <li class="nav-item mx-2">
+              <a class="nav-link text-dark h5" href="" target="blank"><i class="fab fa-facebook-square"></i></a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
     <!-- <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script> -->
     <script>
