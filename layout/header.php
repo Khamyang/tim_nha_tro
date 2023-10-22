@@ -84,6 +84,7 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
               <a class="nav-link text-dark h5" href="" target="blank"><i class="fab fa-facebook-square"></i></a>
             </li>
           </ul> -->
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, qui.</p>
         </div>
       </div>
     </nav>
