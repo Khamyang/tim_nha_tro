@@ -73,7 +73,7 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
               </ul>
             </li>
           </ul>
-          <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
+          <!-- <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
             <li class="nav-item mx-2">
               <a class="nav-link text-dark h5" href="" target="blank"><i class="fab fa-google-plus-square"></i></a>
             </li>
@@ -83,7 +83,7 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
             <li class="nav-item mx-2">
               <a class="nav-link text-dark h5" href="" target="blank"><i class="fab fa-facebook-square"></i></a>
             </li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </nav>
