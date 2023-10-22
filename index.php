@@ -53,6 +53,7 @@
       <div>
         kham-update/ Kiamoua
       </div>
+      <div>POchuayang</div>
     </div>
     <?php include "layout/footer.php" ?>
 
