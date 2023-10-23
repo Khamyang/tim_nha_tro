@@ -40,51 +40,53 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
             color: #000000;
 
         }
+        .navbar-brand {
+          font-size: 36px;
+        }
+        .nav-link,.navbar-brand,.navbar-toggler{
+          color: white;
+        }
     </style>
 </head>
 
 <body id="top">
-<nav class="navbar navbar-expand-lg navbar-light bg-info p-3">
+<nav class="navbar navbar-expand-lg p-3" style="background-color: #333; position:fixed;left:0;right:0;top:0;z-index: 100">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">DBook Inc</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-brand">Trung tâm nhà trọ</span>
+        <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-    
+        <?php
+        if(isset($_GET['page'])){
+          $page = $_GET['page'];
+          // if($_GET['page'] == "login"){
+          //   $active = "bg-primary rounded";
+          // }
+        }
+        ?>
         <div class=" collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ms-auto ">
             <li class="nav-item">
-              <a class="nav-link mx-2 active" aria-current="page" href="#">Home</a>
+              <a class="nav-link mx-2 <?= ($page == "home" || $page == "") ? "bg-primary rounded": "";?>" aria-current="page" href="?page=home">Trang chủ</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-2" href="#">Products</a>
+              <a class="nav-link mx-2" href="#">Post</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link mx-2" href="#">Pricing</a>
+              <a class="nav-link mx-2" href="#">Quản lý nhà</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link mx-2 dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Company
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Blog</a></li>
-                <li><a class="dropdown-item" href="#">About Us</a></li>
-                <li><a class="dropdown-item" href="#">Contact us</a></li>
-              </ul>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-2" href="#">Liên hệ</a>
             </li>
           </ul>
           <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
             <li class="nav-item mx-2">
-              <a class="nav-link text-dark h5" href="" target="blank"><i class="fab fa-google-plus-square"></i></a>
+              <a class="nav-link h5 <?= ($page == "login") ? "bg-primary rounded": "";?>" href="?page=login">Login</a>
             </li>
-            <li class="nav-item mx-2">
-              <a class="nav-link text-dark h5" href="" target="blank"><i class="fab fa-twitter"></i></a>
-            </li>
-            <li class="nav-item mx-2">
-              <a class="nav-link text-dark h5" href="" target="blank"><i class="fab fa-facebook-square"></i></a>
-            </li>
-          </ul> -->
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, qui.</p>
+          </ul>
         </div>
       </div>
     </nav>
