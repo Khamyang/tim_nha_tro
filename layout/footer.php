@@ -6,7 +6,9 @@
                     <img src="image/logo.png" class="img-fluid logo-image" width="100">
 
                     <div class="d-flex flex-column">
-                        <strong class="logo-text">VT-APARTMENT</strong>
+                        <strong class="logo-text">
+                            <img src="" alt="">
+                        </strong>
                         <small class="logo-slogan">Online 24 th</small>
                     </div>
                 </div>

@@ -56,8 +56,21 @@
           ?>
         </div>
       </div>
+<<<<<<< HEAD
+      <div>
+        kham-update/ Kiamouag
+      </div>
     </div>
     <?php include "layout/footer.php" ?>
+
+
+
+
+
+=======
+    </div>
+    <?php include "layout/footer.php" ?>
+>>>>>>> main
     
 </body>
 </html>
