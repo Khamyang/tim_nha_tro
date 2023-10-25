@@ -4,14 +4,16 @@
         $page = $_GET['page'];
         switch ($page) {
             case 'home':
-                include "../view/home.php";
+                include "./view/home.php";
                 break;
             case 'login':
-                    include "../view/login.php";
+                    include "./view/login.php";
                     break;
             default: 
-                include "../view/home.php";
+                include "./view/home.php";
             break;
         }
+    }else{
+        include "./view/home.php";
     }
 ?>
