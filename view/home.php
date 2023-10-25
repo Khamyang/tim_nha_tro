@@ -102,7 +102,7 @@
         <div class="row pt-3 pb-3" id="content_all">
             <div class="col-sm-3 d-flex justify-content-center">
                 <div class="card d-flex align-items-lg-center " style="width: 18rem;">
-                    <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                    <img src="./image/patuxay.jpg" class="card-img-top" alt="..." onclick="window.location.href = './?page=detail&detail_id=1'">
                     <div class="card-body">
                         <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
                     </div>

@@ -8,7 +8,10 @@
                 break;
             case 'login':
                     include "./view/login.php";
-                    break;
+                break;
+            case 'detail':
+                include "./view/room_detail.php";
+                break;
             default: 
                 include "./view/home.php";
             break;
