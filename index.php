@@ -53,9 +53,13 @@
       <div>
         kham-update/ Kiamouag
       </div>
-      <H1>Hello world</H1>
     </div>
     <?php include "layout/footer.php" ?>
 
+
+
+
+
+    
 </body>
 </html>
