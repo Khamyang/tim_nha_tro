@@ -51,9 +51,9 @@
         </div>
       </div>
       <div>
-        kham-update/ Kiamoua
+        kham-update/ Kiamouag
       </div>
-      <div>POchuayang</div>
+      <H1>Hello world</H1>
     </div>
     <?php include "layout/footer.php" ?>
 
