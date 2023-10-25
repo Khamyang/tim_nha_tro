@@ -195,7 +195,7 @@
             </section>
             <section class="col=md-6" style="color:ivory;">
                 <h1>CHI TIẾT:</h1>
-                <section class="chi_tiet"">
+                <section class="chi_tiet">
                     <p>Nhà trò phòng này </p>
                 </section>
             </section>
