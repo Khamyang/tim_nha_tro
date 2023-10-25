@@ -6,9 +6,14 @@
             case 'home':
                 include "./view/home.php";
                 break;
+            case 'login':
+                    include "./view/login.php";
+                    break;
             default: 
-                include "./view/login.php";
+                include "./view/home.php";
             break;
         }
+    }else{
+        include "./view/home.php";
     }
 ?>
