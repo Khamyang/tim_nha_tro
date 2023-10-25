@@ -40,14 +40,38 @@ session_start();
       text-decoration: none;
       color: #000000;
 
-        }
-        .navbar-brand {
-          font-size: 36px;
-        }
-        .nav-link,.navbar-brand,.navbar-toggler{
-          color: white;
-        }
-    </style>
+    }
+    .navbar-brand {
+      font-size: 36px;
+    }
+    .nav-link,
+    .navbar-brand,
+    .navbar-toggler {
+      color: white;
+    }
+    #user_popup {
+      position:relative;
+      right:0
+    }
+    #list_user_popup{
+      background-color: #d4ae25;
+      border-radius: 3px;
+      width: 200px;
+      position:absolute;
+      top:2.5rem; 
+      right:1rem;
+      padding: 10px;
+      display: none;
+    }
+    #list_user_popup li{
+      list-style: none;
+      padding: 5px;
+    }
+    #list_user_popup li a{
+      text-decoration: none;
+      color:#333;
+    }
+  </style>
 </head>
 
 <body id="top">
