@@ -11,7 +11,6 @@
                 <div class="carousel-item active">
                     <div class="card-wrapper container-sm d-flex  justify-content-around">
                         <div class="card  " style="width: 18rem;">
-                        <img src="patuxay.jpg" alt="">
                             <img src="../image/logo.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Patuxay</h5>
