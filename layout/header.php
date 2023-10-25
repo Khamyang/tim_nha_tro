@@ -46,6 +46,9 @@ $curPageName = substr($_SERVER["SCRIPT_NAME"], strrpos($_SERVER["SCRIPT_NAME"], 
         .nav-link,.navbar-brand,.navbar-toggler{
           color: white;
         }
+        .navbar-brand:hover{
+          color: #fff;
+        }
     </style>
 </head>
 
