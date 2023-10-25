@@ -11,7 +11,14 @@
                     break;
             default: 
                 include "./view/home.php";
+<<<<<<< HEAD
             break;
+=======
+                //break;
+>>>>>>> main
         }
+    }else{
+        include "./view/home.php";
     }
+    
 ?>

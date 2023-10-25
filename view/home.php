@@ -13,7 +13,7 @@
                         <div class="card  " style="width: 18rem;">
                             <img src="../image/logo.png" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Patuxay</h5>
+                                <h5 class="card-title">Xaythany</h5>
                             </div>
                         </div>
                         <div class="card" style="width: 18rem;">
@@ -86,9 +86,19 @@
         </div>
     </div>
 </div>
-<div>
+<div class="mt-3">
     <div class="container">
         fsdfsdf
         <img src="../image/vt-image.jpg" alt="">
     </div>
 </div>
+</div>
+<script>
+    const con = document.getElementById('content_all');
+    var vale = document.getElementById('search').value;
+    document.getElementById('search').onkeydown = function(e){
+   if(e.keyCode == 13){
+    alert(document.getElementById('search').value)
+    }
+    };
+</script>
