@@ -12,21 +12,21 @@
                     <div class="card-wrapper container-sm d-flex  justify-content-around">
                         <div class="card  " style="width: 18rem;">
                         <img src="patuxay.jpg" alt="">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="">
+                            <img src="../image/logo.png" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Xaythany</h5>
                             </div>
                         </div>
                         <div class="card" style="width: 18rem;">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
+                            <img src="" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Xaysettha</h5>
+                                <h5 class="card-title">Card title</h5>
                             </div>
                         </div>
                         <div class="card" style="width: 18rem;">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
+                            <img src="" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Chanthabuly</h5>
+                                <h5 class="card-title">Card title</h5>
                             </div>
                         </div>
                     </div>
@@ -34,21 +34,21 @@
                 <div class="carousel-item">
                     <div class="card-wrapper container-sm d-flex   justify-content-around">
                         <div class="card  " style="width: 18rem;">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
+                            <img src="" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Sisattanak</h5>
+                                <h5 class="card-title">Card title</h5>
                             </div>
                         </div>
                         <div class="card" style="width: 18rem;">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
+                            <img src="" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Sikhottabong</h5>
+                                <h5 class="card-title">Card title</h5>
                             </div>
                         </div>
                         <div class="card" style="width: 18rem;">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
+                            <img src="" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Hadxayphong</h5>
+                                <h5 class="card-title">Card title</h5>
                             </div>
                         </div>
                     </div>
@@ -56,21 +56,21 @@
                 <div class="carousel-item">
                     <div class="card-wrapper container-sm d-flex  justify-content-around">
                         <div class="card " style="width: 18rem;">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
+                            <img src="" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Paknguem</h5>
+                                <h5 class="card-title">Card title</h5>
                             </div>
                         </div>
                         <div class="card" style="width: 18rem;">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
+                            <img src="" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Naxaithong</h5>
+                                <h5 class="card-title">Card title</h5>
                             </div>
                         </div>
                         <div class="card" style="width: 18rem;">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
+                            <img src="" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Sangthong</h5>
+                                <h5 class="card-title">Card title</h5>
                             </div>
                         </div>
                     </div>
@@ -87,8 +87,19 @@
         </div>
     </div>
 </div>
-<div>
+<div class="mt-3">
     <div class="container">
-        
+        fsdfsdf
+        <img src="../image/vt-image.jpg" alt="">
     </div>
 </div>
+</div>
+<script>
+    const con = document.getElementById('content_all');
+    var vale = document.getElementById('search').value;
+    document.getElementById('search').onkeydown = function(e){
+   if(e.keyCode == 13){
+    alert(document.getElementById('search').value)
+    }
+    };
+</script>

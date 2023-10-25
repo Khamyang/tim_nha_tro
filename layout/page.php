@@ -13,8 +13,8 @@
                 include "./view/home.php";
                 //break;
         }
-    }
-    else{
+    }else{
         include "./view/home.php";
     }
+    
 ?>
