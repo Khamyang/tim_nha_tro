@@ -59,7 +59,11 @@ input:checked + .slider:before {
 	margin-bottom: 10px;
 	border-radius: 8px; 
 	background: #2196F3;
+	text-align: center;
+	text-decoration: none;
+	font-size: 16pt;
 	border: none;
+	color: #000;
 }
 #btn_edit{
 	margin-left: 30px;
@@ -96,7 +100,7 @@ input:checked + .slider:before {
             </div>
         </div>
         <div class="row pt-3 pb-3" id="content_all">
-        	<button id="btn_add">Thêm mới</button>
+        	<a  href="?page=add_home" class="button" id="btn_add">Thêm mới</a>
             <div class="col-sm-3 d-flex justify-content-center">
                 <div class="card d-flex align-items-lg-center " style="width: 18rem;">
                     <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
