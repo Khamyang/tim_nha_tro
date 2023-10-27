@@ -77,7 +77,7 @@ session_start();
             <a class="nav-link mx-2" href="#">Post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2" href="#">Quản lý nhà</a>
+            <a class="nav-link mx-2" href="?page=my_home">Quản lý nhà</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-2" href="#">About</a>
