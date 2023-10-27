@@ -13,12 +13,12 @@
                                 <input type="text" class="form-control" name="home_name" id="home_name" placeholder="">
                                 <span class="text-danger" id="home_name_err"></span>
                             </div>
-                            <br>                        
+                            <br>
                             <div class="form-group">
                                 <label for="address">Chọn ảnh</label>
                                 <input type="file" id="image[]" name="image[]" class="form-control">
                             </div>
-                            <br>                        
+                            <br>
                             <div class="form-group">
                                 <label for="text">Giá thuê/tháng</label>
                                 <input type="text" class="form-control" name="fee" id="fee" placeholder="">
@@ -29,28 +29,30 @@
                                 <label for="address">Địa chỉ</label>
                                 <br>
                                 <label style="margin-bottom: 15px;" for="">&nbsp;&nbsp;Chọn huyện: </label>
-                                <SELECT style=" width: 85%; float: right;" class="forn-control" id="sl_huyen" name="sl_huyen">
+                                <?php
+                                $sql = mysqli_query($conn, "SELECT * FROM tb_huyen");
+
+                                ?>
+                                <SELECT style=" width: 85%; float: right;" class="form-control" id="sl_huyen" name="sl_huyen">
                                     <OPTION selected Value="Under 16"> - Chọn huyện -</OPTION>
-                                    <OPTION Value="1">Chanthabuly</OPTION>
-                                    <OPTION Value="2">Sikhottabong</OPTION>
-                                    <OPTION Value="3">Xaysetha</OPTION>
-                                    <OPTION Value="4">Sisattanak</OPTION>
-                                    <OPTION Value="5">Naxaithong</OPTION>
-                                    <OPTION Value="6">Xaythany</OPTION>
-                                    <OPTION Value="7">Hadxayfong</OPTION>
-                                    <OPTION Value="8">Sangthong</OPTION>
-                                    <OPTION Value="9">Parknguem</OPTION>
+                                    <?php if ($sql->num_rows > 0) {
+                                        while ($row = mysqli_fetch_object($sql)) {
+                                    ?>
+                                            <OPTION Value="<?= $row->MaHuyen ?>"><?= $row->TenHuyen ?></OPTION>
+                                    <?php }
+                                    } ?>
                                 </SELECT>
                                 <br>
                                 <label style="margin-bottom: 15px;" for="">&nbsp;&nbsp;Chọn Bản: </label>
-                                <SELECT style=" width: 85%; float: right;" class="forn-control" id="sl_ban" name="sl_ban">
-                                    <OPTION selected Value="Under 16"> - Chọn bàn -</OPTION>
+                                <SELECT style=" width: 85%; float: right;" class="form-control" id="sl_ban" name="sl_ban">
+                                    <OPTION selected Value=""> - Chọn bàn -</OPTION>
                                     <!-- <OPTION Value="Under 16">Chanthabuly</OPTION> -->
 
                                 </SELECT>
+                                <!-- <input type="text" id="search_ban" class="form-control"> -->
                                 <input type="text" class="form-control" name="home_address" id="home_address" placeholder="Địa chỉ chi tiết (Phường, đường, Số nhà...)">
                                 <span class="text-danger" id="home_address"></span>
-                            </div>    
+                            </div>
                             <br>
                             <br>
                             <div class="mb-3">
@@ -67,30 +69,32 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-    $(document).ready(function(){
-        $('#sl_huyen').change(function(){
+    $(document).ready(function() {
+        $('#sl_huyen').change(function() {
             var huyen_id = $('#sl_huyen').val();
             // alert(id_huyen);
-            $.ajax({
-                url: "ControllerGetBan.php",
-                type: "POST",
-                data: {"huyen_id": huyen_id},
-                success: function(data_res){
-                    // var db = JSON.parse(data_res);
-                    console.log(data_res);
-                    // var html = '';
-                    // if(db.status == 1){
-                    //     $.each(db, function(index, value){
-                    //     html += "<OPTION Value="+db.ban_id+">"+db.ban_name+"</OPTION>";
-                    //     })
-                    // }
-                    // if(db.status == 0){
-                    //     alert('lỗi');
-                    // }
-                    
-                    // $('#sl_ban').html(html);
-                }
-            })
+            if (huyen_id != '') {
+                $.ajax({
+                    url: "controller/ControllerGetBan.php?huyen_id=" + huyen_id,
+                    type: "POST",
+                    // data: {"huyen_id": huyen_id},
+                    success: function(data_res) {
+                        var db = JSON.parse(data_res);
+                        // console.log(db);
+                        var html = '<OPTION selected Value=""> - Chọn bàn -</OPTION>';
+                        if (db.status == 1) {
+                            $.each(db.data, function(index, value) {
+                                html += "<OPTION Value=" + index + ">" + value + "</OPTION>";
+                            })
+                        }
+                        if (db.status == 0) {
+                            alert(db.msg);
+                        }
+                        $('#sl_ban').html(html);
+                    }
+                })
+            }
+
         })
     })
 </script>
