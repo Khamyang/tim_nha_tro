@@ -10,7 +10,7 @@ session_start();
         $query = mysqli_query($conn, $sql);
         if($query->num_rows == 1){
             $result = mysqli_fetch_object($query);
-            $pass_hash = $result->MaKhau;
+            $pass_hash = $result->MatKhau;
             if(password_verify($password, $pass_hash)){
                 $_SESSION['username'] = $result->TenDN;
                 $_SESSION['maquyen'] = $result->MaQuyen;
