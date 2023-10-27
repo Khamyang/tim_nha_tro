@@ -29,7 +29,8 @@
                                 <label for="address">Địa chỉ</label>
                                 <br>
                                 <label style="margin-bottom: 15px;" for="">&nbsp;&nbsp;Chọn huyện: </label>
-                                <SELECT style=" width: 85%; float: right;">
+                                <SELECT style=" width: 85%; float: right;" class="forn-control" id="sl_huyen" name="sl_huyen">
+                                    <OPTION selected Value="Under 16"> - Chọn huyện -</OPTION>
                                     <OPTION Value="Under 16">Chanthabuly</OPTION>
                                     <OPTION Value="16 to 25">Sikhottabong</OPTION>
                                     <OPTION Value="26 to 40">Xaysetha</OPTION>
@@ -42,7 +43,8 @@
                                 </SELECT>
                                 <br>
                                 <label style="margin-bottom: 15px;" for="">&nbsp;&nbsp;Chọn Bản: </label>
-                                <SELECT style=" width: 85%; float: right;">
+                                <SELECT style=" width: 85%; float: right;" class="forn-control" id="sl_ban" name="sl_ban">
+                                    <OPTION selected Value="Under 16"> - Chọn bàn -</OPTION>
                                     <OPTION Value="Under 16">Chanthabuly</OPTION>
                                     <OPTION Value="16 to 25">Sikhottabong</OPTION>
                                     <OPTION Value="26 to 40">Xaysetha</OPTION>
