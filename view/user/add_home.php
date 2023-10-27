@@ -16,7 +16,7 @@
                             <br>                        
                             <div class="form-group">
                                 <label for="address">Chọn ảnh</label>
-                                <input type="file" id="image" name="image">
+                                <input type="file" id="image[]" name="image[]" class="form-control">
                             </div>
                             <br>                        
                             <div class="form-group">
@@ -31,29 +31,22 @@
                                 <label style="margin-bottom: 15px;" for="">&nbsp;&nbsp;Chọn huyện: </label>
                                 <SELECT style=" width: 85%; float: right;" class="forn-control" id="sl_huyen" name="sl_huyen">
                                     <OPTION selected Value="Under 16"> - Chọn huyện -</OPTION>
-                                    <OPTION Value="Under 16">Chanthabuly</OPTION>
-                                    <OPTION Value="16 to 25">Sikhottabong</OPTION>
-                                    <OPTION Value="26 to 40">Xaysetha</OPTION>
-                                    <OPTION Value="40 to 60">Sisattanak</OPTION>
-                                    <OPTION Value="Over 60">Naxaithong</OPTION>
-                                    <OPTION Value="16 to 25">Xaythany</OPTION>
-                                    <OPTION Value="26 to 40">Hadxayfong</OPTION>
-                                    <OPTION Value="40 to 60">Sangthong</OPTION>
-                                    <OPTION Value="Over 60">Parknguem</OPTION>
+                                    <OPTION Value="1">Chanthabuly</OPTION>
+                                    <OPTION Value="2">Sikhottabong</OPTION>
+                                    <OPTION Value="3">Xaysetha</OPTION>
+                                    <OPTION Value="4">Sisattanak</OPTION>
+                                    <OPTION Value="5">Naxaithong</OPTION>
+                                    <OPTION Value="6">Xaythany</OPTION>
+                                    <OPTION Value="7">Hadxayfong</OPTION>
+                                    <OPTION Value="8">Sangthong</OPTION>
+                                    <OPTION Value="9">Parknguem</OPTION>
                                 </SELECT>
                                 <br>
                                 <label style="margin-bottom: 15px;" for="">&nbsp;&nbsp;Chọn Bản: </label>
                                 <SELECT style=" width: 85%; float: right;" class="forn-control" id="sl_ban" name="sl_ban">
                                     <OPTION selected Value="Under 16"> - Chọn bàn -</OPTION>
-                                    <OPTION Value="Under 16">Chanthabuly</OPTION>
-                                    <OPTION Value="16 to 25">Sikhottabong</OPTION>
-                                    <OPTION Value="26 to 40">Xaysetha</OPTION>
-                                    <OPTION Value="40 to 60">Sisattanak</OPTION>
-                                    <OPTION Value="Over 60">Naxaithong</OPTION>
-                                    <OPTION Value="16 to 25">Xaythany</OPTION>
-                                    <OPTION Value="26 to 40">Hadxayfong</OPTION>
-                                    <OPTION Value="40 to 60">Sangthong</OPTION>
-                                    <OPTION Value="Over 60">Parknguem</OPTION>
+                                    <!-- <OPTION Value="Under 16">Chanthabuly</OPTION> -->
+
                                 </SELECT>
                                 <input type="text" class="form-control" name="home_address" id="home_address" placeholder="Địa chỉ chi tiết (Phường, đường, Số nhà...)">
                                 <span class="text-danger" id="home_address"></span>
@@ -71,3 +64,33 @@
         </div>
     </div>
 </section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#sl_huyen').change(function(){
+            var huyen_id = $('#sl_huyen').val();
+            // alert(id_huyen);
+            $.ajax({
+                url: "ControllerGetBan.php",
+                type: "POST",
+                data: {"huyen_id": huyen_id},
+                success: function(data_res){
+                    // var db = JSON.parse(data_res);
+                    console.log(data_res);
+                    // var html = '';
+                    // if(db.status == 1){
+                    //     $.each(db, function(index, value){
+                    //     html += "<OPTION Value="+db.ban_id+">"+db.ban_name+"</OPTION>";
+                    //     })
+                    // }
+                    // if(db.status == 0){
+                    //     alert('lỗi');
+                    // }
+                    
+                    // $('#sl_ban').html(html);
+                }
+            })
+        })
+    })
+</script>
