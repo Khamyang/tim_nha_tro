@@ -40,14 +40,20 @@ session_start();
       text-decoration: none;
       color: #000000;
 
-        }
-        .navbar-brand {
-          font-size: 36px;
-        }
-        .nav-link,.navbar-brand,.navbar-toggler{
-          color: white;
-        }
-    </style>
+    }
+
+    .navbar-brand {
+      font-size: 36px;
+    }
+    .navbar-brand:hover{
+      color: #fff;
+    }
+    .nav-link,
+    .navbar-brand,
+    .navbar-toggler {
+      color: white;
+    }
+  </style>
 </head>
 
 <body id="top">
@@ -114,57 +120,56 @@ session_start();
     </div>
   </nav>
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Thay đổi mật khẩu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="">
-          <div class="row mb-2">
-            <div class="col-sm-4">
-            <label for="">Mật khẩu cũ</label>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Thay đổi mật khẩu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <div class="row mb-2">
+              <div class="col-sm-4">
+                <label for="">Mật khẩu cũ</label>
+              </div>
+              <div class="col-sm-8">
+                <input type="password" class="form-control">
+              </div>
             </div>
-            <div class="col-sm-8">
-            <input type="password" class="form-control">
+            <div class="row mb-2">
+              <div class="col-sm-4">
+                <label for="">Mật khẩu mới</label>
+              </div>
+              <div class="col-sm-8">
+                <input type="password" class="form-control">
+              </div>
             </div>
-          </div>
-          <div class="row mb-2">
-            <div class="col-sm-4">
-            <label for="">Mật khẩu mới</label>
+            <div class="row ">
+              <div class="col-sm-4">
+                <label for="">Xác nhận Mật khẩu</label>
+              </div>
+              <div class="col-sm-8">
+                <input type="password" class="form-control">
+              </div>
             </div>
-            <div class="col-sm-8">
-            <input type="password" class="form-control">
-            </div>
-          </div>
-          <div class="row ">
-            <div class="col-sm-4">
-            <label for="">Xác nhận Mật khẩu</label>
-            </div>
-            <div class="col-sm-8">
-            <input type="password" class="form-control">
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-        <button type="button" class="btn btn-success">Lưu</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+          <button type="button" class="btn btn-success">Lưu</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
   <!-- <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script> -->
   <script>
-        let list_user_popup = document.getElementById('list_user_popup');
-        let user_popup = document.getElementById('user_popup');
-        user_popup.addEventListener('click', function() {
-            if (list_user_popup.style.display === 'none' || list_user_popup.style.display === '') {
-                list_user_popup.style.display = 'block';
-            } else {
-                list_user_popup.style.display = 'none';
-            }
-        });
-        
-    </script>
+    let list_user_popup = document.getElementById('list_user_popup');
+    let user_popup = document.getElementById('user_popup');
+    user_popup.addEventListener('click', function() {
+      if (list_user_popup.style.display === 'none' || list_user_popup.style.display === '') {
+        list_user_popup.style.display = 'block';
+      } else {
+        list_user_popup.style.display = 'none';
+      }
+    });
+  </script>

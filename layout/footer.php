@@ -1,5 +1,7 @@
+
+
 <footer class="site-footer">
-    <div class="container" style="background-color: #eee; padding: 10px;">
+    <div class="container" style="background-color: #eee; padding: 30px;">
         <div class="row ">
             <div class="col-lg-4 col-md-6 col-12 mb-3">
                 <div class="d-flex align-items-center mb-4">
