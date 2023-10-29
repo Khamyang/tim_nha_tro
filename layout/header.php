@@ -83,7 +83,7 @@ session_start();
             <a class="nav-link mx-2" href="#">Post</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2" href="#">Quản lý nhà</a>
+            <a class="nav-link mx-2" href="?page=my_home">Quản lý nhà</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-2" href="#">About</a>
@@ -163,13 +163,14 @@ session_start();
   </div>
   <!-- <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script> -->
   <script>
-    let list_user_popup = document.getElementById('list_user_popup');
-    let user_popup = document.getElementById('user_popup');
-    user_popup.addEventListener('click', function() {
-      if (list_user_popup.style.display === 'none' || list_user_popup.style.display === '') {
-        list_user_popup.style.display = 'block';
-      } else {
-        list_user_popup.style.display = 'none';
-      }
-    });
-  </script>
+        let list_user_popup = document.getElementById('list_user_popup');
+        let user_popup = document.getElementById('user_popup');
+        user_popup.addEventListener('click', function() {
+            if (list_user_popup.style.display === 'none' || list_user_popup.style.display === '') {
+                list_user_popup.style.display = 'block';
+            } else {
+                list_user_popup.style.display = 'none';
+            }
+        });
+        
+    </script>
