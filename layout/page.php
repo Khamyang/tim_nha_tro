@@ -9,12 +9,13 @@
             case 'login':
                     include "./view/login.php";
                     break;
+            case 'chitiet':
+                include "./view/chitiet.php";
+                break;
             default: 
                 include "./view/home.php";
-                //break;
+                break;
         }
     }else{
         include "./view/home.php";
     }
-    
-?>

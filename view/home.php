@@ -235,11 +235,11 @@ include_once('connect/connect.php');
                 while ($row = mysqli_fetch_array($query)) {
                 ?>
                     <div class="prd-item">
-                        <a href="/layout/page.php?page=chitiet&MaNha=<?php echo $row['MaNha'] ?>">
+                        <a href="./layout/page.php?page=chitiet&MaNha=<?php echo $row['MaNha'] ?>">
                             <img width="365" height="auto" src="./image/apartment.jpg<?php //echo //$row['HinhAnh'] ?>" /></a>
-                        <h6><a href="/layout/page.php?page=chitiet&MaNha=<?php echo $row['MaNha'] ?>">
+                        <h6><a href="./layout/page.php?page=chitiet&MaNha=<?php echo $row['MaNha'] ?>">
                                 <?php echo "Nhà Trọ " . $row['TenNha'] ?></a></h6>
-                        <p>Tên Chủ Nhà: <?php echo $row['HoTen'] ?></p>
+                        <p>Tên Chủ Trọ: <?php echo $row['HoTen'] ?></p>
                         <p>Địa Chỉ: <?php echo $row['DiaChi'] . ", Ban " . $row['TenBan'] ?></p>
                         <p>Ngày Đăng: <?php echo $row['NgayDang'] ?></p>
                         <p>Trạng Thái: <?php echo $row['TrangThai'] ?></p>
