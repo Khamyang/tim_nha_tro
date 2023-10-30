@@ -1,4 +1,4 @@
-
+<?php include "connect/connect.php";?>
 <!DOCTYPE html>
 <html lang="en">
 

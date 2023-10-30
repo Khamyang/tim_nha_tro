@@ -15,7 +15,12 @@
             case 'profile':
                 include "./view/personal_profile.php";
                 break;
-            
+            case 'my_home':
+                    include "./view/user/my_home.php";
+                    break;
+            case 'add_home':
+                    include "./view/user/add_home.php";
+                    break;
             default: 
                 include "./view/home.php";
             break;

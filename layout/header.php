@@ -125,8 +125,9 @@ session_start();
         </ul>
         <div class="search_bar">
             <form method="post" action="">
-              <input type="text" placeholder="Tìm kiếm.." name="stext">
-              <button type="submit"><i class="fa fa-search"></i></button>
+              <input type="text" class="form-control rounded-pill" placeholder="Tìm kiếm.." name="stext">
+              <!-- <button type="submit"><i class="fa fa-search"></i></button>
+             -->
             </form>
         </div>
         <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
