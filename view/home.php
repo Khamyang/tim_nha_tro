@@ -60,13 +60,18 @@
     }
 
     .prd-item a img:hover {
+<<<<<<< HEAD
         /* transform: scale(.95); */
+=======
+        transform: scale(.95);
+>>>>>>> khamyang
     }
 
     .prd-item h6 {
         margin-top: 20px;
     }
 
+<<<<<<< HEAD
     .prd-item h6 a:hover {
         color: #3F3F3F;
     }
@@ -75,6 +80,8 @@
         text-decoration: none;
     }
 
+=======
+>>>>>>> khamyang
     .prd-item p.price {
         padding-top: 10px;
         font-size: 15px;
@@ -123,66 +130,66 @@ include_once('connect/connect.php');
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="card-wrapper container-sm d-flex  justify-content-around">
-                        <div class="card  " style="width: 18rem;">
-                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                        <div class="card  " style="width: 18rem;" onclick="home_district('2000');">
+                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Patuxay</h5>
+                                <h5 class="card-title">Chanthabuly</h5>
                             </div>
                         </div>
-                        <div class="card  " style="width: 18rem;">
-                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                        <div class="card" style="width: 18rem;" onclick="home_district('2001');">
+                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Patuxay</h5>
+                                <h5 class="card-title">Sikhottabong</h5>
                             </div>
                         </div>
-                        <div class="card  " style="width: 18rem;">
-                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                        <div class="card" style="width: 18rem;" onclick="home_district('2002');">
+                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Patuxay</h5>
+                                <h5 class="card-title">Xaysetha</h5>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="card-wrapper container-sm d-flex   justify-content-around">
-                        <div class="card  " style="width: 18rem;">
-                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                        <div class="card  " style="width: 18rem;" onclick="home_district('2003');">
+                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Patuxay</h5>
+                                <h5 class="card-title">Sisattanak</h5>
                             </div>
                         </div>
-                        <div class="card  " style="width: 18rem;">
-                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                        <div class="card" style="width: 18rem;" onclick="home_district('2004');">
+                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Patuxay</h5>
+                                <h5 class="card-title">Naxaithong</h5>
                             </div>
                         </div>
-                        <div class="card  " style="width: 18rem;">
-                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                        <div class="card" style="width: 18rem;" onclick="home_district('2005');">
+                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Patuxay</h5>
+                                <h5 class="card-title">Xaythany</h5>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="card-wrapper container-sm d-flex  justify-content-around">
-                        <div class="card  " style="width: 18rem;">
-                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                        <div class="card " style="width: 18rem;" onclick="home_district('2006');">
+                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Patuxay</h5>
+                                <h5 class="card-title">Hadxayfong</h5>
                             </div>
                         </div>
-                        <div class="card  " style="width: 18rem;">
-                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                        <div class="card" style="width: 18rem;" onclick="home_district('2007');">
+                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Patuxay</h5>
+                                <h5 class="card-title">Sangthong</h5>
                             </div>
                         </div>
-                        <div class="card  " style="width: 18rem;">
-                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                        <div class="card" style="width: 18rem;" onclick="home_district('2008');">
+                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Patuxay</h5>
+                                <h5 class="card-title">Parknguem</h5>
                             </div>
                         </div>
                     </div>
@@ -202,58 +209,82 @@ include_once('connect/connect.php');
 </div>
 <div class="mt-4">
     <div class="container">
-        <div class="row">
-            <div class="content_header alert-success p-3 d-flex align-items-lg-center rounded">
-                <div style="width: 50%;">
-                    <span>Nhà trọ đang trống</span>
-                </div>
-                <div style="width: 50%;">
-                    <input type="text" class="form-control rounded-pill" name="search" id="search" placeholder="Tìm kiếm">
-                </div>
+        <h2 class="text-center mt-3">NHÀ TRỌ</h2>
+        <div class="prd-block">
+            <h5></h5>
+            <div class="pr-list">
+                <?php
+
+                if (isset($_GET['page_number'])) {
+                    $page = $_GET['page_number'];
+                } else {
+                    $page = 1;
+                }
+                $rowsPerPage = 6;
+                $perRow = $page * $rowsPerPage - $rowsPerPage;
+                // echo $perRow . "Per row";
+
+                if(isset($_GET['district_id'])){
+                    $district_id = $_GET['district_id'];
+                    $sql = "SELECT nha.*, tk.HoTen, ban.TenBan FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE TrangThai = 1 and nha.Mahuyen = $district_id ORDER BY MaNha LIMIT $perRow, $rowsPerPage";
+                    $totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_thong_tin_nha WHERE TrangThai = 1 and MaHuyen = $district_id"));
+                    $query = mysqli_query($conn, $sql);
+                } else if (isset($_POST['stext'])) {
+                    $stext = $_POST['stext'];
+
+                    $newStext = str_replace(' ', '%', $stext);
+                    $sql = "SELECT nha.*, tk.HoTen, ban.* FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE ban.TenBan LIKE '%$stext%'";
+                    $totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT nha.*, tk.HoTen, ban.* FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE ban.TenBan LIKE '%$stext%'"));
+                    $query = mysqli_query($conn, $sql);
+                } else{
+                    $sql = "SELECT nha.*, tk.HoTen, ban.TenBan FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE TrangThai = 1 ORDER BY MaNha LIMIT $perRow, $rowsPerPage";
+                    $totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_thong_tin_nha WHERE TrangThai = 1"));
+                    $query = mysqli_query($conn, $sql);
+
+                } 
                 
-            </div>
-        </div>
-        <div class="row pt-3 pb-3" id="content_all">
-            <div class="col-sm-3 d-flex justify-content-center">
-                <div class="card d-flex align-items-lg-center " style="width: 18rem;">
-                    <img src="./image/patuxay.jpg" class="card-img-top" alt="..." onclick="window.location.href = './?page=detail&detail_id=1'">
-                    <div class="card-body">
-                        <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3 d-flex justify-content-center">
-                <div class="card d-flex align-items-lg-center " style="width: 18rem;">
-                    <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-                    </div>
-                </div>
-            </div>
-             <div class="col-sm-3 d-flex justify-content-center">
-                <div class="card d-flex align-items-lg-center " style="width: 18rem;">
-                    <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-                    </div>
-                </div>
-            </div>
-             <div class="col-sm-3 d-flex justify-content-center">
-                <div class="card d-flex align-items-lg-center " style="width: 18rem;">
-                    <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
         
+                $totalPage = ceil($totalRows / $rowsPerPage);
+                $listPage = '';
+                for ($i = 1; $i <= $totalPage; $i++) {
+                    if ($i == $page) {
+                        $listPage .= " <span>" . $i . "</span> ";
+                    } else {
+                        $listPage .= ' <a href="' . $_SERVER['PHP_SELF'] . '?page=home&page_number=' . $i . '">' . $i . '</a> ';
+                    }
+                }
+
+                // $sql = "SELECT nha.*, tk.HoTen, ban.TenBan FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE TrangThai = 1 ORDER BY MaNha LIMIT 0,9";
+                // $query = $conn->query($sql);
+
+                while ($row = mysqli_fetch_array($query)) {
+                ?>
+                    <div class="prd-item" onclick="home_details('<?php echo $row['MaNha'] ?>')">
+                        <img width="365" height="auto" src="./image/apartment.jpg<?php //echo //$row['HinhAnh'] ?>" />
+                        <h6><?php echo "Nhà Trọ " . $row['TenNha'] ?></h6>
+                        <p>Tên Chủ Trọ: <?php echo $row['HoTen'] ?></p>
+                        <p>Địa Chỉ: <?php echo $row['DiaChi'] . ", Ban " . $row['TenBan'] ?></p>
+                        <p>Ngày Đăng: <?php echo $row['NgayDang'] ?></p>
+                        <p>Trạng Thái: <?php echo $row['TrangThai'] ?></p>
+                        <p>Mô Tả: <?php echo $row['MoTa'] ?></p>
+                        <p class="price"><span>Giá: <?php echo number_format($row['Gia']) ?> KIP</span></p>
+                    </div>
+                <?php
+                }
+                ?>
+            </div>
+        </div>
+
     </div>
 
 </div>
 </div>
 
+<<<<<<< HEAD
 <div id="pagination" class="text-center"><?php //echo $listPage ?></div>
+=======
+<div id="pagination" class="text-center"><?php echo $listPage ?></div>
+>>>>>>> khamyang
 <script>
     const con = document.getElementById('content_all');
     var vale = document.getElementById('search').value;
@@ -262,4 +293,11 @@ include_once('connect/connect.php');
             alert(document.getElementById('search').value)
         }
     };
+
+    function home_district(district_id){
+        window.location.href='./?page=home&district_id=' + district_id;
+    }
+    function home_details(home_id){
+        window.location.href='./?page=detail&home_id=' + home_id;
+    }
 </script>

@@ -12,6 +12,21 @@
             case 'chitiet':
                 include "./view/chitiet.php";
                 break;
+<<<<<<< HEAD
+=======
+            case 'detail':
+                include "./view/room_detail.php";
+                break;
+            case 'profile':
+                include "./view/personal_profile.php";
+                break;
+            case 'my_home':
+                    include "./view/user/my_home.php";
+                    break;
+            case 'add_home':
+                    include "./view/user/add_home.php";
+                    break;
+>>>>>>> khamyang
             default: 
                 include "./view/home.php";
                 break;

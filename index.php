@@ -1,7 +1,11 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php include "connect/connect.php";?>
 =======
 
+>>>>>>> khamyang
+=======
+<?php include "connect/connect.php";?>
 >>>>>>> khamyang
 <!DOCTYPE html>
 <html lang="en">
