@@ -1,8 +1,12 @@
 <?php
 // session_start();
-// if (isset($_REQUEST['detail_id'])) {
-//   $detail_id = 1;
-// }
+if (isset($_REQUEST['home_id'])) {
+  $detail_id = $_REQUEST['home_id'];
+
+  $sql = mysqli_query($conn, "SELECT*FROM tb_thong_tin_nha WHERE MaNha = '$detail_id'");
+  $res = mysqli_fetch_object($sql);
+
+}
 ?>
 <!-- Carousel wrapper -->
 <div class="mt-3 mb-3">
@@ -13,7 +17,7 @@
         <div class="col-sm-5 fa-border p-2">
           <div class="p-3 border rounded">
             <div class="card d-flex align-items-lg-center " style="width:100%" id="img_main">
-              <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+              <img src="./image/<?=$res->HinhAnh?>" class="card-img-top" alt="...">
             </div>
           </div>
 
