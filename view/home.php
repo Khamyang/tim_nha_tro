@@ -124,21 +124,21 @@ include_once('connect/connect.php');
                 <div class="carousel-item active">
                     <div class="card-wrapper container-sm d-flex  justify-content-around">
                         <div class="card  " style="width: 18rem;">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
+                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Xaythany</h5>
+                                <h5 class="card-title">Patuxay</h5>
                             </div>
                         </div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
+                        <div class="card  " style="width: 18rem;">
+                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Xaysettha</h5>
+                                <h5 class="card-title">Patuxay</h5>
                             </div>
                         </div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
+                        <div class="card  " style="width: 18rem;">
+                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Sisattanak</h5>
+                                <h5 class="card-title">Patuxay</h5>
                             </div>
                         </div>
                     </div>
@@ -146,43 +146,43 @@ include_once('connect/connect.php');
                 <div class="carousel-item">
                     <div class="card-wrapper container-sm d-flex   justify-content-around">
                         <div class="card  " style="width: 18rem;">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
+                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Naxaithong</h5>
+                                <h5 class="card-title">Patuxay</h5>
                             </div>
                         </div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
+                        <div class="card  " style="width: 18rem;">
+                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Sikhottabong</h5>
+                                <h5 class="card-title">Patuxay</h5>
                             </div>
                         </div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
+                        <div class="card  " style="width: 18rem;">
+                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Pakngum</h5>
+                                <h5 class="card-title">Patuxay</h5>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="card-wrapper container-sm d-flex  justify-content-around">
-                        <div class="card " style="width: 18rem;">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
+                        <div class="card  " style="width: 18rem;">
+                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Sangthong</h5>
+                                <h5 class="card-title">Patuxay</h5>
                             </div>
                         </div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
+                        <div class="card  " style="width: 18rem;">
+                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Hadxaifong</h5>
+                                <h5 class="card-title">Patuxay</h5>
                             </div>
                         </div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="./image/apartment.jpg" class="card-img-top" alt="...">
+                        <div class="card  " style="width: 18rem;">
+                            <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Chanthabuly</h5>
+                                <h5 class="card-title">Patuxay</h5>
                             </div>
                         </div>
                     </div>
@@ -202,56 +202,52 @@ include_once('connect/connect.php');
 </div>
 <div class="mt-4">
     <div class="container">
-        <h2 class="text-center mt-3">NHÀ TRỌ</h2>
-        <div class="prd-block">
-            <h5></h5>
-            <div class="pr-list">
-                <?php
-
-                if (isset($_GET['page'])) {
-                    $page = $_GET['page'];
-                } else {
-                    $page = 1;
-                }
-                $rowsPerPage = 3;
-                $perRow = $page * $rowsPerPage - $rowsPerPage;
-                $sql = "SELECT nha.*, tk.HoTen, ban.TenBan FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE TrangThai = 1 ORDER BY MaNha LIMIT $perRow, $rowsPerPage";
-                $query = mysqli_query($conn, $sql);
-
-                $totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_thong_tin_nha WHERE TrangThai = 1"));
-                $totalPage = ceil($totalRows / $rowsPerPage);
-                $listPage = '';
-                for ($i = 1; $i <= $totalPage; $i++) {
-                    if ($i == $page) {
-                        $listPage .= " <span>" . $i . "</span> ";
-                    } else {
-                        $listPage .= ' <a href="' . $_SERVER['PHP_SELF'] . '?page=home&page=' . $i . '">' . $i . '</a> ';
-                    }
-                }
-
-                // $sql = "SELECT nha.*, tk.HoTen, ban.TenBan FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE TrangThai = 1 ORDER BY MaNha LIMIT 0,9";
-                // $query = $conn->query($sql);
-
-                while ($row = mysqli_fetch_array($query)) {
-                ?>
-                    <div class="prd-item">
-                        <a href="./layout/page.php?page=chitiet&MaNha=<?php echo $row['MaNha'] ?>">
-                            <img width="365" height="auto" src="./image/apartment.jpg<?php //echo //$row['HinhAnh'] ?>" /></a>
-                        <h6><a href="./layout/page.php?page=chitiet&MaNha=<?php echo $row['MaNha'] ?>">
-                                <?php echo "Nhà Trọ " . $row['TenNha'] ?></a></h6>
-                        <p>Tên Chủ Trọ: <?php echo $row['HoTen'] ?></p>
-                        <p>Địa Chỉ: <?php echo $row['DiaChi'] . ", Ban " . $row['TenBan'] ?></p>
-                        <p>Ngày Đăng: <?php echo $row['NgayDang'] ?></p>
-                        <p>Trạng Thái: <?php echo $row['TrangThai'] ?></p>
-                        <p>Mô Tả: <?php echo $row['MoTa'] ?></p>
-                        <p class="price"><span>Giá: <?php echo number_format($row['Gia']) ?> KIP</span></p>
-                    </div>
-                <?php
-                }
-                ?>
+        <div class="row">
+            <div class="content_header alert-success p-3 d-flex align-items-lg-center rounded">
+                <div style="width: 50%;">
+                    <span>Nhà trọ đang trống</span>
+                </div>
+                <div style="width: 50%;">
+                    <input type="text" class="form-control rounded-pill" name="search" id="search" placeholder="Tìm kiếm">
+                </div>
+                
             </div>
         </div>
-
+        <div class="row pt-3 pb-3" id="content_all">
+            <div class="col-sm-3 d-flex justify-content-center">
+                <div class="card d-flex align-items-lg-center " style="width: 18rem;">
+                    <img src="./image/patuxay.jpg" class="card-img-top" alt="..." onclick="window.location.href = './?page=detail&detail_id=1'">
+                    <div class="card-body">
+                        <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 d-flex justify-content-center">
+                <div class="card d-flex align-items-lg-center " style="width: 18rem;">
+                    <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+             <div class="col-sm-3 d-flex justify-content-center">
+                <div class="card d-flex align-items-lg-center " style="width: 18rem;">
+                    <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+             <div class="col-sm-3 d-flex justify-content-center">
+                <div class="card d-flex align-items-lg-center " style="width: 18rem;">
+                    <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
     </div>
 
 </div>

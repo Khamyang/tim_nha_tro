@@ -1,6 +1,6 @@
 <?php
-    session_start();
-    echo $_SESSION['maquyen'];
+    // session_start();
+    // echo $_SESSION['maquyen'];
     if(isset($_SESSION['username']) == ''){
         header("Location: ../../?page=login");
     } else {

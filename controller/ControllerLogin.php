@@ -3,14 +3,14 @@ session_start();
     include "../connect/connect.php";
     $response = [];
     if(isset($_REQUEST['login'])){
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $username = trim($_POST['username']);
+        $password = trim($_POST['password']);
 
         $sql = "SELECT*FROM tb_taikhoan WHERE TenDN = '$username'";
         $query = mysqli_query($conn, $sql);
-        if($query->num_rows == 1){
+        if($query->num_rows > 0){
             $result = mysqli_fetch_object($query);
-            $pass_hash = $result->MaKhau;
+            $pass_hash = $result->MatKhau;
             if(password_verify($password, $pass_hash)){
                 $_SESSION['username'] = $result->TenDN;
                 $_SESSION['maquyen'] = $result->MaQuyen;
@@ -28,7 +28,7 @@ session_start();
             } else {
                 $response['status'] = 0;
                 $response['password'] = $password;
-                $response['msg'] = 'Đăng nhập không thành công1111';
+                $response['msg'] = 'Đăng nhập không thành công';
                 $response['status_user'] = "";
             }
         } else {
