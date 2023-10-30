@@ -12,6 +12,10 @@
             case 'detail':
                 include "./view/room_detail.php";
                 break;
+            case 'profile':
+                include "./view/personal_profile.php";
+                break;
+            
             default: 
                 include "./view/home.php";
             break;

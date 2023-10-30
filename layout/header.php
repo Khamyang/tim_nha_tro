@@ -111,16 +111,16 @@ session_start();
             <a class="nav-link mx-2 <?= ($page == "home" || $page == "") ? "bg-primary rounded" : ""; ?>" aria-current="page" href="?page=home">Trang chủ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2" href="#">Blog</a>
+            <a class="nav-link mx-2 <?= ($page == "blog") ? "bg-primary rounded" : ""; ?>" href="?page=blog">Blog</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2" href="#">Quản lý nhà</a>
+            <a class="nav-link mx-2 <?= ($page == "my_home") ? "bg-primary rounded" : ""; ?>" href="?page=my_home">Quản lý nhà</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2" href="#">About</a>
+            <a class="nav-link mx-2 <?= ($page == "about") ? "bg-primary rounded" : ""; ?>" href="?page=about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2" href="#">Liên hệ</a>
+            <a class="nav-link mx-2 <?= ($page == "lien_he") ? "bg-primary rounded" : ""; ?>" href="?page=lien_he">Liên hệ</a>
           </li>
         </ul>
         <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
@@ -138,9 +138,9 @@ session_start();
                 <span class="float-end bg-primary d-flex flex-column justify-content-center align-items-center rounded-circle" style="height: 30px; width:30px;margin-top:5px; margin-right: 5px;"><i class="fa fa-user"></i></span>
                 <ul id="list_user_popup">
                   <li><a href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-key border p-2 rounded"></i> Thay đổi mật khẩu</a></li>
-                  <li><a href=""><i class="fa fa-user border p-2 rounded"></i> Thông tin cá nhân</a></li>
+                  <li><a href="?page=profile"><i class="fa fa-user border p-2 rounded"></i> Thông tin cá nhân</a></li>
                   <hr>
-                  <li align="center"><a href=""><i class="fa fa-sign-out text-danger"></i> Logout</a></li>
+                  <li align="center"><a href="./controller/ControllerLogout.php?logout"><i class="fa fa-sign-out text-danger"></i> Logout</a></li>
                 </ul>
               </div>
             </div>

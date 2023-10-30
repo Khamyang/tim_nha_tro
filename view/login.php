@@ -1,7 +1,7 @@
 <section class="mt-5 mb-5">
     <div class="d-flex justify-content-center">
         <div class="col-sm-12" style="width: 900px;">
-            <form action="" method="post">
+            <form action="" method="post" id="form_login">
                 <div class="row border border-success rounded">
                     <div class="col-sm-6 p-0 bg-light" style="width: 50%;height:auto">
                         <div id="img1" hidden>
@@ -31,7 +31,7 @@
                                 </div>
                                 <br>
                                 <div class="mb-3">
-                                    <input type="submit" class="btn btn-success" name="signin" id="signin" value="Đăng nhập">
+                                    <input type="submit" class="btn btn-success" name="btnsignin" id="btnsignin" value="Đăng nhập">
                                 </div>
                                 <div>
                                     <span>Tạo mật khẩu mới <a href="javascript:void(0)" id="signup">Đăng ký</a> </span>
@@ -52,21 +52,23 @@
                             </div>
                             <div class="p-2">
                                 <div class="form-group ">
-                                    <label for="username"> Tên đăng nhập</label>
-                                    <input type="text" class="form-control" name="username" id="username" placeholder="Tên đăng nhập">
+                                    <label for="username_res"> Tên đăng nhập</label>
+                                    <input type="text" class="form-control" name="username_res" id="username_res" placeholder="Tên đăng nhập" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="password"> Số điện thoại</label>
-                                    <input type="password" class="form-control" name="password" id="password" placeholder="Tên đăng nhập">
+                                    <input type="text" class="form-control" name="so_dien_thoai" id="so_dien_thoai" placeholder="Số điện thoại" >
                                 </div>
+
                                 <div class="form-group">
                                     <label for="password"> Mật khẩu</label>
-                                    <input type="password" class="form-control" name="password" id="password" placeholder="Tên đăng nhập">
+                                    <input type="password" class="form-control" name="password_res" id="password_res" placeholder="Mật khẩu" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="password">Nhập lại mật khẩu</label>
-                                    <input type="password" class="form-control" name="password" id="password" placeholder="Tên đăng nhập">
+                                    <label for="password">Xác nhận mật khẩu</label>
+                                    <input type="password" class="form-control" name="password_comf_res" id="password_comf_res" placeholder="Xác nhận mật khẩu" required>
+                                    <span class="text-danger" hidden id="comfirm_pass_err">Xác nhận Mật khẩu không đúng</span>
                                 </div>
                                 <div class="float-end mt-4">
                                     <input type="submit" class="btn btn-primary" name="btnsignup" id="btnsignup" value="Đăng ký" style="width: 90px;">
@@ -96,14 +98,14 @@
 </script>
 <script>
     $(document).ready(function() {
-        $('#signin').click(function(e) {
+        $('#btnsignin').click(function(e) {
             e.preventDefault();
             var username = $('#username').val();
             var password = $('#password').val();
             if (username == '') {
                 $('#username_err').text('Tên đăng nhập không thể để trống');
             }
-            if (username == '') {
+            if (password == '') {
                 $('#password_err').text('Mật khẩu không thể để trống');
             }
             if (username != '' && password != '') {
@@ -123,11 +125,11 @@
                                 icon: 'success',
                                 title: 'Đăng nhập thành công',
                                 showConfirmButton: false,
-                                timer: 1500
+                                timer: 2000
                             });
                             window.setTimeout(function() {
                                 if(res.status_user == "admin"){
-                                    location.href = "./view/admin/index.php"
+                                    location.href = "./view/admin/?page=dashboard"
                                 }
                                 if(res.status_user == "user"){
                                     location.href = "./?page=home";
@@ -140,7 +142,61 @@
                                 toast: true,
                                 position: 'top-end',
                                 icon: 'error',
-                                title: 'Your work has been saved',
+                                title: res.msg,
+                                showConfirmButton: true,
+                            })
+                        }
+
+                    }
+                })
+            }
+
+        })
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $('#form_login').submit(function(e) {
+            e.preventDefault();
+            var username = $('#username_res').val();
+            var soDT = $('#so_dien_thoai').val();
+            var password = $('#password_res').val();
+            var password_comf = $('#password_comf_res').val();
+
+            if (password != password_comf) {
+                $('#comfirm_pass_err').attr('hidden', false);
+            } else {
+                $.ajax({
+                    url: "./controller/ControllerRegister.php?register",
+                    method: "POST",
+                    data: {
+                        "username": username,
+                        "soDT": soDT,
+                        "password": password
+                    },
+                    success: function(response) {
+                        var res = JSON.parse(response);
+                        if (res.status == 1) {
+                            Swal.fire({
+                                toast: true,
+                                position: 'top-end',
+                                icon: 'success',
+                                title: res.msg,
+                                showConfirmButton: false,
+                                timer: 2000
+                            });
+                            window.setTimeout(function() {
+                                location.reload();
+                                
+                            });
+                        }
+                        if (res.status == 0) {
+                            Swal.fire({
+                                toast: true,
+                                position: 'top-end',
+                                icon: 'error',
+                                title: res.msg,
                                 showConfirmButton: true,
                             })
                         }
