@@ -60,28 +60,13 @@
     }
 
     .prd-item a img:hover {
-<<<<<<< HEAD
-        /* transform: scale(.95); */
-=======
         transform: scale(.95);
->>>>>>> khamyang
     }
 
     .prd-item h6 {
         margin-top: 20px;
     }
 
-<<<<<<< HEAD
-    .prd-item h6 a:hover {
-        color: #3F3F3F;
-    }
-
-    .prd-item a {
-        text-decoration: none;
-    }
-
-=======
->>>>>>> khamyang
     .prd-item p.price {
         padding-top: 10px;
         font-size: 15px;
@@ -280,11 +265,7 @@ include_once('connect/connect.php');
 </div>
 </div>
 
-<<<<<<< HEAD
-<div id="pagination" class="text-center"><?php //echo $listPage ?></div>
-=======
 <div id="pagination" class="text-center"><?php echo $listPage ?></div>
->>>>>>> khamyang
 <script>
     const con = document.getElementById('content_all');
     var vale = document.getElementById('search').value;

@@ -8,12 +8,7 @@
                 break;
             case 'login':
                     include "./view/login.php";
-                    break;
-            case 'chitiet':
-                include "./view/chitiet.php";
                 break;
-<<<<<<< HEAD
-=======
             case 'detail':
                 include "./view/room_detail.php";
                 break;
@@ -26,11 +21,12 @@
             case 'add_home':
                     include "./view/user/add_home.php";
                     break;
->>>>>>> khamyang
             default: 
                 include "./view/home.php";
-                break;
+            break;
         }
     }else{
         include "./view/home.php";
     }
+    
+?>

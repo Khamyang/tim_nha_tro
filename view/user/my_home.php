@@ -89,11 +89,7 @@ input:checked + .slider:before {
 
 <div class="mt-3" style="margin-top: 5px;">
     <div class="container">
-<<<<<<< HEAD
-        <div class="row">
-=======
         <!-- <div class="row">
->>>>>>> khamyang
             <div class="content_header alert-success p-3 d-flex align-items-lg-center rounded" style="margin-top: 8px;">
                 <div style="width: 50%;">
                     <span>Nhà trọ bạn đang có hiện tại bạn</span>
@@ -102,11 +98,7 @@ input:checked + .slider:before {
                     <input type="text" class="form-control rounded-pill" name="search" id="search" placeholder="Tìm kiếm">
                 </div>
             </div>
-<<<<<<< HEAD
-        </div>
-=======
         </div> -->
->>>>>>> khamyang
         <div class="row pt-3 pb-3" id="content_all">
         	<a  href="?page=add_home" class="button" id="btn_add">Thêm mới</a>
             <div class="col-sm-3 d-flex justify-content-center">

@@ -114,7 +114,7 @@ session_start();
             <a class="nav-link mx-2 <?= ($page == "blog") ? "bg-primary rounded" : ""; ?>" href="?page=blog">Blog</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2" href="#">Quản lý nhà</a>
+            <a class="nav-link mx-2 <?= ($page == "my_home") ? "bg-primary rounded" : ""; ?>" href="?page=my_home">Quản lý nhà</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-2 <?= ($page == "about") ? "bg-primary rounded" : ""; ?>" href="?page=about">About</a>
@@ -156,47 +156,50 @@ session_start();
     </div>
   </nav>
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Thay đổi mật khẩu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="">
-          <div class="row mb-2">
-            <div class="col-sm-4">
-            <label for="">Mật khẩu cũ</label>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h5 class="modal-title" id="exampleModalLabel">Thay đổi mật khẩu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" id="form_change_pass">
+          <div class="modal-body">
+            <input type="hidden" name="matk" id="matk" value="<?= $_SESSION['matk'] ?>">
+            <div class="row mb-2">
+              <div class="col-sm-4">
+                <label for="">Mật khẩu cũ</label>
+              </div>
+              <div class="col-sm-8">
+                <input type="password" name="old_password" id="old_password" class="form-control" required>
+              </div>
             </div>
-            <div class="col-sm-8">
-            <input type="password" class="form-control">
+            <div class="row mb-2">
+              <div class="col-sm-4">
+                <label for="">Mật khẩu mới</label>
+              </div>
+              <div class="col-sm-8">
+                <input type="password" name="new_password" id="new_password" class="form-control" required>
+              </div>
+            </div>
+            <div class="row ">
+              <div class="col-sm-4">
+                <label for="">Xác nhận Mật khẩu</label>
+              </div>
+              <div class="col-sm-8">
+                <input type="password" name="comfirm_password" id="comfirm_password" class="form-control" required>
+                <span class="text-danger" hidden id="comfirm_pass_err">Xác nhận Mật khẩu không đúng</span>
+              </div>
             </div>
           </div>
-          <div class="row mb-2">
-            <div class="col-sm-4">
-            <label for="">Mật khẩu mới</label>
-            </div>
-            <div class="col-sm-8">
-            <input type="password" class="form-control">
-            </div>
-          </div>
-          <div class="row ">
-            <div class="col-sm-4">
-            <label for="">Xác nhận Mật khẩu</label>
-            </div>
-            <div class="col-sm-8">
-            <input type="password" class="form-control">
-            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="submit" class="btn btn-success">Lưu</button>
           </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-        <button type="button" class="btn btn-success">Lưu</button>
-      </div>
     </div>
   </div>
-</div>
   <!-- <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script> -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
