@@ -41,35 +41,47 @@ session_start();
       color: #000000;
 
     }
+
     .navbar-brand {
-      font-size: 36px;
+      font-size: 20px;
+      color: #d24e02;
     }
+    .navbar-brand:hover {
+      color: #d24e02;
+    }
+
     .nav-link,
-    .navbar-brand,
     .navbar-toggler {
       color: white;
     }
-    #user_popup {
-      position:relative;
-      right:0
+    .nav-link:hover{
+      color: #d24e02;
     }
-    #list_user_popup{
+
+    #user_popup {
+      position: relative;
+      right: 0
+    }
+
+    #list_user_popup {
       background-color: #d4ae25;
       border-radius: 3px;
       width: 200px;
-      position:absolute;
-      top:2.5rem; 
-      right:1rem;
+      position: absolute;
+      top: 2.5rem;
+      right: 1rem;
       padding: 10px;
       display: none;
     }
-    #list_user_popup li{
+
+    #list_user_popup li {
       list-style: none;
       padding: 5px;
     }
-    #list_user_popup li a{
+
+    #list_user_popup li a {
       text-decoration: none;
-      color:#333;
+      color: #333;
     }
   </style>
 </head>
@@ -77,6 +89,7 @@ session_start();
 <body id="top">
   <nav class="navbar navbar-expand-lg p-3" style="background-color: #333; position:fixed;left:0;right:0;top:0;z-index: 100">
     <div class="container-fluid">
+    <img src="./image/logo_header.png" alt="" width="80px">
       <span class="navbar-brand">Trung tâm nhà trọ</span>
       <button class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -98,20 +111,26 @@ session_start();
             <a class="nav-link mx-2 <?= ($page == "home" || $page == "") ? "bg-primary rounded" : ""; ?>" aria-current="page" href="?page=home">Trang chủ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2" href="#">Post</a>
+            <a class="nav-link mx-2 <?= ($page == "blog") ? "bg-primary rounded" : ""; ?>" href="?page=blog">Blog</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2" href="#">Quản lý nhà</a>
+            <a class="nav-link mx-2 <?= ($page == "my_home") ? "bg-primary rounded" : ""; ?>" href="?page=my_home">Quản lý nhà</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2" href="#">About</a>
+            <a class="nav-link mx-2 <?= ($page == "about") ? "bg-primary rounded" : ""; ?>" href="?page=about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2" href="#">Liên hệ</a>
+            <a class="nav-link mx-2 <?= ($page == "lien_he") ? "bg-primary rounded" : ""; ?>" href="?page=lien_he">Liên hệ</a>
           </li>
         </ul>
+        <div class="search_bar">
+            <form method="post" action="">
+              <input type="text" class="form-control rounded-pill" placeholder="Tìm kiếm.." name="stext">
+              <!-- <button type="submit"><i class="fa fa-search"></i></button>
+             -->
+            </form>
+        </div>
         <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
-
           <?php if (isset($_SESSION['username']) == '') { ?>
             <li class="nav-item mx-2">
               <a class="nav-link h5 <?= ($page == "login") ? "bg-primary rounded" : ""; ?>" href="?page=login">Login</a>
@@ -125,12 +144,11 @@ session_start();
                 <span class="float-end bg-primary d-flex flex-column justify-content-center align-items-center rounded-circle" style="height: 30px; width:30px;margin-top:5px; margin-right: 5px;"><i class="fa fa-user"></i></span>
                 <ul id="list_user_popup">
                   <li><a href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-key border p-2 rounded"></i> Thay đổi mật khẩu</a></li>
-                  <li><a href=""><i class="fa fa-user border p-2 rounded"></i> Thông tin cá nhân</a></li>
+                  <li><a href="?page=profile"><i class="fa fa-user border p-2 rounded"></i> Thông tin cá nhân</a></li>
                   <hr>
-                  <li align="center"><a href=""><i class="fa fa-sign-out text-danger"></i> Logout</a></li>
+                  <li align="center"><a href="./controller/ControllerLogout.php?logout"><i class="fa fa-sign-out text-danger"></i> Logout</a></li>
                 </ul>
               </div>
-
             </div>
           <?php } ?>
         </ul>
@@ -138,57 +156,100 @@ session_start();
     </div>
   </nav>
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Thay đổi mật khẩu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="">
-          <div class="row mb-2">
-            <div class="col-sm-4">
-            <label for="">Mật khẩu cũ</label>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h5 class="modal-title" id="exampleModalLabel">Thay đổi mật khẩu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" id="form_change_pass">
+          <div class="modal-body">
+            <input type="hidden" name="matk" id="matk" value="<?= $_SESSION['matk'] ?>">
+            <div class="row mb-2">
+              <div class="col-sm-4">
+                <label for="">Mật khẩu cũ</label>
+              </div>
+              <div class="col-sm-8">
+                <input type="password" name="old_password" id="old_password" class="form-control" required>
+              </div>
             </div>
-            <div class="col-sm-8">
-            <input type="password" class="form-control">
+            <div class="row mb-2">
+              <div class="col-sm-4">
+                <label for="">Mật khẩu mới</label>
+              </div>
+              <div class="col-sm-8">
+                <input type="password" name="new_password" id="new_password" class="form-control" required>
+              </div>
+            </div>
+            <div class="row ">
+              <div class="col-sm-4">
+                <label for="">Xác nhận Mật khẩu</label>
+              </div>
+              <div class="col-sm-8">
+                <input type="password" name="comfirm_password" id="comfirm_password" class="form-control" required>
+                <span class="text-danger" hidden id="comfirm_pass_err">Xác nhận Mật khẩu không đúng</span>
+              </div>
             </div>
           </div>
-          <div class="row mb-2">
-            <div class="col-sm-4">
-            <label for="">Mật khẩu mới</label>
-            </div>
-            <div class="col-sm-8">
-            <input type="password" class="form-control">
-            </div>
-          </div>
-          <div class="row ">
-            <div class="col-sm-4">
-            <label for="">Xác nhận Mật khẩu</label>
-            </div>
-            <div class="col-sm-8">
-            <input type="password" class="form-control">
-            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+            <button type="submit" class="btn btn-success">Lưu</button>
           </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-        <button type="button" class="btn btn-success">Lưu</button>
-      </div>
     </div>
   </div>
-</div>
   <!-- <script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script>
-        let list_user_popup = document.getElementById('list_user_popup');
-        let user_popup = document.getElementById('user_popup');
-        user_popup.addEventListener('click', function() {
-            if (list_user_popup.style.display === 'none' || list_user_popup.style.display === '') {
-                list_user_popup.style.display = 'block';
-            } else {
-                list_user_popup.style.display = 'none';
+    let list_user_popup = document.getElementById('list_user_popup');
+    let user_popup = document.getElementById('user_popup');
+    user_popup.addEventListener('click', function() {
+      if (list_user_popup.style.display === 'none' || list_user_popup.style.display === '') {
+        list_user_popup.style.display = 'block';
+      } else {
+        list_user_popup.style.display = 'none';
+      }
+    });
+  </script>
+
+  <script>
+    $(document).ready(function() {
+      $('#form_change_pass').submit(function(e) {
+        e.preventDefault();
+        var matk = $("#matk").val();
+        var old_pass = $('#old_password').val();
+        var new_pass = $('#new_password').val();
+        var comfirm_pass = $('#comfirm_password').val();
+
+        if (new_pass != comfirm_pass) {
+          $('#comfirm_pass_err').attr('hidden', false);
+        } else {
+          $.ajax({
+            url: "controller/ControllerChangePassword.php?change_pass=1",
+            type: "POST",
+            data: {
+              "matk": matk,
+              "old_pass": old_pass,
+              "new_pass": new_pass
+            },
+            success: function(data_res) {
+              var db_res = JSON.parse(data_res);
+              console.log(db_res)
+              if (db_res.status == 1) {
+                swal_success(db_res.msg);
+                window.setTimeout(function() {
+                  location.reload();
+                }, 1500);
+              }
+              if (db_res.status == 0) {
+                swal_err(db_res.msg, db_res.txt);
+              }
             }
-        });
-        
-    </script>
+          })
+        }
+      })
+    })
+  </script>

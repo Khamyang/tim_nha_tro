@@ -11,8 +11,14 @@
     <title>Document</title>
 </head>
 <body>
-    <div>admin page</div>
-    <?php echo$_SESSION['username'];?>
+    <div class="container-fluid pt-2 p-0 content">
+    <div class="content">
+      <div class="row p-0 m-0">
+        <?php include "page.php"
+        ?>
+      </div>
+    </div>
+  </div>
     
 </body>
 </html>
