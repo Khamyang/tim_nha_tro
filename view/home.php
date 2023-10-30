@@ -253,7 +253,7 @@ include_once('connect/connect.php');
 </div>
 </div>
 
-<div id="pagination" class="text-center"><?php echo $listPage ?></div>
+<div id="pagination" class="text-center"><?php //echo $listPage ?></div>
 <script>
     const con = document.getElementById('content_all');
     var vale = document.getElementById('search').value;
