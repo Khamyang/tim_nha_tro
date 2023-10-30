@@ -123,8 +123,13 @@ session_start();
             <a class="nav-link mx-2 <?= ($page == "lien_he") ? "bg-primary rounded" : ""; ?>" href="?page=lien_he">Liên hệ</a>
           </li>
         </ul>
+        <div class="search_bar">
+            <form method="post" action="">
+              <input type="text" placeholder="Tìm kiếm.." name="stext">
+              <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
         <ul class="navbar-nav ms-auto d-none d-lg-inline-flex">
-
           <?php if (isset($_SESSION['username']) == '') { ?>
             <li class="nav-item mx-2">
               <a class="nav-link h5 <?= ($page == "login") ? "bg-primary rounded" : ""; ?>" href="?page=login">Login</a>
