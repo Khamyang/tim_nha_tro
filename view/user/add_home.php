@@ -1,7 +1,12 @@
+<?php 
+
+    include "./controller/check_access.php";
+
+ ?>
 <section class="mt-5 mb-5">
     <div class="d-flex justify-content-center">
         <div class="col-sm-12" style="width: 900px;">
-            <form action="" method="post">
+            <form action="./controller/ControllerAddHome.php" method="post" enctype="multipart/form-data">
                 <div class="row border border-success rounded">
                     <div class="col-sm- p-0 bg-light" style="width: 100%;height:auto">
                         <div class="p-4" id="add">
@@ -14,15 +19,21 @@
                                 <span class="text-danger" id="home_name_err"></span>
                             </div>
                             <br>
+                            <div class="form-group ">
+                                <label for="username">Mô tả</label>
+                                <input type="text" class="form-control" name="home_details" id="home_details" placeholder="">
+                                <span class="text-danger" id="home_details_err"></span>
+                            </div>
+                            <br>
                             <div class="form-group">
                                 <label for="address">Chọn ảnh</label>
-                                <input type="file" id="image[]" name="image[]" class="form-control">
+                                <input type="file"  name="image" id="image" class="form-control">
                             </div>
                             <br>
                             <div class="form-group">
                                 <label for="text">Giá thuê/tháng</label>
                                 <input type="text" class="form-control" name="fee" id="fee" placeholder="">
-                                <span class="text-danger" id="fee"></span>
+                                <span class="text-danger" id="fee_err"></span>
                             </div>
                             <br>
                             <div class="form-group">
@@ -51,7 +62,7 @@
                                 </SELECT>
                                 <!-- <input type="text" id="search_ban" class="form-control"> -->
                                 <input type="text" class="form-control" name="home_address" id="home_address" placeholder="Địa chỉ chi tiết (Phường, đường, Số nhà...)">
-                                <span class="text-danger" id="home_address"></span>
+                                <span class="text-danger" id="home_address_err"></span>
                             </div>
                             <br>
                             <br>

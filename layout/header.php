@@ -108,19 +108,20 @@ session_start();
       <div class=" collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto ">
           <li class="nav-item">
-            <a class="nav-link mx-2 <?= ($page == "home" || $page == "") ? "bg-primary rounded" : ""; ?>" aria-current="page" href="?page=home">Trang chủ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-2 <?= ($page == "blog") ? "bg-primary rounded" : ""; ?>" href="?page=blog">Blog</a>
+            <a class="nav-link mx-2 <?= ($page == "home" || $page == "") ? "bg-primary rounded" : ""; ?>" aria-current="page" href="?page=home"><i class="nav-icon fas fa-home"></i> Trang chủ</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-2 <?= ($page == "my_home") ? "bg-primary rounded" : ""; ?>" href="?page=my_home">Quản lý nhà</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link mx-2 <?= ($page == "blog") ? "bg-primary rounded" : ""; ?>" href="?page=blog">Blog</a>
+          </li>
+          
+          <li class="nav-item">
             <a class="nav-link mx-2 <?= ($page == "about") ? "bg-primary rounded" : ""; ?>" href="?page=about">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2 <?= ($page == "lien_he") ? "bg-primary rounded" : ""; ?>" href="?page=lien_he">Liên hệ</a>
+            <a class="nav-link mx-2 <?= ($page == "contact") ? "bg-primary rounded" : ""; ?>" href="?page=contact">Liên hệ</a>
           </li>
         </ul>
         <div class="search_bar">
@@ -141,7 +142,14 @@ session_start();
                 <label class="text-white">Chào bạn: <span class="text-danger"><?= $_SESSION['username'] ?></span></label>
               </div>
               <div id="user_popup">
-                <span class="float-end bg-primary d-flex flex-column justify-content-center align-items-center rounded-circle" style="height: 30px; width:30px;margin-top:5px; margin-right: 5px;"><i class="fa fa-user"></i></span>
+                <?php 
+                $matk = $_SESSION['matk'];
+                 $sql_img_pro  = mysqli_query($conn, "SELECT profile_img FROM tb_taikhoan WHERE MaTK = $matk");
+                 $res_pro_img = mysqli_fetch_object($sql_img_pro);
+                 $profile = $res_pro_img->profile_img;
+                 $profile_img =  '<img class="rounded-circle" src="./image/profile_image/'.$profile.'" alt="" style="width: 35px; height: 35px">';
+                ?>;
+                <span class="float-end bg-primary d-flex flex-column justify-content-center align-items-center rounded-circle" style="height: 30px; width:30px;margin-top:5px; margin-right: 5px;"> <?= (!empty($profile) ? $profile_img : "<i class='fa fa-user'></i>");?></span>
                 <ul id="list_user_popup">
                   <li><a href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa fa-key border p-2 rounded"></i> Thay đổi mật khẩu</a></li>
                   <li><a href="?page=profile"><i class="fa fa-user border p-2 rounded"></i> Thông tin cá nhân</a></li>

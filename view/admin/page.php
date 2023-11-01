@@ -6,7 +6,6 @@
             case 'dashboard':
                 include "chu_nha.php";
                 break;
-                
             default: 
                 include "chu_nha.php";
             break;

@@ -43,6 +43,10 @@
       height: 50px;
       justify-content: center;
     }
+    a {
+      text-decoration: none;
+      color:black;
+    }
   </style>
 </head>
 
