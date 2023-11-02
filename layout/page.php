@@ -16,11 +16,17 @@
                 include "./view/personal_profile.php";
                 break;
             case 'my_home':
-                    include "./view/user/my_home.php";
+                include "./view/user/my_home.php";
                     break;
             case 'add_home':
-                    include "./view/user/add_home.php";
+                include "./view/user/add_home.php";
                     break;
+            case 'gioi_thieu':
+                include "./view/gioi_thieu.php";
+                break;
+            case 'lien_he':
+                include "./view/lien_he.php";
+                break;
             default: 
                 include "./view/home.php";
             break;
@@ -28,5 +34,3 @@
     }else{
         include "./view/home.php";
     }
-    
-?>

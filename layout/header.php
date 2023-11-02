@@ -117,7 +117,7 @@ session_start();
             <a class="nav-link mx-2 <?= ($page == "my_home") ? "bg-primary rounded" : ""; ?>" href="?page=my_home">Quản lý nhà</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2 <?= ($page == "about") ? "bg-primary rounded" : ""; ?>" href="?page=about">About</a>
+            <a class="nav-link mx-2 <?= ($page == "about") ? "bg-primary rounded" : ""; ?>" href="?page=gioi_thieu">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-2 <?= ($page == "lien_he") ? "bg-primary rounded" : ""; ?>" href="?page=lien_he">Liên hệ</a>
