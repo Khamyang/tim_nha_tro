@@ -17,10 +17,10 @@ $response = [];
         $query = mysqli_query($conn, $sql);
         if($query){
             $response['status'] = 1;
-            $response['msg'] = 'Đăng ký thành công';
+            $response['msg'] = 'Đăng ký thành công '.$username.' '.$new_password.' '.$soDT;
         } else {
             $response['status'] = 0;
-            $response['msg'] = 'Đăng ký không thành công';
+            $response['msg'] = 'Đăng ký không thành công '.$username.' '.$new_password.' '.$soDT;
         }
     }
 

@@ -1,6 +1,3 @@
-<?php 
-    // include "./controller/ControllerAddHome.php";
- ?>
 <section class="mt-5 mb-5">
     <div class="d-flex justify-content-center">
         <div class="col-sm-12" style="width: 900px;">
@@ -13,7 +10,7 @@
                             </center>
                             <div class="form-group ">
                                 <label for="username">Tên nhà</label>
-                                <input type="text" class="form-control" name="home_name" id="home_name" placeholder="">
+                                <input type="text" class="form-control" name="home_name" id="home_name" placeholder="" required>
                                 <span class="text-danger" id="home_name_err"></span>
                             </div>
                             <br>
@@ -25,12 +22,12 @@
                             <br>
                             <div class="form-group">
                                 <label for="address">Chọn ảnh</label>
-                                <input type="file"  name="image" id="image" class="form-control">
+                                <input type="file"  name="image" id="image" class="form-control" accept="image/png, image/jpeg, image/jpg">
                             </div>
                             <br>
                             <div class="form-group">
                                 <label for="text">Giá thuê/tháng</label>
-                                <input type="text" class="form-control" name="fee" id="fee" placeholder="">
+                                <input type="text" class="form-control" name="fee" id="fee" placeholder="" required>
                                 <span class="text-danger" id="fee_err"></span>
                             </div>
                             <br>
@@ -42,18 +39,18 @@
                                 $sql = mysqli_query($conn, "SELECT * FROM tb_huyen");
 
                                 ?>
-                                <SELECT style=" width: 85%; float: right;" class="form-control" id="sl_huyen" name="sl_huyen">
-                                    <OPTION selected Value="Under 16"> - Chọn huyện -</OPTION>
+                                <SELECT style=" width: 85%; float: right;" class="form-control" id="sl_huyen" name="sl_huyen" required>
+                                    <OPTION selected Value=""> - Chọn huyện -</OPTION>
                                     <?php if ($sql->num_rows > 0) {
                                         while ($row = mysqli_fetch_object($sql)) {
                                     ?>
                                             <OPTION Value="<?= $row->MaHuyen ?>"><?= $row->TenHuyen ?></OPTION>
                                     <?php }
                                     } ?>
-                                </SELECT>
+                                </SELECT >
                                 <br>
                                 <label style="margin-bottom: 15px;" for="">&nbsp;&nbsp;Chọn Bản: </label>
-                                <SELECT style=" width: 85%; float: right;" class="form-control" id="sl_ban" name="sl_ban">
+                                <SELECT style=" width: 85%; float: right;" class="form-control" id="sl_ban" name="sl_ban" required>
                                     <OPTION selected Value=""> - Chọn bàn -</OPTION>
                                     <!-- <OPTION Value="Under 16">Chanthabuly</OPTION> -->
 

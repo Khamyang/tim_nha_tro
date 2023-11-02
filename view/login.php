@@ -127,6 +127,7 @@
                                 showConfirmButton: false,
                                 timer: 2000
                             });
+                            // alert(res.status_user)
                             window.setTimeout(function() {
                                 if(res.status_user == "admin"){
                                     location.href = "./view/admin/?page=dashboard"
@@ -135,7 +136,7 @@
                                     location.href = "./?page=home";
                                 }
                                 
-                            });
+                            }, 2000);
                         }
                         if (res.status == 0) {
                             Swal.fire({

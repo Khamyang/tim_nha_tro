@@ -21,9 +21,15 @@
             case 'add_home':
                     include "./view/user/add_home.php";
                     break;
+            case 'edit_home':
+                    include "./view/user/edit_home.php";
+                    break;
+            case 'del_home':
+                    include "./controller/ControllerDelHome.php";
+                    break;
             default: 
                 include "./view/home.php";
-            break;
+                break;
         }
     }else{
         include "./view/home.php";
