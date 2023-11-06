@@ -80,29 +80,28 @@
         border-radius: 40px 40px 40px 40px;
     }
 
-    #pagination {
+    /* #pagination {
         padding: 5px;
         font-weight: bold;
-    }
+    } */
 
-    #pagination span {
+    #pagination #current_page1 {
         color: white;
         background-color: brown;
-        border-radius: 2px;
-        padding: 2px 5px;
+        border: 1px solid brown !important;
+
     }
 
     #pagination a {
-        text-decoration: none;
-        padding: 2px 4px;
         color: #000;
-        text-align: center;
+        cursor: pointer;
     }
 
     #pagination a:hover {
         background-color: brown;
         color: #ffffff;
-        border-radius: 2px;
+        cursor: pointer;
+        
     }
 </style>
 
@@ -218,8 +217,8 @@ include_once('connect/connect.php');
                     $stext = $_POST['stext'];
 
                     $newStext = str_replace(' ', '%', $stext);
-                    $sql = "SELECT nha.*, tk.HoTen, ban.* FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE ban.TenBan LIKE '%$stext%'";
-                    $totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT nha.*, tk.HoTen, ban.* FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE ban.TenBan LIKE '%$stext%'"));
+                    $sql = "SELECT nha.*, tk.HoTen, ban.* FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE ban.TenBan LIKE '%".$newStext."%' ";
+                    $totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT nha.*, tk.HoTen, ban.* FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE ban.TenBan LIKE '%".$newStext."%'"));
                     $query = mysqli_query($conn, $sql);
                 } else{
                     $sql = "SELECT nha.*, tk.HoTen, ban.TenBan FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE TrangThai = 1 ORDER BY MaNha LIMIT $perRow, $rowsPerPage";
@@ -230,15 +229,28 @@ include_once('connect/connect.php');
                 
         
                 $totalPage = ceil($totalRows / $rowsPerPage);
-                $listPage = '';
+
+                if(isset($_GET['page_number'])){
+                    $current_page = $_GET['page_number'];
+                } else {
+                    $current_page = 0;
+                }
+                // $listPage = '<button class="btn btn-sm btn-secondary me-1" onclick="back_page('.$current_page.')"><i class="fa fa-angles-left"></i> Back </button>';
+                $listPage = "<div class='d-flex justify-content-center'><nav aria-label='Page navigation example'>
+                <ul class='pagination '>
+                  <li class='page-item'><a class='page-link' onclick=\"back_page($current_page)\" ><i class='fa fa-angles-left'></i>  Previous</a></li>";
                 for ($i = 1; $i <= $totalPage; $i++) {
                     if ($i == $page) {
-                        $listPage .= " <span>" . $i . "</span> ";
+                        $listPage .= " <li class='page-item' ><a class='page-link' href='#' id='current_page1'>". $i . "</a></li> ";
                     } else {
-                        $listPage .= ' <a href="' . $_SERVER['PHP_SELF'] . '?page=home&page_number=' . $i . '">' . $i . '</a> ';
-                    }
-                }
 
+                        $listPage .= " <li class='page-item'><a class='page-link' href='./?page=home&page_number=".$i."'>".$i ."</a></li> ";
+                    }
+                    
+                }
+                $listPage .= '<li class="page-item"><a class="page-link" onclick="next_page('.$current_page.','.$totalPage.')">Next <i class="fa fa-angles-right"></i> </a></li>
+                </ul>
+              </nav></div>';
                 // $sql = "SELECT nha.*, tk.HoTen, ban.TenBan FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE TrangThai = 1 ORDER BY MaNha LIMIT 0,9";
                 // $query = $conn->query($sql);
 
@@ -280,5 +292,30 @@ include_once('connect/connect.php');
     }
     function home_details(home_id){
         window.location.href='./?page=detail&home_id=' + home_id;
+    }
+</script>
+<script>
+    function back_page(current_page){
+        var page_back = current_page -1;
+        if(page_back <= 0){
+            page_back = current_page;
+        } else {
+            window.location.href='./?page=home&page_number=' + page_back;
+        }
+        
+    }
+    function next_page(current_page, totalPage){
+        var page_back;
+        if(current_page == 0){
+            page_back = current_page + 2;
+        } else {
+            page_back = current_page + 1;
+        }
+        if(page_back > totalPage){
+            page_back = current_page;
+        } else {
+            window.location.href='./?page=home&page_number=' + page_back;
+        }
+        
     }
 </script>

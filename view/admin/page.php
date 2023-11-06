@@ -3,11 +3,12 @@
     if(isset($_GET['page'])){
         $page = $_GET['page'];
         switch ($page) {
-            case 'dashboard':
-                include "chu_nha.php";
+            case 'home':
+                include "../view/admin/chu_nha.php";
                 break;
             default: 
-                include "chu_nha.php";
+            include "../view/admin/chu_nha.php";
+                break;
             break;
         }
     }else{

@@ -30,6 +30,7 @@ session_start();
                 $response['password'] = $password;
                 $response['msg'] = 'Đăng nhập không thành công';
                 $response['status_user'] = "";
+               
             }
         } else {
             $response['status'] = 0;
