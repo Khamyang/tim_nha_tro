@@ -2,68 +2,6 @@
    include "./controller/check_access.php";
 ?>
 <style type="text/css">
-  /*switch button*/
-  .switch {
-    margin: 0;
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-
-  input:checked+.slider {
-    background-color: #2196F3;
-  }
-
-  input:focus+.slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-
-  input:checked+.slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-
-  .slider.round:before {
-    border-radius: 50%;
-  }
-
   #btn_add {
     math-depth: 5px;
     margin-bottom: 10px;
@@ -81,7 +19,7 @@
     margin-right: 30px;
     border-radius: 8px;
     padding: 3px 16px;
-    background: green;
+    background: #2196F3;
   }
 
   #btn_del {
@@ -91,7 +29,7 @@
   }
 
   #btn_edit:hover {
-    background-color: #50C878;
+    background-color: #63C5DA;
     color: #fff;
   }
 
@@ -142,10 +80,8 @@
                 <table style="margin-bottom: 4px; margin-left: auto; margin-right: auto; ">
                   <tr>
                     <td>
-                      <label class="switch">
-                        <input type="checkbox" disabled id="checkbox" name="checkbox" value="<?php echo$row_nha['MaNha']; ?>" <?php if ($row_nha['TrangThai'] == 1) { echo "checked"; } else {echo "";} ?> onclick="statusUpdate()">
-                        <span class="slider round"></span>
-                      </label>
+                        <i class="fa fa-eye" style="font-size:40px; color: <?php if ($row_nha['TrangThai'] == 1) { echo "green"; } else {echo "#000";} ?>"></i>
+
                     </td>
                     <td>
                         <a class='btn btn-success' id='btn_edit' href='?page=edit_home&edit_home=<?php echo$row_nha['MaNha']; ?>'>Sửa</a>   
