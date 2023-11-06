@@ -28,11 +28,10 @@ session_start();
                     $home_name = $_POST['home_name'];
                     $home_details = $_POST['home_details'];
                     $fee = $_POST['fee'];
-                    $status =$_POST['status'];
                     $home_address = $_POST['home_address'];
                     $sl_huyen = $_POST['sl_huyen'];
                     $sl_ban = $_POST['sl_ban'];
-                    $query_insert = "INSERT INTO tb_thong_tin_nha (MaTK, TenNha, HinhAnh, DiaChi, Gia, TrangThai, MoTa, MaHuyen, MaBan) value ($matk,'$home_name','$file_name','$home_address','$fee', $status, '$home_details', $sl_huyen, $sl_ban)";
+                    $query_insert = "INSERT INTO tb_thong_tin_nha (MaTK, TenNha, HinhAnh, DiaChi, Gia, MoTa, MaHuyen, MaBan) value ($matk,'$home_name','$file_name','$home_address','$fee', '$home_details', $sl_huyen, $sl_ban)";
                     $conn -> query($query_insert);
             
                     echo "<script>location='../index.php?page=my_home';</script>";

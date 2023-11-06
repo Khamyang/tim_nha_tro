@@ -48,11 +48,10 @@
                     $home_name = $_POST['home_name'];
                     $home_details = $_POST['home_details'];
                     $fee = $_POST['fee'];
-                    $status = $_POST['status'];
                     $home_address = $_POST['home_address'];
                     $sl_huyen = $_POST['sl_huyen'];
                     $sl_ban = $_POST['sl_ban'];
-                    $query_update = "UPDATE tb_thong_tin_nha SET TenNha = '$home_name', HinhAnh = '$file_name' , DiaChi = '$home_address', Gia = '$fee', TrangThai = $status, MoTa = '$home_details', MaHuyen = $MaHuyen, MaBan = $MaBan WHERE MaNha = $id";
+                    $query_update = "UPDATE tb_thong_tin_nha SET TenNha = '$home_name', HinhAnh = '$file_name' , DiaChi = '$home_address', Gia = '$fee', MoTa = '$home_details', MaHuyen = $MaHuyen, MaBan = $MaBan WHERE MaNha = $id";
                     $conn -> query($query_update);
             
                     echo "<script>location='?page=my_home';</script>";
@@ -66,11 +65,10 @@
                 $home_name = $_POST['home_name'];
                 $home_details = $_POST['home_details'];
                 $fee = $_POST['fee'];
-                $status = $_POST['status'];
                 $home_address = $_POST['home_address'];
                 $sl_huyen = $_POST['sl_huyen'];
                 $sl_ban = $_POST['sl_ban'];
-                $query_update = "UPDATE tb_thong_tin_nha SET TenNha = '$home_name', DiaChi = '$home_address', Gia = '$fee', TrangThai = $status, MoTa = '$home_details', MaHuyen = $MaHuyen, MaBan = $MaBan WHERE MaNha = $id";
+                $query_update = "UPDATE tb_thong_tin_nha SET TenNha = '$home_name', DiaChi = '$home_address', Gia = '$fee', MoTa = '$home_details', MaHuyen = $MaHuyen, MaBan = $MaBan WHERE MaNha = $id";
                 $conn -> query($query_update);
 
                 echo "<script>location='?page=my_home';</script>";
@@ -84,11 +82,10 @@
                 $home_name = $_POST['home_name'];
                 $home_details = $_POST['home_details'];
                 $fee = $_POST['fee'];
-                $status = $_POST['status'];
                 $home_address = $_POST['home_address'];
                 $sl_huyen = $_POST['sl_huyen'];
                 $sl_ban = $_POST['sl_ban'];
-                $query_update = "UPDATE tb_thong_tin_nha SET TenNha = '$home_name', DiaChi = '$home_address', Gia = '$fee', TrangThai = $status, MoTa = '$home_details', MaHuyen = $MaHuyen, MaBan = $MaBan WHERE MaNha = $id";
+                $query_update = "UPDATE tb_thong_tin_nha SET TenNha = '$home_name', DiaChi = '$home_address', Gia = '$fee', MoTa = '$home_details', MaHuyen = $MaHuyen, MaBan = $MaBan WHERE MaNha = $id";
                 $conn -> query($query_update);
 
                 echo "<script>location='?page=my_home';</script>";
@@ -131,15 +128,6 @@
                                 <label for="text">Giá thuê/tháng</label>
                                 <input type="text" class="form-control" name="fee" id="fee" placeholder="" required value="<?php echo $row_ed['Gia']; ?>">
                                 <span class="text-danger" id="fee_err"></span>
-                            </div>
-                            <br>
-                            <div class="form-group">
-                                <label for="address">Trạng thái</label>
-                                <SELECT class="form-control" id="status" name="status">
-                                    <OPTION value = "<?php echo $row_ed['TrangThai']; ?>"><?php if ($row_ed['TrangThai'] == 0) {echo "Không mở cho thuê";} else {echo "Mở cho thuê"; }  ?></OPTION>
-                                    <OPTION value = "0">Không mở cho thuê</OPTION>
-                                    <OPTION value = "1">Mở cho thuê</OPTION>
-                                </SELECT>
                             </div>
                             <br>
                             <div class="form-group">
