@@ -28,21 +28,22 @@ session_start();
                     $home_name = $_POST['home_name'];
                     $home_details = $_POST['home_details'];
                     $fee = $_POST['fee'];
+                    $status =$_POST['status'];
                     $home_address = $_POST['home_address'];
                     $sl_huyen = $_POST['sl_huyen'];
                     $sl_ban = $_POST['sl_ban'];
-                    $query_insert = "INSERT INTO tb_thong_tin_nha (MaTK, TenNha, HinhAnh, DiaChi, Gia, MoTa, MaHuyen, MaBan) value ($matk,'$home_name','$file_name','$home_address','$fee', '$home_details', $sl_huyen, $sl_ban)";
+                    $query_insert = "INSERT INTO tb_thong_tin_nha (MaTK, TenNha, HinhAnh, DiaChi, Gia, TrangThai, MoTa, MaHuyen, MaBan) value ($matk,'$home_name','$file_name','$home_address','$fee', $status, '$home_details', $sl_huyen, $sl_ban)";
                     $conn -> query($query_insert);
             
-                    echo "<script>alert('Thêm nhà thành công');location='../index.php?page=my_home';</script>";
+                    echo "<script>location='../index.php?page=my_home';</script>";
                     // echo "<script>alert(".$matk.")</script>";
             
                 }
             }
          }else{
-          echo "<script>alert('Hinh khong dung dang');location='../index.php?page=add_home';</script>";
+          echo "<script>alert('Anh không đúng dạng);location='../index.php?page=add_home';</script>";
          }
     } else {
-        echo "<script>alert('Hay chon anh');location='../index.php?page=add_home';</script>";
+        echo "<script>alert('Hãy chọn hình ảnh');location='../index.php?page=add_home';</script>";
     }
  ?>

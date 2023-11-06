@@ -30,6 +30,14 @@
                                 <input type="text" class="form-control" name="fee" id="fee" placeholder="" required>
                                 <span class="text-danger" id="fee_err"></span>
                             </div>
+                            <div class="form-group">
+                                <label for="address">Trạng thái</label>
+                                <SELECT class="form-control" id="status" name="status">
+                                    <OPTION value = "0">Không mở cho thuê</OPTION>
+                                    <OPTION value = "1">Mở cho thuê</OPTION>
+                                </SELECT>
+                            </div>
+                            <br>
                             <br>
                             <div class="form-group">
                                 <label for="address">Địa chỉ</label>
