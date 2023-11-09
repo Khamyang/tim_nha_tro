@@ -6,7 +6,9 @@ include "../connect/connect.php";
 session_start();
 $matk = $_SESSION['matk'];
     $rand = rand(0,100);
-    if(isset($_POST['btn_save_pro'])){
+    if(isset($_REQUEST['act'])){
+        $a = $_REQUEST['act'];
+        
         $profile_img_name = $_FILES['profile_img']['name'];
         $profile_img_tmp = $_FILES['profile_img']['tmp_name'];
         $profile_img_old = $_POST['profile_img_old'];
@@ -29,7 +31,16 @@ $matk = $_SESSION['matk'];
             $sql = "UPDATE tb_taikhoan SET HoTen = '$HoTen', NgaySinh = '$NgaySinh', GioiTinh='$GioiTinh', SoDT='$SoDT', DiaChi='$DiaChi', profile_img = '$new_profile_img_name' WHERE MaTK = $matk";
                 $query = mysqli_query($conn, $sql);
                 if($query){
-                    header("Location: ../?page=profile");
+                    if($a == 'admin'){
+                        // echo"<script>alert('$a')</script>";
+                        // echo "<script>window.location.href='../../../view/admin/?page=profile'</script>";
+                        header("Location: ../view/admin/?page=profile");
+                    } 
+                    else {
+                        // header("Location: ../?page=profile");
+                        echo "<script>window.location.href='../?page=profile'</script>";
+                    }
+                    
                 } else {
                     echo "<script>swal_err('Cập nhập không thành công')</script>";
                 }
@@ -39,7 +50,15 @@ $matk = $_SESSION['matk'];
                 $sql = "UPDATE tb_taikhoan SET HoTen = '$HoTen', NgaySinh = '$NgaySinh', GioiTinh='$GioiTinh', SoDT='$SoDT', DiaChi='$DiaChi', profile_img = '$new_profile_img_name' WHERE MaTK = $matk";
                 $query = mysqli_query($conn, $sql);
                 if($query){
-                    header("Location: ../?page=profile");
+                    if($a == 'admin'){
+                        // echo"<script>alert('$a')</script>";
+                        // echo "<script>window.location.href='../../../view/admin/?page=profile'</script>";
+                        header("Location: ../view/admin/?page=profile");
+                    } 
+                    else {
+                        // header("Location: ../?page=profile");
+                        echo "<script>window.location.href='../?page=profile'</script>";
+                    }
                 } else {
                     echo "<script>swal_err('Cập nhập không thành công')</script>";
                 }

@@ -1,6 +1,6 @@
 <div id="mySidenav" class="sidenav">
     <div class=" m-0 p-2 logo">
-        <span onclick="closeNav()" style="font-size:40px;cursor:pointer;position:absolute;top:-12px;right:5px">&times;</span>
+        <!-- <span onclick="closeNav()" style="font-size:40px;cursor:pointer;position:absolute;top:-12px;right:5px">&times;</span> -->
         <div class="pt-2">
             <div class="d-flex justify-content-center ">
                 <img src="../../image/admin_logo.png" class="brand_logo" alt="Logo">
@@ -14,7 +14,7 @@
  $active = "";
     if(isset($_REQUEST['page'])){
         $page = $_REQUEST['page'];
-
+        
         $title = "";
         if ($page == "chu-nha") {
             $title =  "Quản lý Chủ nhà";
@@ -30,9 +30,12 @@
         elseif ($page == "thong-ke") {
             $title =  "Thống kê";
         }
+        elseif ($page == "profile") {
+            $title =  "Thông tin cá nhân";
+        }
     } else {
         $title =  "Quản lý Hóa đơn";
-        $page = '';
+        $page = 'dsdf';
     }
 
 ?>

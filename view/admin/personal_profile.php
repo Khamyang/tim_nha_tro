@@ -1,23 +1,21 @@
-<?php
-include "./controller/check_access.php";
-?>
+
 <div class="mt-3 mb-5">
     <div class="container">
-        <div class="text-end">
+        <!-- <div class="text-end">
             <a class="text-primary" href="./?page=profile">Thông tin cá nhân </a><a href="./?page=home"><i class="fa fa-angles-left"></i> Trang chủ</a>
-        </div>
+        </div> -->
         <div class="row">
             <div class="col-sm-3">
             </div>
             <div class="col-sm-6">
                 <div class="card p-5">
                     <?php
-                    include "./connect/connect.php";
+                    include "../../connect/connect.php";
                     $sql = "SELECT * FROM tb_taikhoan WHERE MaTK= " . $_SESSION['matk'] . "";
                     $query = mysqli_query($conn, $sql);
                     $res = mysqli_fetch_object($query);
                     ?>
-                    <form action="./controller/ControllerPersonalProfile.php?act=user" method="post" enctype="multipart/form-data">
+                    <form action="../../controller/ControllerPersonalProfile.php?act=admin" method="post" enctype="multipart/form-data">
                         <div class="row mb-4">
                             <div class="col-sm-3">
                                 <label for="">Họ tên</label>
@@ -90,7 +88,7 @@ include "./controller/check_access.php";
                                 <input class="form-control" type="file" name="profile_img" id="profile_img" accept="image/png, image/jpeg, image/jpg" /> -->
                                 <input type="hidden" name="profile_img_old" value="<?=$res->profile_img?>">
                                 <input type="file" name="profile_img" class="form-control" accept="image/*" onchange="loadFile(event)" value="<?=$res->profile_img?>">
-                                <img class="border rounded p-1" src="./image/profile_image/<?=(!empty($res->profile_img)) ? $res->profile_img : "user_img1.png";?>" alt="" width="150" id="output" style="width: 150px; height: 150px; margin-top: 5px;" />
+                                <img class="border rounded p-1" src="../../image/profile_image/<?=(!empty($res->profile_img)) ? $res->profile_img : "user_img1.png";?>" alt="" width="150" id="output" style="width: 150px; height: 150px; margin-top: 5px;" />
                             </div>
                         </div>
 
@@ -105,7 +103,6 @@ include "./controller/check_access.php";
                 </div>
             </div>
             <div class="col-sm-3">
-
             </div>
         </div>
     </div>

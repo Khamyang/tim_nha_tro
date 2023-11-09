@@ -1,9 +1,5 @@
 <?php include "../../connect/connect.php";
 include "../../connect/session.php";
-// if($_SESSION['maquyen'] != 1 && $_SESSION['maquyen'] != 2){
-//   header("Location: ../../?page=home");
-// }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -11,11 +7,12 @@ include "../../connect/session.php";
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ajax-js</title>
+  <title>Tim-nha-tro</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
   <style>
@@ -40,8 +37,8 @@ include "../../connect/session.php";
       top: 0;
       left: 0;
       background-color: #0F2C59;
-      overflow-x: hidden;
-      transition: 0.5s;
+      overflow-x:hidden;
+      transition: 0.4s;
       /* padding-top: 10px; */
     }
 
@@ -69,7 +66,7 @@ include "../../connect/session.php";
     }
 
     .logo {
-      background-color:darkgreen;
+      background-color: darkgreen;
       border-bottom-right-radius: 20px;
       border-bottom-left-radius: 20px;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -101,12 +98,12 @@ include "../../connect/session.php";
     }
 
     .header {
-      background-color:darkgreen;
+      background-color: darkgreen;
       display: flex;
       justify-content: center;
       justify-items: center;
       justify-content: space-between
-      /* position:fixed; */
+        /* position:fixed; */
     }
 
     .main_header {
@@ -157,15 +154,14 @@ include "../../connect/session.php";
     }
   </style>
 </head>
-
 <body>
-  <?php include "../../layout/admin/sidebar.php"?>
+  <?php include "../../layout/admin/sidebar.php" ?>
   <div id="main">
     <div class="main_header">
       <header class="btn p-1 w-100 text-start header text-white">
-        <span style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776; <?=$title ?> </span>
-        <!-- <span class="float-end bg-primary d-flex flex-column justify-content-center align-items-center rounded-circle" style="height: 30px; width:30px;margin-top:5px; margin-right: 5px;"><i class="fa fa-user"></i></span> -->
-        <?php include "../../layout/user_popup.php" ?>
+        <span style="font-size:20px;cursor:pointer" id="open_sidebar" onclick="openNav()">&#9776; <?= $title ?> </span>
+        <span style="font-size:20px;cursor:pointer; display:none" id="close_sidebar" onclick="closeNav()">&#9776; <?= $title ?> </span>
+        <?php include "../../layout/admin/user_popup.php";?>
       </header>
     </div>
     <div class="container-fluid pt-2 p-0">
@@ -176,6 +172,7 @@ include "../../connect/session.php";
         </div>
       </div>
     </div>
+    
     <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -183,25 +180,43 @@ include "../../connect/session.php";
       function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
         document.getElementById("main").style.marginLeft = "250px";
+        document.getElementById('open_sidebar').style.display="none";
+        document.getElementById('close_sidebar').style.display="block";
       }
 
       function closeNav() {
         document.getElementById("mySidenav").style.width = "0";
         document.getElementById("main").style.marginLeft = "0";
+        document.getElementById('open_sidebar').style.display="block";
+        document.getElementById('close_sidebar').style.display="none";
       }
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script src="../layout/swal.js" type="text/javascript"></script> -->
+    
     <script>
-      let list_user_popup = document.getElementById('list_user_popup');
-      let user_popup = document.getElementById('user_popup');
-      user_popup.addEventListener('click', function() {
-        if (list_user_popup.style.display === 'none' || list_user_popup.style.display === '') {
-          list_user_popup.style.display = 'block';
-        } else {
-          list_user_popup.style.display = 'none';
-        }
-      });
+      function swal_success(text_succ) {
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          icon: 'success',
+          title: text_succ,
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+
+      function swal_err(title, txt_err) {
+        Swal.fire({
+          // toast: true,
+          position: 'center',
+          icon: 'error',
+          title: title,
+          text: txt_err,
+          showConfirmButton: true,
+        });
+      }
     </script>
 </body>
 

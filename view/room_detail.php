@@ -1,3 +1,21 @@
+
+<style>
+
+  .form {
+    background-color: #eee;
+    border-radius: 10px;
+    padding: 40px;
+    color: black;
+    font-family: "Times New Roman", Times, serif;
+  }
+ 
+  .submit_button{
+    text-align: center;
+    display: block;
+    margin-bottom: 10px;
+  }
+</style>
+
 <?php
 // session_start();
 if (isset($_REQUEST['home_id'])) {
@@ -37,26 +55,26 @@ if (isset($_REQUEST['home_id'])) {
               <div class="carousel-item active">
                 <div class="card-wrapper container-sm d-flex  justify-content-around">
                   <div class="card " style="width: 6rem;" id="img_sub1">
-                    <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                    <img src="./image/<?=$res->HinhAnh?>" class="card-img-top" alt="...">
                   </div>
-                  <div class="card  " style="width: 6rem;" onmouseover="change_img('vt-image.jpg')" onmouseout="img_old('patuxay.jpg')">
-                    <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                  <div class="card  " style="width: 6rem;" onmouseover="change_img('vt-image.jpg')" onmouseout="img_old('<?=$res->HinhAnh?>')">
+                    <img src="./image/<?=$res->HinhAnh?>" class="card-img-top" alt="...">
                   </div>
                   <div class="card  " style="width: 6rem;">
-                    <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                    <img src="./image/<?=$res->HinhAnh?>" class="card-img-top" alt="...">
                   </div>
                 </div>
               </div>
               <div class="carousel-item">
                 <div class="card-wrapper container-sm d-flex   justify-content-around">
                   <div class="card  " style="width: 6rem;">
-                    <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                    <img src="./image/<?=$res->HinhAnh?>" class="card-img-top" alt="...">
                   </div>
                   <div class="card  " style="width: 6rem;">
-                    <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                    <img src="./image/<?=$res->HinhAnh?>" class="card-img-top" alt="...">
                   </div>
                   <div class="card  " style="width: 6rem;">
-                    <img src="./image/patuxay.jpg" class="card-img-top" alt="...">
+                    <img src="./image/<?=$res->HinhAnh?>" class="card-img-top" alt="...">
                   </div>
                 </div>
               </div>
@@ -78,7 +96,49 @@ if (isset($_REQUEST['home_id'])) {
         </div>
       </div>
     </div>
-  </div>
+
+    <div class="row mt-3">
+        <div class="col-sm-12 p-0">
+          <h3>Ðáng giá nhà trọ: <?php echo $res->TenNha ?> </h3>
+          <form action="" method="post" class="form">
+           Họ và tên  <input type="text" name="ten" class="form-control" placeholder="Họ và tên" ><br>
+           Số điện thoại <input type="number" name="so_dien_thoai" class=" form-control" placeholder="Số điện thoại"><br>
+           <textarea name="binh_luan" class=" form-control" cols="30" rows="10" placeholder="Câu bình lu?n"></textarea><br>
+           <span class="submit_button">
+                <button type="submit" name="gui_binh_luan" class="btn btn-success" >Gửi bình luận</button>
+                <button type="reset" class="btn btn-danger"> Làm lại</button>
+           </span>
+          </form>
+        </div>
+    </div>
+
+    <!-- Insert to databse -->
+    <?php
+          if (isset($_POST['gui_binh_luan'])) {
+              $ten = $_POST['ten'];
+              $so_dien_thoai = $_POST['so_dien_thoai'];
+              $binh_luan = $_POST['binh_luan'];
+                $sql = "INSERT INTO tb_binh_luan_nha (TenNguoiBL,SoDT,BinhLuan,MaNha) VALUES ('$ten',' $so_dien_thoai','$binh_luan','$detail_id')";
+                $query = mysqli_query($conn, $sql);
+
+                // header('Location: ./?page=detail&home_id='.$detail_id.'');
+                echo "<script>window.location.href='./?page=detail&home_id=".$detail_id."'</script>";
+              
+          }
+          ?>
+          <div class="content">
+            <?php 
+            $sql = "SELECT * FROM tb_binh_luan_nha where MaNha = '$detail_id'";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0 ){
+              while ($row = $result->fetch_assoc()){
+                ?>
+                  <h3><?php echo $row ['TenNguoiBL']?></h3>                  
+                  <p><?php echo $row ['BinhLuan']?></p>
+           <?php }} ?>
+          </div>
+          
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
