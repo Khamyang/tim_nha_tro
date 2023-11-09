@@ -128,9 +128,10 @@ include "./controller/check_access.php";
 
         $sql1 = mysqli_query($conn, "SELECT * FROM tb_dondk WHERE MaDK = (SELECT MAX(MaDK) FROM tb_dondk WHERE MaTK = $MaTK)");
         $res = $sql1->fetch_object();
-        $trang_thai_dondk = $res->TrangThai;
-
-
+        if($sql1->num_rows > 0){
+          $trang_thai_dondk = $res->TrangThai;
+        }
+        
         $sql = "SELECT * FROM tb_thong_tin_nha WHERE MaTK = $MaTK";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) > 0) {

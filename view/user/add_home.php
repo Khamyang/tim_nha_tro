@@ -18,16 +18,16 @@
                                 <input type="text" class="form-control" name="home_name" id="home_name" placeholder="">
                                 <span class="text-danger" id="home_name_err"></span>
                             </div>
-                            <br>
                             <div class="form-group ">
                                 <label for="username">Mô tả</label>
-                                <input type="text" class="form-control" name="home_details" id="home_details" placeholder="">
-                                <span class="text-danger" id="home_details_err"></span>
+                                <!-- <input type="text" class="form-control" name="home_details" id="home_details" placeholder="">
+                                <span class="text-danger" id="home_details_err"></span> -->
+                                <textarea name="" id=""rows="3" class="form-control" name="home_details" id="home_details" placeholder="Mô tả"></textarea>
                             </div>
                             <br>
                             <div class="form-group">
                                 <label for="address">Chọn ảnh</label>
-                                <input type="file"  name="image" id="image" class="form-control">
+                                <input type="file"  name="image" id="image" class="form-control" accept="image/png, image/jpeg, image/jpg">
                             </div>
                             <br>
                             <div class="form-group">
@@ -61,7 +61,8 @@
 
                                 </SELECT>
                                 <!-- <input type="text" id="search_ban" class="form-control"> -->
-                                <input type="text" class="form-control" name="home_address" id="home_address" placeholder="Địa chỉ chi tiết (Phường, đường, Số nhà...)">
+                                <!-- <input type="text" class="form-control" name="home_address" id="home_address" placeholder="Địa chỉ chi tiết (Phường, đường, Số nhà...)"> -->
+                                <textarea name="" id=""  rows="3" class="form-control" name="home_address" id="home_address" placeholder="Địa chỉ chi tiết (Phường, đường, Số nhà...)"></textarea>
                                 <span class="text-danger" id="home_address_err"></span>
                             </div>
                             <br>

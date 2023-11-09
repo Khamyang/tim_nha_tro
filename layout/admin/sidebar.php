@@ -40,10 +40,10 @@
 
 ?>
     <div class="menu mt-4">
-    <a href="../../view/admin/?page=hoa-don" class="<?= (($page == "hoa-don" || $page == "") ? "bg-light" : ""); ?>" >Quản lý Hóa đơn</a>
-    <a href="../../view/admin/?page=chu-nha" class="<?= (($page == "chu-nha") ? "bg-light" : ""); ?>">quản lý chủ nhà</a>
-    <a href="../../view/admin/?page=nha-thue" class="<?= (($page == "nha-thue") ? "bg-light" : ""); ?>">quản lý Nhà thuê</a>
-    <a href="../../view/admin/?page=nhan-vien" class="<?= (($page == "nhan-vien") ? "bg-light" : ""); ?>">quản lý Nhân viên</a>
+    <a href="../../view/admin/?page=hoa-don" class="<?= (($page == "hoa-don" || $page == "") ? "bg-light" : ""); ?>" >Quản lý Đơn đăng ký</a>
+    <a href="../../view/admin/?page=chu-nha" class="<?= (($page == "chu-nha") ? "bg-light" : ""); ?>">Quản lý chủ nhà</a>
+    <a href="../../view/admin/?page=nha-thue" class="<?= (($page == "nha-thue") ? "bg-light" : ""); ?>">Quản lý Nhà thuê</a>
+    <a href="../../view/admin/?page=nhan-vien" class="<?= (($page == "nhan-vien") ? "bg-light" : ""); ?>">Quản lý Nhân viên</a>
     <a href="../../view/admin/?page=thong-ke" class="<?= (($page == "thong-ke") ? "bg-light" : ""); ?>">Thống kê</a>
     </div>
     

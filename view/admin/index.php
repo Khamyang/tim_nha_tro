@@ -178,8 +178,8 @@ include "../../connect/session.php";
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
       function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
+        document.getElementById("mySidenav").style.width = "260px";
+        document.getElementById("main").style.marginLeft = "260px";
         document.getElementById('open_sidebar').style.display="none";
         document.getElementById('close_sidebar').style.display="block";
       }
