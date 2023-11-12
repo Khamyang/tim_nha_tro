@@ -1,4 +1,4 @@
-<div class="d-flex">
+<div class="d-flex" style="z-index: 100;">
     <div class="pe-2 d-flex flex-column justify-content-center align-items-center">
         <label class="text-white">Chào bạn: <span class="text-danger"><?= $_SESSION['username'] ?></span></label>
     </div>
@@ -8,7 +8,7 @@
         $sql_img_pro  = mysqli_query($conn, "SELECT profile_img FROM tb_taikhoan WHERE MaTK = $matk");
         $res_pro_img = mysqli_fetch_object($sql_img_pro);
         $profile = $res_pro_img->profile_img;
-        $profile_img =  '<img class="rounded-circle" src="../../image/profile_image/' . $profile . '" alt="" style="width: 35px; height: 35px">';
+        $profile_img =  '<img class="rounded-circle" src="../../image/profile_image/' . $profile . '" alt="" style="width: 30px; height: 30px">';
         ?>
         <span class="float-end bg-primary d-flex flex-column justify-content-center align-items-center rounded-circle" style="height: 30px; width:30px;margin-top:5px; margin-right: 5px;"> <?= (!empty($profile) ? $profile_img : "<i class='fa fa-user'></i>"); ?></span>
         <ul id="list_user_popup">

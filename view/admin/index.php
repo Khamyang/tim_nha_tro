@@ -64,6 +64,9 @@ include "../../connect/session.php";
       font-size: 26px;
       margin-left: 50px;
     }
+    #mySidenav{
+      width: 260px;
+    }
 
     .logo {
       background-color: darkgreen;
@@ -95,6 +98,7 @@ include "../../connect/session.php";
       padding: 16px;
       background-color: #ffff;
       min-height: 100vh;
+      margin-left: 260px;
     }
 
     .header {
@@ -109,6 +113,9 @@ include "../../connect/session.php";
     .main_header {
       padding: 8px;
       box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    }
+    th{
+      font-size: large;
     }
 
     #user_popup {
@@ -178,21 +185,24 @@ include "../../connect/session.php";
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
       function openNav() {
-        document.getElementById("mySidenav").style.width = "260px";
-        document.getElementById("main").style.marginLeft = "260px";
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
         document.getElementById('open_sidebar').style.display="none";
         document.getElementById('close_sidebar').style.display="block";
       }
 
       function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
-        document.getElementById("main").style.marginLeft = "0";
+        document.getElementById("mySidenav").style.width = "260px";
+        document.getElementById("main").style.marginLeft = "260px";
         document.getElementById('open_sidebar').style.display="block";
         document.getElementById('close_sidebar').style.display="none";
       }
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   
     <!-- <script src="../layout/swal.js" type="text/javascript"></script> -->
     
     <script>

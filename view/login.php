@@ -130,7 +130,7 @@
                             // alert(res.status_user)
                             window.setTimeout(function() {
                                 if(res.status_user == "admin"){
-                                    location.href = "./view/admin/?page=hoa-don"
+                                    location.href = "./view/admin/?page=don_dangky"
                                 }
                                 if(res.status_user == "user"){
                                     location.href = "./?page=home";

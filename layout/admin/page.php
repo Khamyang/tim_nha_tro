@@ -2,21 +2,21 @@
     if(isset($_GET['page'])){
         $page = $_GET['page'];
         switch ($page) {
-            case 'hoa-don':
-                include "../../view/admin/hoa_don.php";
+            case 'don_dangky':
+                include "../../view/admin/don_dangky.php";
                 break;
-            case 'chu-nha':
+            case 'chu_nha':
                 include "../../view/admin/chu_nha.php";
                 break;
             case 'profile':
                 include "../../view/admin/personal_profile.php";
                 break;
             default: 
-            include "../../view/admin/hoa_don.php";
+            include "../../view/admin/don_dangky.php";
             break;
         }
     } else {
-        include "../../view/admin/hoa_don.php";
+        include "../../view/admin/don_dangky.php";
         $page = '';
     }
 ?>
