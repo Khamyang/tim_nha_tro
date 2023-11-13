@@ -1,7 +1,7 @@
 <div class="card p-3">
     <div class="text-end mb-2">
         <!-- <button class="btn btn-primary">Thêm nhân viên</button> -->
-        <a href="?page=add_nhan_vien" class="btn btn-primary" id="btn_add" name="btn_add">Thêm nhân viên</a>
+        <a href="<?php if ($_SESSION['maquyen'] == 2 || $_SESSION['maquyen'] == 3) {echo "";} else {echo "?page=add_nhan_vien";}?>" class="btn btn-<?php if ($_SESSION['maquyen'] == 2 || $_SESSION['maquyen'] == 3) {echo "secondary"; } else {echo "primary";}?>" id="btn_add" name="btn_add" >Thêm nhân viên</a>
     </div>
     <div class="table-responsive">
         <table class="table table-borderde table-hover table-striped" style="width: 100%;" id="tb_taikhoan">
@@ -44,10 +44,10 @@
 	                    <td><?=$row->DiaChi?></td>
 	                    <td><?=$row->SoDT?></td>
 	                    <td>
-	                        <a class="btn btn-sm btn-<?php if ($_SESSION['maquyen'] == 2 || $_SESSION['maquyen'] == 3) {echo "secondary"; } else {echo "success";}?>" <?php if ($_SESSION['maquyen'] == 2 || $_SESSION['maquyen'] == 3) {echo "disable";}?>><i class="fa fa-edit"  id='btn_edit' href='?page=edit_home&edit_home=<?=$row->MaTK?>' ></i></a>
+	                        <a class="btn btn-sm btn-<?php if ($_SESSION['maquyen'] == 2 || $_SESSION['maquyen'] == 3) {echo "secondary"; } else {echo "success";}?>"><i class="fa fa-edit"  id='btn_edit' href=' <?php if ($_SESSION['maquyen'] == 2 || $_SESSION['maquyen'] == 3) {echo "";} else {echo "?page=edit_home&edit_home=".$row->MaTK;}?>' ></i></a>
 	                    </td>
 	                    <td>
-	                        <button class="btn btn-sm btn-<?php if ($_SESSION['maquyen'] == 2 || $_SESSION['maquyen'] == 3) {echo "secondary"; } else {echo "danger";}?>" <?php if ($_SESSION['maquyen'] == 2 || $_SESSION['maquyen'] == 3) {echo "disable";}?> type="submit" id='btn_del' name="btn_del" value="<?=$row->MaTK?>"><i class="fa fa-trash"></i></button>
+	                        <button class="btn btn-sm btn-<?php if ($_SESSION['maquyen'] == 2 || $_SESSION['maquyen'] == 3) {echo "secondary"; } else {echo "danger";}?>" <?php if ($_SESSION['maquyen'] == 2 || $_SESSION['maquyen'] == 3) {echo "disabled";} else {echo "";}?> type="submit" id='btn_del' name="btn_del" value="<?=$row->MaTK?>"><i class="fa fa-trash"></i></button>
 	                    </td>
 	                </tr>
                 </form>
