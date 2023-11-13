@@ -6,7 +6,7 @@ session_start();
         $username = trim($_POST['username']);
         $password = trim($_POST['password']);
 
-        $sql = "SELECT * FROM tb_taikhoan WHERE TenDN = '$username'";
+        $sql = "SELECT*FROM tb_taikhoan WHERE TenDN = '$username'";
         $query = mysqli_query($conn, $sql);
         if($query->num_rows > 0){
             $result = mysqli_fetch_object($query);
@@ -30,6 +30,7 @@ session_start();
                 $response['password'] = $password;
                 $response['msg'] = 'Đăng nhập không thành công';
                 $response['status_user'] = "";
+               
             }
         } else {
             $response['status'] = 0;

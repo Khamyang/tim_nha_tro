@@ -35,15 +35,24 @@ $matk = $_SESSION['matk'];
                 $sql = "UPDATE tb_taikhoan SET HoTen = '$HoTen', NgaySinh = '$NgaySinh', GioiTinh='$GioiTinh', SoDT='$SoDT', DiaChi='$DiaChi', profile_img = '$new_profile_img_name' WHERE MaTK = $matk";
                 $query = mysqli_query($conn, $sql);
                 if($query){
-                    header("Location: ../?page=profile");
+                    if ($_SESSION['maquyen'] == 3) {
+                       header("Location: ../?page=profile"); 
+                   } else {
+                    header("Location: ../view/admin/?page=profile");
+                   }
                 } else {
                     echo "<script>swal_err('Cập nhập không thành công')</script>";
                 }
             } else {
                 $sql = "UPDATE tb_taikhoan SET HoTen = '$HoTen', NgaySinh = '$NgaySinh', GioiTinh='$GioiTinh', SoDT='$SoDT', DiaChi='$DiaChi', profile_img = '$new_profile_img_name' WHERE MaTK = $matk";
                 $query = mysqli_query($conn, $sql);
-                if($query){
-                    header("Location: ../?page=profile");
+                if($query ){
+                    if ($_SESSION['maquyen'] == 3) {
+                       header("Location: ../?page=profile"); 
+                   } else {
+                    header("Location: ../view/admin/?page=profile");
+                   }
+                    
                 } else {
                     echo "<script>swal_err('Cập nhập không thành công')</script>";
                 }

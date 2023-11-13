@@ -11,19 +11,6 @@
         padding: 0px;
     }
 
-    .prd-block h5 {
-        width: 100%;
-        height: 35px;
-        line-height: 35px;
-        font-size: 20px;
-        font-weight: bold;
-        /* color:#FFF; */
-        text-transform: capitalize;
-        border-bottom: 1px solid brown;
-        padding-left: 12px;
-        /* border-radius: 20px; */
-    }
-
     .pr-list {
         width: 100%;
         height: auto;
@@ -33,7 +20,7 @@
     .prd-item {
         float: left;
         width: 32%;
-        height: 570px;
+        height: 600px;
         border: 1px solid #eee;
         margin-right: 15px;
         margin-bottom: 15px;
@@ -46,7 +33,6 @@
     }
 
     .prd-item p {
-        width: 400px;
         height: auto;
         font-size: 15px;
         color: #666;
@@ -65,8 +51,10 @@
 
     .prd-item h6 {
         margin-top: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: dodgerblue;
     }
-
     .prd-item p.price {
         padding-top: 10px;
         font-size: 15px;
@@ -79,7 +67,13 @@
         background: linear-gradient(180deg, #F0EFEF 20%, #E0DEDE 60%) repeat scroll 0 0 transparent;
         border-radius: 40px 40px 40px 40px;
     }
-
+    .detail{
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #eee;
+        background-color: #efefef;
+        border-radius: 3px;
+    }
     #pagination {
         padding: 5px;
         font-weight: bold;
@@ -110,7 +104,7 @@
 include_once('connect/connect.php');
 ?>
 <div class="content_district">
-    <div class="contaiber">
+    <div class="container">
         <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -195,6 +189,7 @@ include_once('connect/connect.php');
 <div class="mt-4">
     <div class="container">
         <h2 class="text-center mt-3">NHÀ TRỌ</h2>
+        <hr class="mt-4 mb-4">
         <div class="prd-block">
             <h5></h5>
             <div class="pr-list">
@@ -209,7 +204,7 @@ include_once('connect/connect.php');
                 $perRow = $page * $rowsPerPage - $rowsPerPage;
                 // echo $perRow . "Per row";
 
-                if(isset($_GET['district_id'])){
+                if (isset($_GET['district_id'])) {
                     $district_id = $_GET['district_id'];
                     $sql = "SELECT nha.*, tk.HoTen, ban.TenBan FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE TrangThai = 1 and nha.Mahuyen = $district_id ORDER BY MaNha LIMIT $perRow, $rowsPerPage";
                     $totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_thong_tin_nha WHERE TrangThai = 1 and MaHuyen = $district_id"));
@@ -221,14 +216,13 @@ include_once('connect/connect.php');
                     $sql = "SELECT nha.*, tk.HoTen, ban.* FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE ban.TenBan LIKE '%$stext%'";
                     $totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT nha.*, tk.HoTen, ban.* FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE ban.TenBan LIKE '%$stext%'"));
                     $query = mysqli_query($conn, $sql);
-                } else{
+                } else {
                     $sql = "SELECT nha.*, tk.HoTen, ban.TenBan FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE TrangThai = 1 ORDER BY MaNha LIMIT $perRow, $rowsPerPage";
                     $totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_thong_tin_nha WHERE TrangThai = 1"));
                     $query = mysqli_query($conn, $sql);
+                }
 
-                } 
-                
-        
+
                 $totalPage = ceil($totalRows / $rowsPerPage);
                 $listPage = '';
                 for ($i = 1; $i <= $totalPage; $i++) {
@@ -245,14 +239,17 @@ include_once('connect/connect.php');
                 while ($row = mysqli_fetch_array($query)) {
                 ?>
                     <div class="prd-item" onclick="home_details('<?php echo $row['MaNha'] ?>')">
-                        <img width="365" height="auto" src="./image/apartment.jpg<?php //echo //$row['HinhAnh'] ?>" />
+                        <img width="365" height="auto" src="./image/apartment.jpg<?php //echo //$row['HinhAnh'] 
+                                                                                    ?>" />
                         <h6><?php echo "Nhà Trọ " . $row['TenNha'] ?></h6>
-                        <p>Tên Chủ Trọ: <?php echo $row['HoTen'] ?></p>
-                        <p>Địa Chỉ: <?php echo $row['DiaChi'] . ", Ban " . $row['TenBan'] ?></p>
-                        <p>Ngày Đăng: <?php echo $row['NgayDang'] ?></p>
-                        <p>Trạng Thái: <?php echo $row['TrangThai'] ?></p>
-                        <p>Mô Tả: <?php echo $row['MoTa'] ?></p>
                         <p class="price"><span>Giá: <?php echo number_format($row['Gia']) ?> KIP</span></p>
+                        <div class="detail">
+                            <p><b>Tên Chủ Trọ: </b><?php echo $row['HoTen'] ?></p>
+                            <p><b>Địa Chỉ: </b><?php echo $row['DiaChi'] . ", Ban " . $row['TenBan'] ?></p>
+                            <p><b>Ngày Đăng: </b><?php echo $row['NgayDang'] ?></p>
+                            <p><b>Trạng Thái: </b><?php echo $row['TrangThai'] ?></p>
+                            <p><b>Mô Tả: </b><?php echo $row['MoTa'] ?></p>
+                        </div>
                     </div>
                 <?php
                 }
@@ -275,10 +272,11 @@ include_once('connect/connect.php');
         }
     };
 
-    function home_district(district_id){
-        window.location.href='./?page=home&district_id=' + district_id;
+    function home_district(district_id) {
+        window.location.href = './?page=home&district_id=' + district_id;
     }
-    function home_details(home_id){
-        window.location.href='./?page=detail&home_id=' + home_id;
+
+    function home_details(home_id) {
+        window.location.href = './?page=detail&home_id=' + home_id;
     }
 </script>

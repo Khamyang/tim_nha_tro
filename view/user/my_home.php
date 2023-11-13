@@ -1,6 +1,3 @@
-<?php
-   include "./controller/check_access.php";
-?>
 <style type="text/css">
   /*switch button*/
   .switch {
@@ -125,6 +122,13 @@
               die("Lỗi kết nối DB ". mysqli_connect_error());
             }
             $MaTK = $_SESSION['matk'];
+            $sql_dk = mysqli_query($conn, "SELECT * FROM tb_dondk WHERE MaDK = (SELECT MAX(MaDK) FROM tb_dondk WHERE MaTK = $MaTK)");
+            $trang_thai_dondk = "0";
+            if (mysqli_num_rows($sql_dk) > 0) {
+                $res = $sql_dk->fetch_object();
+                $trang_thai_dondk = $res->TrangThai;
+            }
+            
             $sql = "SELECT * FROM tb_thong_tin_nha WHERE MaTK = $MaTK";
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
@@ -143,7 +147,8 @@
                   <tr>
                     <td>
                       <label class="switch">
-                        <input type="checkbox"  id="checkbox" name="checkbox" value="<?php echo$row_nha['MaNha']; ?>" <?php if ($row_nha['TrangThai'] == 1) { echo "checked"; } else {echo "";} ?> onclick="statusUpdate()">
+                        <input type="checkbox" id="dang_nha<?= $row_nha['MaNha'] ?>" name="dang_nha<?= $row_nha['MaNha'] ?>" value="<?php echo $row_nha['MaNha']; ?>" <?php if ($row_nha['TrangThai'] == 1) {echo "checked";} else {echo "";} ?> onclick="dang_nha('dang_nha<?= $row_nha['MaNha'] ?>','<?= $trang_thai_dondk ?>','<?= $row_nha['MaNha'] ?>')">
+
                         <span class="slider round"></span>
                       </label>
                     </td>
@@ -196,7 +201,7 @@
             echo "</script>";
         }else{
             echo "<script type='text/javascript'>";
-            //echo "alert('Xóa không thành công!');";
+            echo "alert('Xóa không thành công!');";
             echo "location='index.php?page=my_home';";
             echo "</script>";
         }
@@ -206,19 +211,49 @@
 
 
 
-<script type="text/javascript">
-function statusUpdate() {
-    var MaNha = document.getElementById("checkbox").value;
-    var checkBox = document.getElementById("checkbox");
-    if (checkBox.checked == true){
-        alert('On! ');
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  function dang_nha(dang_nha_id, trangthai_dangky, ma_nha) {
+    var action = '';
+    if (trangthai_dangky == 1) {
+      if ($('#' + dang_nha_id).is(':checked')) {
+        action = "to_unchecked";
+      } else {
+        action = "to_checked";
+      }
+      $.ajax({
+        url: "controller/ControllerCheckPost.php?ma_nha=" + ma_nha + "&action=" + action,
+        type: "POST",
+        // data: {"huyen_id": huyen_id},
+        success: function(data_res) {
+          var db = JSON.parse(data_res);
+          if (db.status == 1) {
+            if (db.trang_thai == 1) {
+              $('#' + dang_nha_id).prop('checked', true);
+            }
+            if (db.trang_thai == 0) {
+              $('#' + dang_nha_id).prop('checked', false);
+            }
+            // location.reload();
+          }
+          if (db.status == 0) {
+            alert('1')
+            $('#' + dang_nha_id).prop('checked', false);
+          }
+        }
+      })
     } else {
-        alert('Of! ');
+      Swal.fire({
+        // toast: true,
+        position: 'center',
+        icon: 'warning',
+        title: 'Đăng nhà không thành công',
+        html: '<span>Vui lòng liên hệ admin để được hỗ trợ <br> 0914791272</span>',
+        showConfirmButton: true,
+      });
+      $('#' + dang_nha_id).prop('checked', false);
     }
-}
 
-
-
-
-
+  }
 </script>
