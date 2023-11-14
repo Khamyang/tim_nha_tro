@@ -25,7 +25,7 @@
         text-align: left;
         font-size: 16pt;
     }
-    .lien_he p:hover{
+    p:hover{
         color: #000;
     }
     .map {
@@ -74,7 +74,10 @@
     .fa-youtube {
     background: #bb0000;
     color: white;
-}
+    }
+    .social p{
+        color: orange;
+    }
 </style>
 
 <div class="container">
@@ -125,7 +128,7 @@
         </div>
     </div>
     <div class="social">
-        <p class="text-center">SOCIAL</p>
+        <p class="text-center text-orange"><b>SOCIAL</b></p>
         <h3 class="text-center">Kết nối qua mạng xã hội</h3>
         <div class="social_icon">
             <a href="#" class="fa fa-facebook"></a>
@@ -152,6 +155,7 @@ if (isset($_POST['submit'])) {
 
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('Cảm ơn bạn, Chúng tôi sẽ liên hệ sớm đến bạn!')</script>";
+        echo "<script>window.location.href='?page=lien_he'</script>";
     }
 }
 ?>

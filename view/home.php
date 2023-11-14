@@ -239,15 +239,15 @@ include_once('connect/connect.php');
                 while ($row = mysqli_fetch_array($query)) {
                 ?>
                     <div class="prd-item" onclick="home_details('<?php echo $row['MaNha'] ?>')">
-                        <img width="365" height="auto" src="./image/apartment.jpg<?php //echo //$row['HinhAnh'] 
+                        <img width="365" height="auto" src="./image/<?php echo $row['HinhAnh'] 
                                                                                     ?>" />
                         <h6><?php echo "Nhà Trọ " . $row['TenNha'] ?></h6>
                         <p class="price"><span>Giá: <?php echo number_format($row['Gia']) ?> KIP</span></p>
                         <div class="detail">
                             <p><b>Tên Chủ Trọ: </b><?php echo $row['HoTen'] ?></p>
-                            <p><b>Địa Chỉ: </b><?php echo $row['DiaChi'] . ", Ban " . $row['TenBan'] ?></p>
+                            <p><b>Địa Chỉ: </b><?php echo $row['DiaChi'] ?></p>
                             <p><b>Ngày Đăng: </b><?php echo $row['NgayDang'] ?></p>
-                            <p><b>Trạng Thái: </b><?php echo $row['TrangThai'] ?></p>
+                            <p><b>Bản: </b><?php echo $row['TenBan'] ?></p>
                             <p><b>Mô Tả: </b><?php echo $row['MoTa'] ?></p>
                         </div>
                     </div>
