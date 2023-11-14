@@ -23,7 +23,7 @@
         elseif ($page == "don_dangky") {
             $title =  "Quản lý Đơn đăng ký";
         }
-        elseif ($page == "nhan_vien") {
+        elseif ($page == "nhan_vien" || $page == "them_nhan_vien" || $page == "sua_nhan_vien" || $page == 'chitiet_thongtin_nguoidung') {
             $title =  "Quản lý Nhân viên";
         }
         elseif ($page == "thong_ke") {
@@ -40,9 +40,9 @@
 ?>
     <div class="menu mt-4">
     <a href="../../view/admin/?page=don_dangky" class="<?= (($page == "don_dangky" || $page == "") ? "bg-light" : ""); ?>" >Quản lý Đơn đăng ký</a>
-    <a href="../../view/admin/?page=chu_nha" class="<?= (($page == "chu_nha") ? "bg-light" : ""); ?>">Quản lý Chủ nhà</a>
-    <a href="../../view/admin/?page=nha_thue" class="<?= (($page == "nha_thue") ? "bg-light" : ""); ?>">Quản lý Nhà thuê</a>
-    <a href="../../view/admin/?page=nhan_vien" class="<?= (($page == "nhan_vien") ? "bg-light" : ""); ?>">Quản lý Nhân viên</a>
+    <!-- <a href="../../view/admin/?page=chu_nha" class="<?= (($page == "chu_nha") ? "bg-light" : ""); ?>">Quản lý Chủ nhà</a> -->
+    <a href="../../view/admin/?page=chu_nha" class="<?= (($page == "chu_nha") ? "bg-light" : ""); ?>">Quản lý Nhà thuê</a>
+    <a href="../../view/admin/?page=nhan_vien" class="<?= (($page == "nhan_vien" || $page == "them_nhan_vien" || $page == "sua_nhan_vien" || $page == "chitiet_thongtin_nguoidung") ? "bg-light" : ""); ?>">Quản lý Nhân viên</a>
     <a href="../../view/admin/?page=thong_ke" class="<?= (($page == "thong_ke") ? "bg-light" : ""); ?>">Thống kê</a>
     </div>
     

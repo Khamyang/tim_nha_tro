@@ -122,7 +122,7 @@ session_start();
           </li>
           
           <li class="nav-item">
-            <a class="nav-link mx-2 <?= ($page == "about") ? "bg-primary rounded" : ""; ?>" href="?page=about">About</a>
+            <a class="nav-link mx-2 <?= ($page == "gioi_thieu") ? "bg-primary rounded" : ""; ?>" href="?page=gioi_thieu">About</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-2 <?= ($page == "contact") ? "bg-primary rounded" : ""; ?>" href="?page=contact">Liên hệ</a>
@@ -130,7 +130,7 @@ session_start();
         </ul>
         <div class="search_bar">
             <form method="post" action="">
-              <input type="text" class="form-control rounded-pill" placeholder="Tìm kiếm.." name="stext">
+              <input type="text" class="form-control rounded-pill" placeholder="Tìm kiếm.." name="stext" required>
               <!-- <button type="submit"><i class="fa fa-search"></i></button>
              -->
             </form>

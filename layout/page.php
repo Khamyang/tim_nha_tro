@@ -21,6 +21,9 @@
             case 'add_home':
                     include "./view/user/add_home.php";
                     break;
+            case 'gioi_thieu':
+                        include "./view/gioi_thieu.php";
+                        break;
             case 'contact':
                     include "./view/lien_he.php";
                     break;

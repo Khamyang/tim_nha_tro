@@ -124,15 +124,15 @@
         <table class="table table-borderde table-hover table-striped" style="width: 100%;" id="tb_don_dk">
             <thead class="alert-success">
                 <tr>
-                    <th>STT</th>
-                    <th>Tên chủ nhà</th>
-                    <th>Hình thành toán</th>
-                    <th>Ngày đăng ký</th>
-                    <th>Ngày hết hạn</th>
-                    <th>Số tiền</th>
-                    <th>Số Điện thoại</th>
-                    <th>Trạng thái</th>
-                    <th>Thao tác</th>
+                    <th widht="1%">STT</th>
+                    <th widht="5%">Tên chủ nhà</th>
+                    <th widht="20%">Hình thành toán</th>
+                    <th widht="10%">Ngày đăng ký</th>
+                    <th widht="10%">Ngày hết hạn</th>
+                    <th widht="10%">Số tiền</th>
+                    <th widht="10%">Số Điện thoại</th>
+                    <th widht="10%">Trạng thái</th>
+                    <th widht="10%">Thao tác</th>
                 </tr>
             </thead>
             <tbody id="data_dondk">
@@ -165,8 +165,8 @@
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <button type="button" class="btn btn-info"><i class="fa fa-edit" aria-hidden="true"></i></button>
-                                <button type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                <button type="button" class="btn btn-sm btn-info"><i class="fa fa-edit" aria-hidden="true"></i></button>
+                                <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                             </div>
                         </td>
                     </tr>
