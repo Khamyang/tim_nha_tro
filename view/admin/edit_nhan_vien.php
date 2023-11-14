@@ -133,7 +133,7 @@
                     $birthday = $_POST['birthday'];
                     $address = $_POST['address'];
                     $phone = $_POST['phone'];
-                    if ( $password == "") {
+                    if (!empty($_POST['password'])) {
                         $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission, TenDN = '$user_name', profile_img = '$file_name', MatKhau = '$password', HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone' WHERE MaTK = $id";
                     } else {
                         $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission, TenDN = '$user_name', profile_img = '$file_name', HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone' WHERE MaTK = $id";
@@ -157,7 +157,7 @@
                 $birthday = $_POST['birthday'];
                 $address = $_POST['address'];
                 $phone = $_POST['phone'];
-                if ( $password == "") {
+                if (!empty($_POST['password'])) {
                     $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission, TenDN = '$user_name', MatKhau = '$password', HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone' WHERE MaTK = $id";
                 } else {
                     $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission, TenDN = '$user_name', HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone' WHERE MaTK = $id";
@@ -181,7 +181,7 @@
                 $birthday = $_POST['birthday'];
                 $address = $_POST['address'];
                 $phone = $_POST['phone'];
-                if ( $password == "") {
+                if (!empty($_POST['password'])) {
                     $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission, TenDN = '$user_name', MatKhau = '$password', HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone'";
                 } else {
                     $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission, TenDN = '$user_name', HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone'"; 
