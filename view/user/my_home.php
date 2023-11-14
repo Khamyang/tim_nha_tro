@@ -191,7 +191,7 @@
             $image = $row['HinhAnh'];
         }
     }
-        unlink("./image/product_image/".$image);
+        //unlink("./image/product_image/".$image);
         $sql = "DELETE FROM tb_thong_tin_nha WHERE MaNha = $MaNha";
         $result = mysqli_query($conn, $sql);
         if ($result) {

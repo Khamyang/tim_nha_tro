@@ -22,7 +22,8 @@
                             <br>
                             <div class="form-group">
                                 <label for="address">Chọn ảnh</label>
-                                <input type="file"  name="image" id="image" class="form-control" accept="image/png, image/jpeg, image/jpg">
+                                <input type="file"  name="image" id="image" class="form-control" accept="image/png, image/jpeg, image/jpg" onchange="loadFile(event)">
+                                <img class="border rounded p-1" src="" alt="" width="150" id="output" style="width: 150px; height: 150px; margin-top: 5px;" />
                             </div>
                             <br>
                             <div class="form-group">
@@ -103,4 +104,13 @@
 
         })
     })
+</script>
+<script>
+    var loadFile = function(event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function() {
+            URL.revokeObjectURL(output.src) // free memory
+        }
+    };
 </script>

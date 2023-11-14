@@ -17,6 +17,9 @@
             case 'add_nhan_vien':
                 include "../../view/admin/add_nhan_vien.php";
                 break;
+            case 'edit_nhan_vien':
+                include "../../view/admin/edit_nhan_vien.php";
+                break;
             default: 
             include "../../view/admin/don_dangky.php";
             break;

@@ -21,7 +21,7 @@ session_start();
         //  $errors[]='File size must be excately 2 MB';
         // }
 
-         if(empty($errors)==true) {
+         //if(empty($errors)==true) {
           $move_file = move_uploaded_file($file_tmp,"../image/product_image/".$file_name);
             if($move_file){
                 if (isset($_POST['add_home'])) {
@@ -39,9 +39,9 @@ session_start();
             
                 }
             }
-         }else{
-          echo "<script>alert('Anh không đúng dạng);location='../index.php?page=add_home';</script>";
-         }
+         //}else{
+         // echo "<script>alert('Anh không đúng dạng');location='../index.php?page=add_home';</script>";
+         //}
     }
     if (isset($_POST['add_home'])) {
         $home_name = $_POST['home_name'];

@@ -41,7 +41,7 @@
         // }
 
          if($file_name != "") {
-          unlink("./image/product_image/".$image_old);
+          //unlink("./image/product_image/".$image_old);
           $move_file = move_uploaded_file($file_tmp,"./image/product_image/".$file_name);
             if($move_file){
                 if (isset($_POST['edit_home'])) {
@@ -121,7 +121,8 @@
                             <br>
                             <div class="form-group">
                                 <label for="address">Chọn ảnh</label>
-                                <input type="file"  name="image" id="image" class="form-control" accept="image/png, image/jpeg, image/jpg">
+                                <input type="file"  name="image" id="image" class="form-control" accept="image/png, image/jpeg, image/jpg" onchange="loadFile(event)">
+                                <img class="border rounded p-1" src="./image/product_image/<?php  echo $row_ed['HinhAnh']; ?>" alt="" width="150" id="output" style="width: 150px; height: 150px; margin-top: 5px;" />
                             </div>
                             <br>
                             <div class="form-group">
@@ -202,3 +203,16 @@
         })
     })
 </script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    var loadFile = function(event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function() {
+            URL.revokeObjectURL(output.src) // free memory
+        }
+    };
+</script>
+

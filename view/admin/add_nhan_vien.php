@@ -36,7 +36,8 @@
                             <br>
                             <div class="form-group">
                                 <label for="profile_image">Ảnh</label>
-                                <input type="file"  name="profile_image" id="profile_image" class="form-control" accept="image/png, image/jpeg, image/jpg">
+                                <input type="file"  name="profile_image" id="profile_image" class="form-control" accept="image/png, image/jpeg, image/jpg" onchange="loadFile(event)">
+                                <img class="border rounded p-1" src="" alt="" width="150" id="output" style="width: 150px; height: 150px; margin-top: 5px;" />
                             </div>
                             <br>
                             <div class="form-group ">
@@ -62,7 +63,7 @@
                             <br>
                             <div class="form-group">
                                 <label for="phone">Số điện thoại</label>
-                                <input type="text" class="form-control" name="phone" id="phone" placeholder="" required>
+                                <input type="text" class="form-control" name="phone" id="phone" placeholder="">
                             </div>
                             <br>
                             <br>
@@ -80,5 +81,11 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
-
+    var loadFile = function(event) {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        output.onload = function() {
+            URL.revokeObjectURL(output.src) // free memory
+        }
+    };
 </script>
