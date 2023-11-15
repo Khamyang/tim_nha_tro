@@ -67,9 +67,11 @@
                             </div>
                             <br>
                             <br>
+                            <div class="text-end" >
+                                <input type="button" class="btn btn-danger" style="width: 100px;" onclick="history.back()" value="Thoát">
+                                <input class="btn btn-success" style="width: 100px;" type="submit" class="btn btn-success" name="add_user" id="add_user" value="Lưu">
+                            </div>
                             <div class="mb-3">
-                                <input style="float: right; margin-bottom: 8px;" type="submit" class="btn btn-success" name="add_user" id="add_user" value="Thêm">
-                                <input style="width: auto;" type="submit" class="btn btn-success" onclick="history.back()" value="Quay lại">
                             </div>
 
                         </div>

@@ -127,7 +127,7 @@
                             <br>
                             <div class="form-group">
                                 <label for="text">Giá thuê/tháng</label>
-                                <input type="text" class="form-control" name="fee" id="fee" placeholder="" required value="<?php echo $row_ed['Gia']; ?>">
+                                <input type="number" class="form-control" name="fee" id="fee" placeholder="" required value="<?php echo $row_ed['Gia']; ?>">
                                 <span class="text-danger" id="fee_err"></span>
                             </div>
                             <br>
@@ -160,10 +160,10 @@
                             </div>
                             <br>
                             <br>
-                            <div class="mb-3">
-                                <input style="float: right; margin-bottom: 8px;" type="submit" class="btn btn-success" name="edit_home" id="edit_home" value="Sửa">
+                            <div class="text-end" >
+                                <input type="button" class="btn btn-danger" style="width: 100px;" onclick="history.back()" value="Thoát">
+                                <input class="btn btn-success" style="width: 100px;" type="submit" class="btn btn-success" name="edit_home" id="edit_home" value="Lưu">
                             </div>
-
                         </div>
                     </div>
                 </div>

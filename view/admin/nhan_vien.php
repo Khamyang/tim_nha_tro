@@ -71,9 +71,11 @@
         }
     }
         //unlink("../image/product_image/".$image);
-        $sql = "DELETE FROM tb_taikhoan WHERE MaTK = $MaTK";
-        $result = mysqli_query($conn, $sql);
-        if ($result) {
+        $sql_tk = "DELETE FROM tb_taikhoan WHERE MaTK = $MaTK";
+        $sql_nha = "DELETE FROM tb_thong_tin_nha WHERE MaTK = $MaTK";
+        $result_tk = mysqli_query($conn, $sql_tk);
+        $result_nha = mysqli_query($conn, $sql_nha);
+        if ($result_tk && $result_nha) {
             echo "<script type='text/javascript'>";
             //echo "alert('Đã xóa thành công".$MaNha."');";
             echo "location='/tim_nha_tro/view/admin/?page=nhan_vien';";

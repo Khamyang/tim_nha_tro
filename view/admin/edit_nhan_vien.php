@@ -77,9 +77,9 @@
                             </div>
                             <br>
                             <br>
-                            <div class="mb-3">
-                                <input style="float: right; margin-bottom: 8px;" type="submit" class="btn btn-success" name="edit_user" id="edit_user" value="Sửa">
-                                <button  type="cancel" class="btn btn-success" id="quay_lai" name="quay_lai" >Quay lại</button>
+                            <div class="text-end" >
+                                <input type="button" class="btn btn-danger" style="width: 100px;" onclick="history.back()" value="Thoát">
+                                <input class="btn btn-success" style="width: 100px;" type="submit" class="btn btn-success" name="edit_user" id="edit_user" value="Lưu">
                             </div>
                         </div>
                     </div>

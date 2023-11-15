@@ -239,7 +239,7 @@ include_once('connect/connect.php');
                 while ($row = mysqli_fetch_array($query)) {
                 ?>
                     <div class="prd-item" onclick="home_details('<?php echo $row['MaNha'] ?>')">
-                        <img width="365" height="auto" src="./image/apartment.jpg<?php //echo //$row['HinhAnh'] 
+                        <img width="365" height="auto" src="./image/product_image/<?php echo $row['HinhAnh'] 
                                                                                     ?>" />
                         <h6><?php echo "Nhà Trọ " . $row['TenNha'] ?></h6>
                         <p class="price"><span>Giá: <?php echo number_format($row['Gia']) ?> KIP</span></p>

@@ -23,7 +23,7 @@ session_start();
 
          //if(empty($errors)==true) {
           $move_file = move_uploaded_file($file_tmp,"../image/product_image/".$file_name);
-            if($move_file){
+            if($move_file){ 
                 if (isset($_POST['add_home'])) {
                     $home_name = $_POST['home_name'];
                     $home_details = $_POST['home_details'];
@@ -38,24 +38,25 @@ session_start();
                     // echo "<script>alert(".$matk.")</script>";
             
                 }
+            } else {
+                    if (isset($_POST['add_home'])) {
+                    $home_name = $_POST['home_name'];
+                    $home_details = $_POST['home_details'];
+                    $fee = $_POST['fee'];
+                    $home_address = $_POST['home_address'];
+                    $sl_huyen = $_POST['sl_huyen'];
+                    $sl_ban = $_POST['sl_ban'];
+                    $query_insert = "INSERT INTO tb_thong_tin_nha (MaTK, TenNha, HinhAnh, DiaChi, Gia, MoTa, MaHuyen, MaBan) value ($matk,'$home_name','','$home_address','$fee', '$home_details', $sl_huyen, $sl_ban)";
+                    $conn -> query($query_insert);
+
+                    echo "<script>location='../index.php?page=my_home';</script>";
+                    // echo "<script>alert(".$matk.")</script>";
+
+                }
             }
          //}else{
          // echo "<script>alert('Anh không đúng dạng');location='../index.php?page=add_home';</script>";
          //}
     }
-    if (isset($_POST['add_home'])) {
-        $home_name = $_POST['home_name'];
-        $home_details = $_POST['home_details'];
-        $fee = $_POST['fee'];
-        $home_address = $_POST['home_address'];
-        $sl_huyen = $_POST['sl_huyen'];
-        $sl_ban = $_POST['sl_ban'];
-        $query_insert = "INSERT INTO tb_thong_tin_nha (MaTK, TenNha, HinhAnh, DiaChi, Gia, MoTa, MaHuyen, MaBan) value ($matk,'$home_name','','$home_address','$fee', '$home_details', $sl_huyen, $sl_ban)";
-        $conn -> query($query_insert);
-
-        echo "<script>location='../index.php?page=my_home';</script>";
-        // echo "<script>alert(".$matk.")</script>";
-
-    }
-     echo "<script> location='../index.php?page=add_home'; </script>";
+     //echo "<script> location='../index.php?page=add_home'; </script>";
  ?>

@@ -52,31 +52,27 @@ if ($check != 0) {
                     echo "<script>location='/tim_nha_tro/view/admin/?page=nhan_vien';</script>";
             
                 }
+            } else {
+                    if (isset($_POST['add_user'])) {
+                    $user_name = trim($_POST['user_name']);
+                    $full_name = $_POST['full_name'];
+                    $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
+                    $permission = $_POST['permission'];
+                    $gender = $_POST['gender'];
+                    $birthday = $_POST['birthday'];
+                    $address = $_POST['address'];
+                    $phone = $_POST['phone'];
+
+                    $query_insert = "INSERT INTO tb_taikhoan (MaQuyen, TenDN, profile_img, MatKhau, HoTen, GioiTinh, NgaySinh, DiaChi, SoDT) value ($permission,'$user_name', '','$password','$full_name', '$gender', '$birthday', '$address', '$phone')";
+                    $conn -> query($query_insert);
+                    echo "<script>location='/tim_nha_tro/view/admin/?page=nhan_vien';</script>";
+
+                }
             }
          //}else{
         //echo "<script>alert('Anh không đúng dạng');location='/tim_nha_tro/view/admin/?page=add_nhan_vien';</script>";
         // }
     }
-    if (isset($_POST['add_user'])) {
-        $user_name = trim($_POST['user_name']);
-        $full_name = $_POST['full_name'];
-        $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
-        $permission = $_POST['permission'];
-        $gender = $_POST['gender'];
-        $birthday = $_POST['birthday'];
-        $address = $_POST['address'];
-        $phone = $_POST['phone'];
-
-        $query_insert = "INSERT INTO tb_taikhoan (MaQuyen, TenDN, profile_img, MatKhau, HoTen, GioiTinh, NgaySinh, DiaChi, SoDT) value ($permission,'$user_name', '','$password','$full_name', '$gender', '$birthday', '$address', '$phone')";
-        $conn -> query($query_insert);
-        echo "<script>location='/tim_nha_tro/view/admin/?page=nhan_vien';</script>";
-
-    }
-
-
-
-
-
 }
 
  ?>
