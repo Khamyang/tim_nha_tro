@@ -129,7 +129,7 @@
         <div class="text-end mb-2">
             <form action="" method="post">
             <a href="?page=don_dangky&them_don_dangky" class="btn btn-primary">Thêm mới</a>
-            <button type="submit" name="btn_check_status" id="btn_check_status" class="btn btn-success">Quyết ngày hết hạn </button>
+            <!-- <button type="submit" name="btn_check_status" id="btn_check_status" class="btn btn-success">Quyết ngày hết hạn </button> -->
             </form>
         </div>
         <div class="table-responsive">
