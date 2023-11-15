@@ -79,6 +79,7 @@
                             <br>
                             <div class="mb-3">
                                 <input style="float: right; margin-bottom: 8px;" type="submit" class="btn btn-success" name="edit_user" id="edit_user" value="Sửa">
+                                <button  type="cancel" class="btn btn-success" id="quay_lai" name="quay_lai" >Quay lại</button>
                             </div>
                         </div>
                     </div>
@@ -193,5 +194,11 @@
                 // echo "<script>alert(".$matk.")</script>";
 
             }
+    }
+
+
+//QuayLai
+    if (isset($_POST['quay_lai'])) {
+        echo "<script>location='/tim_nha_tro/view/admin/?page=nhan_vien';</script>";
     }
  ?>

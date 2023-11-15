@@ -20,6 +20,9 @@
             case 'edit_nhan_vien':
                 include "../../view/admin/edit_nhan_vien.php";
                 break;
+            case 'chitiet_thongtin_nguoidung':
+                include "../../view/admin/chitiet_thongtin_nguoidung.php";
+                break;
             default: 
             include "../../view/admin/don_dangky.php";
             break;

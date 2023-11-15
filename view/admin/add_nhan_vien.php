@@ -69,6 +69,7 @@
                             <br>
                             <div class="mb-3">
                                 <input style="float: right; margin-bottom: 8px;" type="submit" class="btn btn-success" name="add_user" id="add_user" value="Thêm">
+                                <input style="width: auto;" type="submit" class="btn btn-success" onclick="history.back()" value="Quay lại">
                             </div>
 
                         </div>

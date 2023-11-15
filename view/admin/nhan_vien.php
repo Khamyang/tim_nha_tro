@@ -1,52 +1,54 @@
 <div class="card p-3">
     <div class="text-end mb-2">
         <!-- <button class="btn btn-primary">Thêm nhân viên</button> -->
-        <a href="<?php if ($_SESSION['maquyen'] == 2 || $_SESSION['maquyen'] == 3) {echo "";} else {echo "?page=add_nhan_vien";}?>" class="btn btn-<?php if ($_SESSION['maquyen'] == 2 || $_SESSION['maquyen'] == 3) {echo "secondary"; } else {echo "primary";}?>" id="btn_add" name="btn_add" >Thêm nhân viên</a>
+        <a href="<?php if ($_SESSION['maquyen'] == 2) {echo "javascript:void(0)";} else {echo "?page=add_nhan_vien";}?>" class="btn btn-<?php if ($_SESSION['maquyen'] == 2) {echo "secondary"; } else {echo "primary";}?>" id="btn_add" name="btn_add" >Thêm nhân viên</a>
     </div>
     <div class="table-responsive">
     	<form action="" method="post" enctype="multipart/form-data">
-	        <table class="table table-borderde table-hover table-striped" style="width: 100%;" id="tb_taikhoan">
+	        <table class="table table-borderde table-hover table-striped" style="width: 100%;" id="tb_nhanvien">
 	            <thead class="alert-success">
 	                <tr>
-	                    <th>STT</th>
+	                    <th class="text-center">STT</th>
 	                    <th>Ảnh</th>
-	                    <th>Mã nhân viên</th>
 	                    <th>Tên đăng nhập</th>
 	                    <th>Họ Tên nhân viên</th>
-	                    <th>Quyển</th>
-	                    <th>Giới tính</th>
-	                    <th>Ngày sinh</th>
-	                    <th>Địa chỉ</th>
+	                    <th class="text-center">Quyền</th>
 	                    <th>Số điện thoại</th>
-	                    <th>Sửa</th>
-	                    <th>Xóa</th>
+	                    <th>Thao tác</th>
 	                </tr>
 	            </thead>
 	            <tbody>
 	                <?php
 	                $matk = $_SESSION['matk'];
-	                $sql = "SELECT quyen.TenQuyen, tk.* FROM tb_quyen as quyen, tb_taikhoan as tk WHERE quyen.MaQuyen = tk.MaQuyen and tk.MaQuyen = 2 and tk.MaTK not in ($matk)";
+	                $sql = "SELECT quyen.MaQuyen,quyen.TenQuyen, tk.* FROM tb_quyen as quyen, tb_taikhoan as tk WHERE quyen.MaQuyen = tk.MaQuyen and tk.MaTK not in ($matk)";
 	                $query = mysqli_query($conn, $sql);
 	                $stt = 0;
+                    $color_quyen ='';
 	                while($row = mysqli_fetch_object( $query)){
+                        if($row->MaQuyen == 1){
+                            $color_quyen = "<span class='p-1 bg-success rounded-pill '>";
+                        } else if($row->MaQuyen == 2) {
+                            $color_quyen = "<span class='p-1 bg-info rounded-pill '>";
+                        } else if($row->MaQuyen == 3 || $row->MaQuyen == 4) {
+                            $color_quyen = "<span class='p-1 bg-warning rounded-pill '>";
+                        }
 	                    $stt++;
 	                ?>
-	                <tr>
+	                <tr class="">
 	                    <td align="center"><?=$stt?></td>
-	                    <td><img src="../../image/profile_image/<?=$row->profile_img?>" alt="" width="100px" class="rounded"></td>
-	                    <td><?=$row->MaTK?></td>
+	                    <td><img src="../../image/profile_image/<?php if ($row->profile_img == "") {echo "user_img1.png";} else {echo $row->profile_img; }?>" alt="" style="width: 45px; height: 45px" class="rounded-circle"></td>
 	                    <td><?=$row->TenDN?></td>
 	                    <td><?=$row->HoTen?></td>
-	                    <td><?=$row->TenQuyen?></td>
-	                    <td><?=$row->GioiTinh?></td>
-	                    <td><?=$row->NgaySinh?></td>
-	                    <td><?=$row->DiaChi?></td>
+	                    <td align="center"><?=$color_quyen.$row->TenQuyen."</span>"?></td>
 	                    <td><?=$row->SoDT?></td>
 	                    <td>
-	                        <a class="btn btn-sm btn-<?php if ($_SESSION['maquyen'] == 2 || $_SESSION['maquyen'] == 3) {echo "secondary"; } else {echo "success";}?>" id='btn_edit' href='<?php if ($_SESSION['maquyen'] == 2 || $_SESSION['maquyen'] == 3) {echo "";} else {echo "?page=edit_nhan_vien&edit_nhan_vien=".$row->MaTK;}?>' ><i class="fa fa-edit"></i></a>
-	                    </td>
-	                    <td>
-	                        <button class="btn btn-sm btn-<?php if ($_SESSION['maquyen'] == 2 || $_SESSION['maquyen'] == 3) {echo "secondary"; } else {echo "danger";}?>" <?php if ($_SESSION['maquyen'] == 2 || $_SESSION['maquyen'] == 3) {echo "disabled";} else {echo "";}?> type="submit" id='btn_del' name="btn_del" value="<?=$row->MaTK?>"><i class="fa fa-trash"></i></button>
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+							<a class="btn btn-sm btn-info" id='chitiet_thongtin_nguoidung' href='?page=chitiet_thongtin_nguoidung&chitiet_thongtin_nguoidung=<?php echo $row->MaTK; ?>' ><i class="fa fa-eye"></i></a>
+
+	                        <a class="btn btn-sm btn-<?php if ($_SESSION['maquyen'] == 2) {echo "secondary"; } else {echo "success";}?>" id='btn_edit' href='<?php if ($_SESSION['maquyen'] == 2) {echo "";} else {echo "?page=edit_nhan_vien&edit_nhan_vien=".$row->MaTK;}?>' ><i class="fa fa-edit"></i></a>
+
+	                        <button class="btn btn-sm btn-<?php if ($_SESSION['maquyen'] == 2) {echo "secondary"; } else {echo "danger";}?>" <?php if ($_SESSION['maquyen'] == 2) {echo "disabled";} else {echo "";}?> type="submit" id='btn_del' name="btn_del" value="<?=$row->MaTK?>"><i class="fa fa-trash"></i></button>
+                        </div>
 	                    </td>
 	                </tr>
 	                <?php }?>
