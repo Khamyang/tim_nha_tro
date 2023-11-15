@@ -5,7 +5,7 @@
     </div>
     <div class="table-responsive">
     	<form action="" method="post" enctype="multipart/form-data">
-	        <table class="table table-borderde table-hover table-striped" style="width: 100%;" id="tb_nhanvien">
+	        <table class="table table-borderde table-hover table-striped" style="width: 100%;" id="tb_taikhoan">
 	            <thead class="alert-success">
 	                <tr>
 	                    <th class="text-center">STT</th>
