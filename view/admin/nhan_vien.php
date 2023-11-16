@@ -43,11 +43,11 @@
 	                    <td><?=$row->SoDT?></td>
 	                    <td>
                         <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-							<a class="btn btn-sm btn-info" id='chitiet_thongtin_nguoidung' href='?page=chitiet_thongtin_nguoidung&chitiet_thongtin_nguoidung=<?php echo $row->MaTK; ?>' ><i class="fa fa-eye"></i></a>
+							<a class="btn btn-info" id='chitiet_thongtin_nguoidung' href='?page=chitiet_thongtin_nguoidung&chitiet_thongtin_nguoidung=<?php echo $row->MaTK; ?>' ><i class="fa fa-eye"></i></a>
 
-	                        <a class="btn btn-sm btn-<?php if ($_SESSION['maquyen'] == 2) {echo "secondary"; } else {echo "success";}?>" id='btn_edit' href='<?php if ($_SESSION['maquyen'] == 2) {echo "";} else {echo "?page=edit_nhan_vien&edit_nhan_vien=".$row->MaTK;}?>' ><i class="fa fa-edit"></i></a>
+	                        <a class="btn btn-<?php if ($_SESSION['maquyen'] == 2) {echo "secondary"; } else {echo "success";}?>" id='btn_edit' href='<?php if ($_SESSION['maquyen'] == 2) {echo "";} else {echo "?page=edit_nhan_vien&edit_nhan_vien=".$row->MaTK;}?>' ><i class="fa fa-edit"></i></a>
 
-	                        <button class="btn btn-sm btn-<?php if ($_SESSION['maquyen'] == 2) {echo "secondary"; } else {echo "danger";}?>" <?php if ($_SESSION['maquyen'] == 2) {echo "disabled";} else {echo "";}?> type="submit" id='btn_del' name="btn_del" value="<?=$row->MaTK?>"><i class="fa fa-trash"></i></button>
+	                        <button class="btn btn-<?php if ($_SESSION['maquyen'] == 2) {echo "secondary"; } else {echo "danger";}?>" <?php if ($_SESSION['maquyen'] == 2) {echo "disabled";} else {echo "";}?> type="submit" id='btn_del' name="btn_del" value="<?=$row->MaTK?>"><i class="fa fa-trash"></i></button>
                         </div>
 	                    </td>
 	                </tr>

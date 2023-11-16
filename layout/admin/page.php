@@ -5,8 +5,11 @@
             case 'don_dangky':
                 include "../../view/admin/don_dangky.php";
                 break;
-            case 'chu_nha':
-                include "../../view/admin/chu_nha.php";
+            case 'nha_thue':
+                include "../../view/admin/nha_thue.php";
+                break;
+            case 'sua_nha_thue':
+                include "../../view/admin/sua_nha_thue.php";
                 break;
             case 'profile':
                 include "../../view/admin/personal_profile.php";
@@ -22,6 +25,9 @@
                 break;
             case 'chitiet_thongtin_nguoidung':
                 include "../../view/admin/chitiet_thongtin_nguoidung.php";
+                break;
+            case 'sua_don_dangky':
+                include "../../view/admin/sua_don_dangky.php";
                 break;
             default: 
             include "../../view/admin/don_dangky.php";

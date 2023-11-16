@@ -15,9 +15,7 @@
     if(isset($_REQUEST['page'])){
         $page = $_REQUEST['page'];
         $title = "";
-        if ($page == "chu_nha") {
-            $title =  "Quản lý Chủ nhà";
-        } elseif ($page == "nha_thue") {
+        if ($page == "nha_thue") {
             $title =  "Quản lý Nhà thuê";
         }
         elseif ($page == "don_dangky") {
@@ -40,7 +38,6 @@
 ?>
     <div class="menu mt-4">
     <a href="../../view/admin/?page=don_dangky" class="<?= (($page == "don_dangky" || $page == "") ? "bg-light" : ""); ?>" >Quản lý Đơn đăng ký</a>
-    <a href="../../view/admin/?page=chu_nha" class="<?= (($page == "chu_nha") ? "bg-light" : ""); ?>">Quản lý Chủ nhà</a>
     <a href="../../view/admin/?page=nha_thue" class="<?= (($page == "nha_thue") ? "bg-light" : ""); ?>">Quản lý Nhà thuê</a>
     <a href="../../view/admin/?page=nhan_vien" class="<?= (($page == "nhan_vien") ? "bg-light" : ""); ?>">Quản lý Nhân viên</a>
     <a href="../../view/admin/?page=thong_ke" class="<?= (($page == "thong_ke") ? "bg-light" : ""); ?>">Thống kê</a>
