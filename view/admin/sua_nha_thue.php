@@ -123,7 +123,7 @@ $MaNV = $_SESSION['matk'];
                             <div class="form-group">
                                 <label for="address">Chọn ảnh</label>
                                 <input type="file"  name="image" id="image" class="form-control" accept="image/png, image/jpeg, image/jpg" onchange="loadFile(event)">
-                                <img class="border rounded p-1" src="./image/product_image/<?php  echo $row_ed['HinhAnh']; ?>" alt="" width="150" id="output" style="width: 150px; height: 150px; margin-top: 5px;" />
+                                <img class="border rounded p-1" src="../../image/product_image/<?php  echo $row_ed['HinhAnh']; ?>" alt="" width="150" id="output" style="width: 150px; height: 150px; margin-top: 5px;" />
                             </div>
                             <br>
                             <div class="form-group">
@@ -206,7 +206,6 @@ $MaNV = $_SESSION['matk'];
 </script>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
     var loadFile = function(event) {
         var output = document.getElementById('output');

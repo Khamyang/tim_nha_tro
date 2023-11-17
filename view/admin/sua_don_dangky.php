@@ -63,8 +63,9 @@
 </script>
 
 
-//Edit Order
+
 <?php 
+//Edit Order
     if(isset($_FILES['anh'])){
         $errors= array();
         $file_name = $_FILES['anh']['name'];

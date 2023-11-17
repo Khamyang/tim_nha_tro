@@ -73,7 +73,7 @@
     color: #000;
   }
 
-  #btn_edit {
+  #edit_home {
     margin-left: 30px;
     margin-right: 30px;
     border-radius: 8px;
@@ -87,7 +87,7 @@
     background: red;
   }
 
-  #btn_edit:hover {
+  #edit_home:hover {
     background-color: #50C878;
     color: #fff;
   }
@@ -153,7 +153,7 @@
                       </label>
                     </td>
                     <td>
-                        <a class='btn btn-success' id='btn_edit' href='?page=edit_home&edit_home=<?php echo$row_nha['MaNha']; ?>'>Sửa</a>   
+                        <a class='btn btn-success' id='edit_home' href='?page=edit_home&edit_home=<?php echo$row_nha['MaNha']; ?>'>Sửa</a>   
                     </td>
                     <td>
                         <button class='btn btn-danger' type="submit" id='btn_del' name="btn_del" value="<?php echo$row_nha['MaNha']; ?>">Xóa</button>
