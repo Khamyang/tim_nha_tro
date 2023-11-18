@@ -22,7 +22,7 @@
             $title =  "Quản lý Đơn đăng ký";
         }
         elseif ($page == "nhan_vien") {
-            $title =  "Quản lý Nhân viên";
+            $title =  "Quản lý Người dùng";
         }
         elseif ($page == "thong_ke") {
             $title =  "Thống kê";
@@ -39,7 +39,7 @@
     <div class="menu mt-4">
     <a href="../../view/admin/?page=don_dangky" class="<?= (($page == "don_dangky" || $page == "") ? "bg-light" : ""); ?>" >Quản lý Đơn đăng ký</a>
     <a href="../../view/admin/?page=nha_thue" class="<?= (($page == "nha_thue") ? "bg-light" : ""); ?>">Quản lý Nhà thuê</a>
-    <a href="../../view/admin/?page=nhan_vien" class="<?= (($page == "nhan_vien") ? "bg-light" : ""); ?>">Quản lý Nhân viên</a>
+    <a href="../../view/admin/?page=nhan_vien" class="<?= (($page == "nhan_vien") ? "bg-light" : ""); ?>">Quản lý Người dùng</a>
     <a href="../../view/admin/?page=thong_ke" class="<?= (($page == "thong_ke") ? "bg-light" : ""); ?>">Thống kê</a>
     </div>
     

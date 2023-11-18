@@ -11,6 +11,9 @@
             case 'sua_nha_thue':
                 include "../../view/admin/sua_nha_thue.php";
                 break;
+            case 'them_nha_thue':
+                include "../../view/admin/them_nha_thue.php";
+                break;
             case 'profile':
                 include "../../view/admin/personal_profile.php";
                 break;
@@ -28,6 +31,9 @@
                 break;
             case 'sua_don_dangky':
                 include "../../view/admin/sua_don_dangky.php";
+                break;
+            case 'chitiet_anhtt':
+                include "../../view/admin/chitiet_anhtt.php";
                 break;
             default: 
             include "../../view/admin/don_dangky.php";

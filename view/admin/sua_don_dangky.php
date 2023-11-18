@@ -66,51 +66,51 @@
 
 <?php 
 //Edit Order
-    if(isset($_FILES['anh'])){
-        $errors= array();
-        $file_name = $_FILES['anh']['name'];
-        $file_size = $_FILES['anh']['size'];
-        $file_tmp = $_FILES['anh']['tmp_name'];
-        $file_type = $_FILES['anh']['type'];
-        $file_ext=pathinfo($file_name, PATHINFO_EXTENSION);
+if (isset($_POST['btn_luu'])) {
+    $TenDN = trim($_POST['TenDN']);
+    $SoTien = $_POST['SoTien'];
+    $NgayDK = $_POST['NgayDK'];
+    $NgayHH = $_POST['NgayHH'];
+    $SoTien = $_POST['SoTien'];
 
-        $extensions= array("jpeg","jpg","png");
+    $sql = "SELECT MaTK FROM tb_taikhoan WHERE TenDN = '$TenDN'";
+    $result = mysqli_query($conn, $sql);
+    $row_tk = mysqli_fetch_assoc($result);
+    if (empty($row_tk['MaTK'])) {
+        echo "<script> alert('Tên tài khoản này không có trong hệ thống, hãy kiểm tra lại!');history.back();</script>";
+    } else {
+       $MaTK = $row_tk['MaTK'];
+        if(isset($_FILES['anh'])){
+            $errors= array();
+            $file_name = $_FILES['anh']['name'];
+            $file_size = $_FILES['anh']['size'];
+            $file_tmp = $_FILES['anh']['tmp_name'];
+            $file_type = $_FILES['anh']['type'];
+            $file_ext=pathinfo($file_name, PATHINFO_EXTENSION);
 
-        if(in_array($file_ext,$extensions)=== false){
-         $errors[]="extension not allowed, please choose a JPEG or PNG file.";
-        }
+            $extensions= array("jpeg","jpg","png");
 
-          $move_file = move_uploaded_file($file_tmp,"../../image/order_image/".$file_name);
-          $MaTK = $row_dk['MaTK'];
+            if(in_array($file_ext,$extensions)=== false){
+                $errors[]="extension not allowed, please choose a JPEG or PNG file.";
+            }
+
+            $move_file = move_uploaded_file($file_tmp,"../../image/order_image/".$file_name);
+            //$MaTK = $row_dk['MaTK'];
+
             if($move_file){
                 unlink("../../image/order_image/".$row_dk['HinhTT']);
-                if (isset($_POST['btn_luu'])) {
-                    $TenDN = trim($_POST['TenDN']);
-                    $SoTien = $_POST['SoTien'];
-                    $NgayDK = $_POST['NgayDK'];
-                    $NgayHH = $_POST['NgayHH'];
-                    $SoTien = $_POST['SoTien'];
+                $query = "UPDATE tb_dondk set MaTK = $MaTK, HinhTT = '$file_name', NgayDK = '$NgayDK', NgayHetHan = '$NgayHH', SoTien = $SoTien WHERE MaDK = $id ";
+                $conn -> query($query);
+                echo "<script>location='/tim_nha_tro/view/admin/?page=don_dangky';</script>";
 
-                    $query = "UPDATE tb_dondk set MaTK = $MaTK, HinhTT = '$file_name', NgayDK = '$NgayDK', NgayHetHan = '$NgayHH', SoTien = $SoTien WHERE MaDK = $id ";
-                    $conn -> query($query);
-                    echo "<script>location='/tim_nha_tro/view/admin/?page=don_dangky';</script>";
-            
-                }
             } else {
-                if (isset($_POST['btn_luu'])) {
-                    $TenDN = trim($_POST['TenDN']);
-                    $SoTien = $_POST['SoTien'];
-                    $NgayDK = $_POST['NgayDK'];
-                    $NgayHH = $_POST['NgayHH'];
-                    $SoTien = $_POST['SoTien'];
-
-                    $query = "UPDATE tb_dondk set MaTK = $MaTK, NgayDK = '$NgayDK', NgayHetHan = '$NgayHH', SoTien = $SoTien WHERE MaDK = $id";
-                    $conn -> query($query);
-                    echo "<script>location='/tim_nha_tro/view/admin/?page=don_dangky';</script>";
-            
-                }
+                $query = "UPDATE tb_dondk set MaTK = $MaTK, NgayDK = '$NgayDK', NgayHetHan = '$NgayHH', SoTien = $SoTien WHERE MaDK = $id";
+                $conn -> query($query);
+                echo "<script>location='/tim_nha_tro/view/admin/?page=don_dangky';</script>";
             }
+        }
     }
+}
 
 
 ?>

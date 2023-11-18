@@ -161,7 +161,7 @@
                             <tr>
                                 <td align="center"><?= $stt ?></td>
                                 <td><?= $row->TenDN ?></td>
-                                <td><img src="../../image/order_image/<?= $row->HinhTT ?>" alt="" width="100px" class="rounded"></td>
+                                <td><a href="?page=chitiet_anhtt&chitiet_anhtt=<?= $row->HinhTT ?>" id='chitiet_anhtt' name='chitiet_anhtt'><img src="../../image/order_image/<?= $row->HinhTT ?>" alt="" width="100px" class="rounded" ></a></td>
                                 <td><?= $row->NgayDK ?></td>
                                 <td><?= $row->NgayHetHan ?></td>
                                 <td><?= number_format($row->SoTien) ?></td>
@@ -174,7 +174,7 @@
                                 </td>
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                        <a href="?page=sua_don_dangky&sua_don_dangky=<?=$row->MaDK?>" class="btn btn-info" name="xoa_don_dangky" id="xoa_don_dangky" ><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                        <a href="?page=sua_don_dangky&sua_don_dangky=<?=$row->MaDK?>" class="btn btn-info" ><i class="fa fa-edit" aria-hidden="true"></i></a>
                                         <button type="submit" class="btn btn-danger" name="xoa_don_dangky" id="xoa_don_dangky" value="<?=$row->MaDK?>"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                     </div>
                                 </td>

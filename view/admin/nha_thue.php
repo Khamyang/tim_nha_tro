@@ -62,7 +62,7 @@
 </style>
 <div class="card p-3">
     <div class="text-end mb-2">
-        <button class="btn btn-primary">Thêm nhà mới</button>
+        <a href="?page=them_nha_thue" class="btn btn-primary">Thêm nhà mới</a>
     </div>
     <form action="" method="post" enctype="multipart/form-data">
         <div class="table-responsive">
@@ -108,7 +108,7 @@
                             </label>
                         </td>
                         <td>
-                            <a href="<?php if(($row->MaQuyen == 1) || ($row->MaQuyen == 2)) {echo "?page=sua_nha_thue&sua_nha_thue=".$row->MaNha;} else {echo "";}?>" class="btn btn-<?php if(($row->MaQuyen == 1) || ($row->MaQuyen == 2)) {echo "info";} else {echo "secondary";}?>" name="sua_nha_thue" id="sua_nha_thue" ><i class="fa fa-edit" aria-hidden="true"></i></a>
+                            <a href="?page=sua_nha_thue&sua_nha_thue=<?php echo $row->MaNha; ?>" class="btn btn-info" name="sua_nha_thue" id="sua_nha_thue" ><i class="fa fa-edit" aria-hidden="true"></i></a>
                             <button type="submit" class="btn btn-danger" name="btn_xoa" id="btn_xoa" value="<?php echo $row->MaNha; ?>"><i class="fa fa-trash" aria-hidden="true"></i></button>
                         </td>
                     </tr>
