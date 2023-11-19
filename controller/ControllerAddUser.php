@@ -13,7 +13,7 @@ while($row = mysqli_fetch_object( $query)){
     }
 }
 if ($check != 0) {
-    echo "<script> alert('Tên đăng nhập này đã có trong hệ thống! hãy chọn tên khác');location='../view/admin/?page=add_nhan_vien';</script>";
+    echo "<script> alert('Tên đăng nhập này đã có trong hệ thống! hãy chọn tên khác');history.back();</script>";
 } else {
    if(isset($_FILES['profile_image'])){
         $errors= array();

@@ -84,6 +84,6 @@
         </div>
     </div>
 </div>
-<div class="text-center">
+<div class="text-end">
     <input style="width: auto;" type="submit" class="btn btn-success" onclick="history.back()" value="Thoát">
 </div>

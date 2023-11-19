@@ -14,7 +14,7 @@
                 <div class="row mb-3">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Tên tài khoản</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="TenDN" name="TenDN" placeholder="" value="<?php echo $row_dk['TenDN']; ?>" required>
+                        <input type="text" class="form-control" id="TenDN" name="TenDN" placeholder="" value="<?php echo $row_dk['TenDN']; ?>" required disabled>
                     </div>
                 </div>
                 <div class="row mb-3">

@@ -139,7 +139,7 @@ $MaNV = $_SESSION['matk'];
                             </center>
                             <div class="form-group ">
                                 <label for="username">Tên tài khoản chủ nhà</label>
-                                <input type="text" class="form-control" name="user_name" id="user_name" placeholder="" required value="<?php echo $row_ed['TenDN']; ?>">
+                                <input type="text" class="form-control" name="user_name" id="user_name" placeholder="" required value="<?php echo $row_ed['TenDN']; ?>" disabled>
                                 <span class="text-danger" id="user_name_err"></span>
                             </div>
                             <div class="form-group ">

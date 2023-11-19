@@ -20,7 +20,7 @@
                             </center>
                             <div class="form-group ">
                                 <label for="username">Tên đăng nhập</label>
-                                <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Tên đăng nhập không được trống!" value="<?php echo $row_ed['TenDN']; ?>" required>
+                                <input type="text" class="form-control" name="user_name" id="user_name" placeholder="Tên đăng nhập không được trống!" value="<?php echo $row_ed['TenDN']; ?>" required disabled>
                             </div>
                             <br>
                             <div class="form-group ">
