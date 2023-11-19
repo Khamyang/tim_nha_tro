@@ -126,7 +126,6 @@
           $move_file = move_uploaded_file($file_tmp,"../../image/profile_image/".$file_name);
             if($move_file){
                 if (isset($_POST['edit_user'])) {
-                    $user_name = trim($_POST['user_name']);
                     $full_name = $_POST['full_name'];
                     $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
                     $permission = $_POST['permission'];
@@ -135,9 +134,9 @@
                     $address = $_POST['address'];
                     $phone = $_POST['phone'];
                     if (!empty($_POST['password'])) {
-                        $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission, TenDN = '$user_name', profile_img = '$file_name', MatKhau = '$password', HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone' WHERE MaTK = $id";
+                        $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission, profile_img = '$file_name', MatKhau = '$password', HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone' WHERE MaTK = $id";
                     } else {
-                        $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission, TenDN = '$user_name', profile_img = '$file_name', HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone' WHERE MaTK = $id";
+                        $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission, profile_img = '$file_name', HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone' WHERE MaTK = $id";
                     }
                     
                     $conn -> query($query_update);
@@ -159,9 +158,9 @@
                 $address = $_POST['address'];
                 $phone = $_POST['phone'];
                 if (!empty($_POST['password'])) {
-                    $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission, TenDN = '$user_name', MatKhau = '$password', HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone' WHERE MaTK = $id";
+                    $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission,  MatKhau = '$password', HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone' WHERE MaTK = $id";
                 } else {
-                    $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission, TenDN = '$user_name', HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone' WHERE MaTK = $id";
+                    $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission, HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone' WHERE MaTK = $id";
                 }
                 
                 $conn -> query($query_update);
@@ -183,9 +182,9 @@
                 $address = $_POST['address'];
                 $phone = $_POST['phone'];
                 if (!empty($_POST['password'])) {
-                    $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission, TenDN = '$user_name', MatKhau = '$password', HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone'";
+                    $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission, MatKhau = '$password', HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone'";
                 } else {
-                    $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission, TenDN = '$user_name', HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone'"; 
+                    $query_update = "UPDATE tb_taikhoan SET MaQuyen = $permission, HoTen = '$full_name', GioiTinh = '$gender' , NgaySinh = '$birthday', DiaChi = '$address', SoDT = '$phone'"; 
                 }
                 
                 $conn -> query($query_update);

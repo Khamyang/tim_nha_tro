@@ -1,3 +1,6 @@
+<?php
+  include "./controller/check_access.php";
+?>
 <style type="text/css">
   /*switch button*/
   .switch {

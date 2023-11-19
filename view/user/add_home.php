@@ -1,3 +1,6 @@
+<?php
+    include "./controller/check_access.php";
+?>
 <section class="mt-5 mb-5">
     <div class="d-flex justify-content-center">
         <div class="col-sm-12" style="width: 900px;">

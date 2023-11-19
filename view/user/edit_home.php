@@ -51,7 +51,7 @@
                     $home_address = $_POST['home_address'];
                     $sl_huyen = $_POST['sl_huyen'];
                     $sl_ban = $_POST['sl_ban'];
-                    $query_update = "UPDATE tb_thong_tin_nha SET TenNha = '$home_name', HinhAnh = '$file_name' , DiaChi = '$home_address', Gia = '$fee', MoTa = '$home_details', MaHuyen = $MaHuyen, MaBan = $MaBan WHERE MaNha = $id";
+                    $query_update = "UPDATE tb_thong_tin_nha SET TenNha = '$home_name', HinhAnh = '$file_name' , DiaChi = '$home_address', Gia = '$fee', MoTa = '$home_details', MaHuyen = $sl_huyen, MaBan = $sl_ban WHERE MaNha = $id";
                     $conn -> query($query_update);
             
                     echo "<script>location='?page=my_home';</script>";
@@ -68,7 +68,7 @@
                 $home_address = $_POST['home_address'];
                 $sl_huyen = $_POST['sl_huyen'];
                 $sl_ban = $_POST['sl_ban'];
-                $query_update = "UPDATE tb_thong_tin_nha SET TenNha = '$home_name', DiaChi = '$home_address', Gia = '$fee', MoTa = '$home_details', MaHuyen = $MaHuyen, MaBan = $MaBan WHERE MaNha = $id";
+                $query_update = "UPDATE tb_thong_tin_nha SET TenNha = '$home_name', DiaChi = '$home_address', Gia = '$fee', MoTa = '$home_details', MaHuyen = $sl_huyen, MaBan = $sl_ban WHERE MaNha = $id";
                 $conn -> query($query_update);
 
                 echo "<script>location='?page=my_home';</script>";
@@ -85,7 +85,7 @@
                 $home_address = $_POST['home_address'];
                 $sl_huyen = $_POST['sl_huyen'];
                 $sl_ban = $_POST['sl_ban'];
-                $query_update = "UPDATE tb_thong_tin_nha SET TenNha = '$home_name', DiaChi = '$home_address', Gia = '$fee', MoTa = '$home_details', MaHuyen = $MaHuyen, MaBan = $MaBan WHERE MaNha = $id";
+                $query_update = "UPDATE tb_thong_tin_nha SET TenNha = '$home_name', DiaChi = '$home_address', Gia = '$fee', MoTa = '$home_details', MaHuyen = $sl_huyen, MaBan = $sl_ban WHERE MaNha = $id";
                 $conn -> query($query_update);
 
                 echo "<script>location='?page=my_home';</script>";

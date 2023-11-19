@@ -67,19 +67,10 @@
 <?php 
 //Edit Order
 if (isset($_POST['btn_luu'])) {
-    $TenDN = trim($_POST['TenDN']);
     $SoTien = $_POST['SoTien'];
     $NgayDK = $_POST['NgayDK'];
     $NgayHH = $_POST['NgayHH'];
     $SoTien = $_POST['SoTien'];
-
-    $sql = "SELECT MaTK FROM tb_taikhoan WHERE TenDN = '$TenDN'";
-    $result = mysqli_query($conn, $sql);
-    $row_tk = mysqli_fetch_assoc($result);
-    if (empty($row_tk['MaTK'])) {
-        echo "<script> alert('Tên tài khoản này không có trong hệ thống, hãy kiểm tra lại!');history.back();</script>";
-    } else {
-       $MaTK = $row_tk['MaTK'];
         if(isset($_FILES['anh'])){
             $errors= array();
             $file_name = $_FILES['anh']['name'];
@@ -95,21 +86,18 @@ if (isset($_POST['btn_luu'])) {
             }
 
             $move_file = move_uploaded_file($file_tmp,"../../image/order_image/".$file_name);
-            //$MaTK = $row_dk['MaTK'];
-
             if($move_file){
                 unlink("../../image/order_image/".$row_dk['HinhTT']);
-                $query = "UPDATE tb_dondk set MaTK = $MaTK, HinhTT = '$file_name', NgayDK = '$NgayDK', NgayHetHan = '$NgayHH', SoTien = $SoTien WHERE MaDK = $id ";
+                $query = "UPDATE tb_dondk set HinhTT = '$file_name', NgayDK = '$NgayDK', NgayHetHan = '$NgayHH', SoTien = $SoTien WHERE MaDK = $id ";
                 $conn -> query($query);
                 echo "<script>location='/tim_nha_tro/view/admin/?page=don_dangky';</script>";
 
             } else {
-                $query = "UPDATE tb_dondk set MaTK = $MaTK, NgayDK = '$NgayDK', NgayHetHan = '$NgayHH', SoTien = $SoTien WHERE MaDK = $id";
+                $query = "UPDATE tb_dondk set NgayDK = '$NgayDK', NgayHetHan = '$NgayHH', SoTien = $SoTien WHERE MaDK = $id";
                 $conn -> query($query);
                 echo "<script>location='/tim_nha_tro/view/admin/?page=don_dangky';</script>";
             }
         }
-    }
 }
 
 

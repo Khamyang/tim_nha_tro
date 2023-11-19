@@ -47,78 +47,51 @@ $MaNV = $_SESSION['matk'];
             if($move_file){
 
                 if (isset($_POST['sua_nha_thue'])) {
-                    $user_name = $_POST['user_name'];
-                    $sql = "SELECT MaTK FROM tb_taikhoan WHERE TenDN = '$user_name'";
-                    $result = mysqli_query($conn, $sql);
-                    $row_code = mysqli_fetch_assoc($result);
-                    if (empty($row_code['MaTK'])) {
-                        echo "<script> alert('Tên tài khoản này không có trong hệ thống, hãy kiểm tra lại!');history.back();</script>";
-                    } else {
-                        $user_code = $row_code['MaTK'];
                         $home_name = $_POST['home_name'];
                         $home_details = $_POST['home_details'];
                         $fee = $_POST['fee'];
                         $home_address = $_POST['home_address'];
                         $sl_huyen = $_POST['sl_huyen'];
                         $sl_ban = $_POST['sl_ban'];
-                        $query_update = "UPDATE tb_thong_tin_nha SET MaTK = $user_code, TenNha = '$home_name', HinhAnh = '$file_name' , DiaChi = '$home_address', Gia = '$fee', MoTa = '$home_details', MaHuyen = $MaHuyen, MaBan = $MaBan WHERE MaNha = $id";
+                        $query_update = "UPDATE tb_thong_tin_nha SET TenNha = '$home_name', HinhAnh = '$file_name' , DiaChi = '$home_address', Gia = '$fee', MoTa = '$home_details', MaHuyen = $sl_huyen, MaBan = $sl_ban WHERE MaNha = $id";
                         $conn -> query($query_update);
                 
                         echo "<script>location='?page=nha_thue';</script>";
                         // echo "<script>alert(".$matk.")</script>";
-                    }
 
             
                 }
             }
          }else{
                 if (isset($_POST['sua_nha_thue'])) {
-                    $user_name = $_POST['user_name'];
-                    $sql = "SELECT MaTK FROM tb_taikhoan WHERE TenDN = '$user_name'";
-                    $result = mysqli_query($conn, $sql);
-                    $row_code = mysqli_fetch_assoc($result);
-                    if (empty($row_code['MaTK'])) {
-                        echo "<script> alert('Tên tài khoản này không có trong hệ thống, hãy kiểm tra lại!');history.back();</script>";
-                    } else {
-                        $user_code = $row_code['MaTK'];
                         $home_name = $_POST['home_name'];
                         $home_details = $_POST['home_details'];
                         $fee = $_POST['fee'];
                         $home_address = $_POST['home_address'];
                         $sl_huyen = $_POST['sl_huyen'];
                         $sl_ban = $_POST['sl_ban'];
-                        $query_update = "UPDATE tb_thong_tin_nha SET MaTK = $user_code, TenNha = '$home_name', DiaChi = '$home_address', Gia = '$fee', MoTa = '$home_details', MaHuyen = $MaHuyen, MaBan = $MaBan WHERE MaNha = $id";
+                        $query_update = "UPDATE tb_thong_tin_nha SET TenNha = '$home_name', DiaChi = '$home_address', Gia = '$fee', MoTa = '$home_details', MaHuyen = $sl_huyen, MaBan = $sl_ban WHERE MaNha = $id";
                         $conn -> query($query_update);
                 
                         echo "<script>location='?page=nha_thue';</script>";
                         // echo "<script>alert(".$matk.")</script>";
-                    }
 
             
                 }
             }
     } else {
         if (isset($_POST['sua_nha_thue'])) {
-            $user_name = $_POST['user_name'];
-            $sql = "SELECT MaTK FROM tb_taikhoan WHERE TenDN = '$user_name'";
-            $result = mysqli_query($conn, $sql);
-            $row_code = mysqli_fetch_assoc($result);
-            if (empty($row_code['MaTK'])) {
-                echo "<script> alert('Tên tài khoản này không có trong hệ thống, hãy kiểm tra lại!');history.back();</script>";
-            } else {
-                $user_code = $row_code['MaTK'];
                 $home_name = $_POST['home_name'];
                 $home_details = $_POST['home_details'];
                 $fee = $_POST['fee'];
                 $home_address = $_POST['home_address'];
                 $sl_huyen = $_POST['sl_huyen'];
                 $sl_ban = $_POST['sl_ban'];
-                $query_update = "UPDATE tb_thong_tin_nha SET MaTK = $user_code, TenNha = '$home_name', DiaChi = '$home_address', Gia = '$fee', MoTa = '$home_details', MaHuyen = $MaHuyen, MaBan = $MaBan WHERE MaNha = $id";
+                $query_update = "UPDATE tb_thong_tin_nha SET TenNha = '$home_name', DiaChi = '$home_address', Gia = '$fee', MoTa = '$home_details', MaHuyen = $sl_huyen, MaBan = $sl_ban WHERE MaNha = $id";
                 $conn -> query($query_update);
         
                 echo "<script>location='?page=nha_thue';</script>";
                 // echo "<script>alert(".$matk.")</script>";
-            }
 
     
         }
