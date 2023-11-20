@@ -108,7 +108,7 @@ include_once('connect/connect.php');
         <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="card-wrapper container-sm d-flex  justify-content-around">
+                    <div class="card-wrapper container-sm d-flex text-center justify-content-around">
                         <div class="card  " style="width: 18rem;" onclick="home_district('2000');">
                             <img src="./image/apartment.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -130,8 +130,8 @@ include_once('connect/connect.php');
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="card-wrapper container-sm d-flex   justify-content-around">
-                        <div class="card  " style="width: 18rem;" onclick="home_district('2003');">
+                    <div class="card-wrapper container-sm d-flex  text-center justify-content-around">
+                        <div class="card" style="width: 18rem;" onclick="home_district('2003');">
                             <img src="./image/apartment.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">Sisattanak</h5>
@@ -152,7 +152,7 @@ include_once('connect/connect.php');
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="card-wrapper container-sm d-flex  justify-content-around">
+                    <div class="card-wrapper container-sm d-flex text-center justify-content-around">
                         <div class="card " style="width: 18rem;" onclick="home_district('2006');">
                             <img src="./image/apartment.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
@@ -206,18 +206,18 @@ include_once('connect/connect.php');
 
                 if (isset($_GET['district_id'])) {
                     $district_id = $_GET['district_id'];
-                    $sql = "SELECT nha.*, tk.HoTen, ban.TenBan FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE TrangThai = 1 and nha.Mahuyen = $district_id ORDER BY MaNha LIMIT $perRow, $rowsPerPage";
+                    $sql = "SELECT nha.*, tk.HoTen, ban.TenBan, h.TenHuyen FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan left join tb_huyen as h on nha.MaHuyen = h.MaHuyen WHERE TrangThai = 1 and nha.Mahuyen = $district_id ORDER BY MaNha LIMIT $perRow, $rowsPerPage";
                     $totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_thong_tin_nha WHERE TrangThai = 1 and MaHuyen = $district_id"));
                     $query = mysqli_query($conn, $sql);
                 } else if (isset($_POST['stext'])) {
                     $stext = $_POST['stext'];
 
                     $newStext = str_replace(' ', '%', $stext);
-                    $sql = "SELECT nha.*, tk.HoTen, ban.* FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE ban.TenBan LIKE '%$stext%'";
+                    $sql = "SELECT nha.*, tk.HoTen, ban.* FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan  WHERE ban.TenBan LIKE '%$stext%'";
                     $totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT nha.*, tk.HoTen, ban.* FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE ban.TenBan LIKE '%$stext%'"));
                     $query = mysqli_query($conn, $sql);
                 } else {
-                    $sql = "SELECT nha.*, tk.HoTen, ban.TenBan FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan WHERE TrangThai = 1 ORDER BY MaNha LIMIT $perRow, $rowsPerPage";
+                    $sql = "SELECT nha.*, tk.HoTen, ban.TenBan, h.TenHuyen FROM tb_thong_tin_nha as nha left join tb_taikhoan as tk on tk.MaTK = nha.MaTK left join tb_ban as ban on nha.MaBan = ban.MaBan left join tb_huyen as h on nha.MaHuyen = h.MaHuyen WHERE TrangThai = 1 ORDER BY MaNha LIMIT $perRow, $rowsPerPage";
                     $totalRows = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM tb_thong_tin_nha WHERE TrangThai = 1"));
                     $query = mysqli_query($conn, $sql);
                 }
@@ -239,16 +239,15 @@ include_once('connect/connect.php');
                 while ($row = mysqli_fetch_array($query)) {
                 ?>
                     <div class="prd-item" onclick="home_details('<?php echo $row['MaNha'] ?>')">
-                        <img width="365" height="auto" src="./image/<?php echo $row['HinhAnh'] 
+                        <img width="365" height="300" src="./image/<?php echo $row['HinhAnh'] 
                                                                                     ?>" />
                         <h6><?php echo "Nhà Trọ " . $row['TenNha'] ?></h6>
-                        <p class="price"><span>Giá: <?php echo number_format($row['Gia']) ?> KIP</span></p>
+                        <p class="price"><span>Giá: <?php echo number_format($row['Gia']) ?> KIP/ THÁNG</span></p>
                         <div class="detail">
                             <p><b>Tên Chủ Trọ: </b><?php echo $row['HoTen'] ?></p>
                             <p><b>Địa Chỉ: </b><?php echo $row['DiaChi'] ?></p>
                             <p><b>Ngày Đăng: </b><?php echo $row['NgayDang'] ?></p>
-                            <p><b>Bản: </b><?php echo $row['TenBan'] ?></p>
-                            <p><b>Mô Tả: </b><?php echo $row['MoTa'] ?></p>
+                            <p><b>Bản: </b><?php echo $row['TenBan'] ?><b>, Huyện: </b><?php echo $row['TenHuyen'] ?></p>
                         </div>
                     </div>
                 <?php

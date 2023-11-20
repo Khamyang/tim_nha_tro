@@ -37,7 +37,7 @@
             <div class="col-sm-6 mt-4">
                 <h3 class="">Mục tiêu</h3>
                 <p class="mt-4">Website của chúng ta được tạo ra nhằm mục đích giúp những người muốn tìm một nhà trọ phù hợp theo mong muốn của mình trong khu vực thủ đô Viêng Chăn, đặc biệt là những người ở xa sang Viêng Chăn để học tập hay làm việc.</p>
-                <p>Để tiết kiểm thời gian và chi phí của bạn phải đi tìm khắp nơi hãy truy cập <a href="#">Website</a> của chúng tôi ngay để bạn còn được hỗ trợ </p>
+                <p>Để tiết kiểm thời gian và chi phí của bạn phải đi tìm khắp nơi hãy truy cập <a href="#">Website</a> của chúng tôi ngay để bạn còn được hỗ trợ.</p>
             </div>
             <div class="col-sm-6">
                 <img src="./image/muc-tieu.jpg" alt="" width="300px" style="margin: auto; display: block;">
