@@ -3,8 +3,8 @@ include "./controller/check_access.php";
 ?>
 <div class="mt-3 mb-5">
     <div class="container">
-        <div class="text-end">
-            <a class="text-primary" href="./?page=profile">Thông tin cá nhân </a><a href="./?page=home"><i class="fa fa-angles-left"></i> Trang chủ</a>
+        <div class="">
+            <a href="./?page=home">Trang chủ</a> <i class="fa fa-angles-right"></i>  <a class="text-primary" href="./?page=profile">Thông tin cá nhân </a>
         </div>
         <div class="row">
             <div class="col-sm-3">

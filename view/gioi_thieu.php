@@ -1,5 +1,5 @@
 <style>
-    .container {
+    .cont {
         width: 1300px;
         margin-top: 60px;
     }
@@ -13,7 +13,7 @@
     }
 </style>
 
-<div class="container mt-4 mb-4">
+<div class="container mt-4 mb-4 cont">
     <h1 class="mt-4 mb-4 text-center">Giới thiệu</h1>
     <div class="row">
         <div class="col-sm-6">

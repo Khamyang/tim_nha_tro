@@ -34,7 +34,7 @@
                                     <input type="submit" class="btn btn-success" name="btnsignin" id="btnsignin" value="Đăng nhập">
                                 </div>
                                 <div>
-                                    <span>Tạo mật khẩu mới <a href="javascript:void(0)" id="signup">Đăng ký</a> </span>
+                                    <span>Tạo mật khẩu mới <a href="javascript:void(0)" id="signup" class="text-primary">Đăng ký</a> </span>
                                 </div>
 
                             </div>

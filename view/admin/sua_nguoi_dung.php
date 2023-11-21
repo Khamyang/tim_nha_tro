@@ -1,7 +1,7 @@
 <?php
     include "../../connect/connect.php";
-    if (isset($_GET['sua_nhan_vien'])) {
-        $id = $_GET['sua_nhan_vien'];
+    if (isset($_GET['sua_nguoi_dung'])) {
+        $id = $_GET['sua_nguoi_dung'];
         $sql = "SELECT * FROM tb_taikhoan WHERE MaTK = $id";
         $result = mysqli_query($conn, $sql);
         $row_ed = mysqli_fetch_assoc($result);
@@ -12,11 +12,11 @@
     <div class="d-flex justify-content-center">
         <div class="col-sm-12">
             <form action="" method="post" enctype="multipart/form-data">
-                <div class="row">
+                <div class="row p-2">
                     <!-- <div class="col-sm- p-0 "> -->
-                        <div class="col-sm-12 pt-2 pb-2 mb-2 alert-success">
+                        <!-- <div class="col-sm-12 pt-2 pb-2 mb-2 alert-success">
                             <h4 class="" style="color:chocolate">Sửa thông tin người dùng</h4>
-                        </div>
+                        </div> -->
                         <div class="col-sm-6">
                             <div class="form-group ">
                                 <label for="username">Tên đăng nhập</label>
@@ -47,7 +47,7 @@
                             <div class="form-group">
                                 <label for="profile_image">Ảnh</label>
                                 <input type="file"  name="profile_image" id="profile_image" class="form-control" accept="image/png, image/jpeg, image/jpg" onchange="loadFile(event)">
-                                <img class="border rounded p-1" src="../../image/profile_image/<?php  echo $row_ed['profile_img']; ?>" alt="" width="150" id="output" style="width: 150px; height: 150px; margin-top: 5px;" />
+                                <img class="border rounded p-1" src="../../image/profile_image/<?=($row_ed['profile_img'] == '') ? 'user_img1.png':$row_ed['profile_img']; ?>" alt="" width="150" id="output" style="width: 150px; height: 150px; margin-top: 5px;" />
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         <div class="col-sm-12 text-end">
-                            <a href="?page=nhan_vien" class="btn btn-danger me-3">Thoát</a>
+                            <a href="?page=nguoi_dung" class="btn btn-danger me-3">Thoát</a>
                             <input style="float: right; margin-bottom: 8px;" type="submit" class="btn btn-success" name="edit_user" id="edit_user" value="Cập nhập">
                         </div>
                     <!-- </div> -->
@@ -142,7 +142,7 @@
                     
                     $conn -> query($query_update);
             
-                    echo "<script>location='/tim_nha_tro/view/admin/?page=nhan_vien';</script>";
+                    echo "<script>location='/tim_nha_tro/view/admin/?page=nguoi_dung';</script>";
                     // echo "<script>alert(".$matk.")</script>";
             
                 }
@@ -166,7 +166,7 @@
                 
                 $conn -> query($query_update);
         
-                echo "<script>location='/tim_nha_tro/view/admin/?page=nhan_vien';</script>";
+                echo "<script>location='/tim_nha_tro/view/admin/?page=nguoi_dung';</script>";
                 // echo "<script>alert(".$matk.")</script>";
 
             }
@@ -190,7 +190,7 @@
                 
                 $conn -> query($query_update);
         
-                echo "<script>location='/tim_nha_tro/view/admin/?page=nhan_vien';</script>";
+                echo "<script>location='/tim_nha_tro/view/admin/?page=nguoi_dung';</script>";
                 // echo "<script>alert(".$matk.")</script>";
 
             }

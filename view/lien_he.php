@@ -1,8 +1,9 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
-    .container {
+    .cont{
         width: 1300px;
         margin-top: 60px;
+        margin-bottom: 30px;
     }
 
     .lien_he h1 {
@@ -46,38 +47,9 @@
         display: inline-block;
         text-align: center;
     }
-    .social_icon{
-        margin-top: 40px;
-    }
-    .fa {
-        padding: 20px;
-        font-size: 30px;
-        width: 70px;
-        text-align: center;
-        text-decoration: none;
-        text-align: center;
-    }
-
-    .fa:hover {
-        opacity: 0.7;
-    }
-
-    .fa-facebook {
-        background: #3B5998;
-        color: white;
-    }
-
-    .fa-twitter {
-        background: #55ACEE;
-        color: white;
-    }
-    .fa-youtube {
-    background: #bb0000;
-    color: white;
-}
 </style>
 
-<div class="container">
+<div class="container cont">
     <div class="lien_he">
         <h1 class="display3">Liên Hệ</h1>
         <small>Chúng tôi sẵn sàng hỗ trợ bạn</small>
@@ -124,17 +96,7 @@
             </div>
         </div>
     </div>
-    <div class="social">
-        <p class="text-center">SOCIAL</p>
-        <h3 class="text-center">Kết nối qua mạng xã hội</h3>
-        <div class="social_icon">
-            <a href="#" class="fa fa-facebook"></a>
-            <a href="#" class="fa fa-twitter"></a>
-            <a href="#" class="fa fa-youtube"></a>
-        </div>
-    </div>
 </div>
-
 <?php
 
 include_once('connect/connect.php');

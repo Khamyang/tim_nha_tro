@@ -65,12 +65,12 @@
     }
 </style>
 <script>
-    function auto_change_status(madk){
+    function auto_change_status(madk,matk){
         // alert(madk);
         $.ajax({
             url: "../../controller/ControllerTatDk.php",
             type: "POST",
-            data: {'madk':madk},
+            data: {'madk':madk,'matk':matk},
             success: function(data){
                 var dat = JSON.parse(data);
                 console.log(dat)
@@ -80,45 +80,16 @@
     }
 </script>
 <div class="card p-3">
-    <?php if(isset($_REQUEST['page']) && isset($_REQUEST['them_don_dangky'])) {?>
-        <div>
-            <form action="">
-                    <div>
-                        <div class="row mb-3">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="colFormLabel" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="colFormLabel" placeholder="col-form-label">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-end" >
-                    <a href="?page=don_dangky" type="button" class="btn btn-danger" style="width: 100px;">Thoát</a>
-                    <button type="button" class="btn btn-success" style="width: 100px;">Lưu</button>
-                </div>
-            </form>
+    <?php if(isset($_SESSION['msg_succ'])) {?>
+        <div class="row mb-2">
+            <span class="alert-success p-2 rounded"><?php echo$_SESSION['msg_succ']; unset($_SESSION['msg_succ'])?></span>
         </div>
-        <?php } else {?>
+    <?php }?>
+    <div class="row mb-2 alert-success p-2 rounded" id="delete_err" hidden>
+            
+    </div>
     <div class="text-end mb-2">
-        <a href="?page=don_dangky&them_don_dangky" class="btn btn-primary">Thêm mới</a>
+        <a href="?page=them_don_dangky" class="btn btn-primary">Thêm mới</a>
     </div>
     <div class="table-responsive">
         <table class="table table-borderde table-hover table-striped" style="width: 100%;" id="tb_don_dk">
@@ -137,36 +108,35 @@
             </thead>
             <tbody id="data_dondk">
                 <?php
-                $sql = "SELECT dk.*, tk.HoTen,tk.TenDN,tk.SoDT
+                $sql = "SELECT dk.*, tk.HoTen,tk.TenDN,tk.SoDT, goi.*
                 FROM tb_dondk as dk 
-                LEFT JOIN tb_taikhoan as tk ON tk.MaTK = dk.MaTK";
+                LEFT JOIN tb_taikhoan as tk ON tk.MaTK = dk.MaTK
+                LEFT JOIN tb_goi as goi ON dk.MaGoi = goi.MaGoi";
                 $query = mysqli_query($conn, $sql);
                 $stt = 0;
                 $date_current = date('Y-m-d');
                 while ($row = mysqli_fetch_object($query)) {
                     $stt++;
-                    if($date_current == $row->NgayHetHan){
-                        echo "<script>auto_change_status('".$row->MaDK."')</script>";
+                    if(strtotime($date_current) >= strtotime($row->NgayHetHan)){
+                        echo "<script>auto_change_status('".$row->MaDK."','".$row->MaTK."')</script>";
                     }
+                    // echo $row->MaTK;
                 ?>
                     <tr>
                         <td align="center"><?= $stt ?></td>
                         <td><?= $row->TenDN ?></td>
-                        <td><img src="../../image/<?= $row->HinhTT ?>" alt="" width="100px" class="rounded"></td>
+                        <td><img src="../../image/product_image/<?= $row->HinhTT ?>" alt="" width="80px" height="100px" class="rounded" style="cursor: pointer;" onclick="show_img(<?=$row->MaDK?>)"></td>
                         <td><?= $row->NgayDK ?></td>
                         <td><?= $row->NgayHetHan ?></td>
                         <td><?= number_format($row->SoTien) ?></td>
                         <td><?= $row->SoDT ?></td>
                         <td>
-                            <label class="switch">
-                                <input type="checkbox" <?=($row->TrangThai == 1) ? 'checked':'unchecked';?> id="trangthai_dk<?=$row->MaDk?>" disabled>
-                                <span class="slider round" data-on-label="On" data-off-label="Off"></span>
-                            </label>
+                            <span class="d-flex align-center rounded p-2 alert-<?=($row->TrangThai == 1) ? 'success':'warning'?>" id="trangthai_dk<?=$row->MaDK?>"><?=($row->TrangThai == 1) ? 'Đang còn hạn':'Đã hết hạn'?></span>
                         </td>
                         <td>
                             <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                                <button type="button" class="btn btn-sm btn-info"><i class="fa fa-edit" aria-hidden="true"></i></button>
-                                <button type="button" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                <a href="?page=sua_don_dangky&ma_don_dangky=<?php echo$row->MaDK;?>" type="button" class="btn btn-info"><i class="fa fa-edit" aria-hidden="true"></i></a>
+                                <a href="?page=don_dangky&ma_don_dangky=<?php echo$row->MaDK;?>" type="button" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></a>
                             </div>
                         </td>
                     </tr>
@@ -174,8 +144,40 @@
             </tbody>
         </table>
     </div>
-    <?php }?>
 </div>
+<div class="modal fade p-0" id="hinh_tt" tabindex="-1" aria-labelledby="hinh_ttLabel" aria-hidden="true">
+  <div class="modal-dialog p-0">
+    <!-- <div class="text-end" style="z-index: 200;position: absolute;right: -28px; top: -28px;">
+        <a class="text-white" data-bs-dismiss="modal" style="font-size: 30px;" href=""><i class="fa fa-window-close" aria-hidden="true" style="cursor: pointer"></i></a>
+    </div> -->
+    <div class="modal-content p-0" id="show_hinh_tt" style="position: relative;">
+    </div>
+   
+  </div>
+</div>
+<?php 
+    if(isset($_GET['ma_don_dangky'])){
+        $uploaddir = "../../image/product_image/";
+        $MaDK = $_GET['ma_don_dangky'];
+        $select = mysqli_query($conn, "SELECT HinhTT FROM tb_dondk WHERE MaDK = $MaDK");
+        $res = $select->fetch_object();
+       echo $HinhTT = $res->HinhTT;
+        if(file_exists($uploaddir.$HinhTT) == True){
+            $unlink = unlink($uploaddir.$HinhTT);
+            if($unlink){
+                $del = mysqli_query($conn, "DELETE FROM tb_dondk WHERE MaDK = $MaDK");
+                if($del){
+                    echo"<script>window.location.href='?page=don_dangky'</script>";
+                    
+                }
+            }else {
+                echo"<script>$('#delete_err').attr('hidden', true);$('#delete_err').val('Xóa thành công');</script>";
+            }
+        } else {
+            echo"<script>$('#delete_err').attr('hidden', true);$('#delete_err').val('Xóa thành công');</script>";
+        }
+    }
+?>
 
 <!-- ********************** table filter ********************** -->
 <script type="text/javascript">
@@ -186,3 +188,27 @@
         $('.dataTables_length').addClass('bs-select');
     })
 </script>
+<script type="text/javascript">
+    function show_img(madk){
+        // $('#hinh_tt').modal('show');
+        $.ajax({
+            url: "../../controller/ControllerGetImage.php?get_img="+madk,
+            type: "GET",
+            data: {'madk':madk},
+            success: function(data_R){
+                var dt = JSON.parse(data_R);
+                console.log(dt)
+                var html = '';
+                if(dt.status == 1){
+                    html += "<img src='../../image/product_image/"+dt.img+"' alt='' class='rounded' style='width: 100%; height: 100vh'>"
+                }
+                
+                $('#show_hinh_tt').html(html);
+                $('#hinh_tt').modal('show');
+                
+            }
+        })
+        
+    }
+</script>
+

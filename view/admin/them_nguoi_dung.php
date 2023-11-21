@@ -2,11 +2,13 @@
     <div class="d-flex justify-content-center">
         <div class="col-sm-12">
             <form action="../../controller/ControllerAddUser.php" method="post" enctype="multipart/form-data">
-                <div class="row rounded">
-                    <div class="col-sm-12 pt-2 pb-2 mb-2 alert-success">
-                        <h4 class="" style="color:chocolate">Thêm người dùng</h4>
-                    </div>
+                <div class="row p-2 rounded">
                     <!-- <div> -->
+                        
+                            <?php if(isset($_SESSION['add_err'])){?>
+                                <div class="col-sm-12 p-3 alert-danger rounded"><?php echo$_SESSION['add_err']; unset($_SESSION['add_err'])?></div>
+                            <?php }?>
+                        
                         <div class="col-sm-6">
                             <div class="form-group ">
                                 <label for="username">Tên đăng nhập</label>
@@ -37,7 +39,7 @@
                             <div class="form-group">
                                 <label for="profile_image">Ảnh</label>
                                 <input type="file" name="profile_image" id="profile_image" class="form-control" accept="image/png, image/jpeg, image/jpg" onchange="loadFile(event)">
-                                <img class="border rounded p-1" src="" alt="" width="150" id="output" style="width: 150px; height: 150px; margin-top: 5px;" />
+                                <img class="border rounded p-1" src="../../image/profile_image/user_img1.png" alt="" width="150" id="output" style="width: 150px; height: 150px; margin-top: 5px;" />
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -68,7 +70,7 @@
                             </div>
                         </div>
                         <div class="col-sm-12 text-end">
-                            <a href="?page=nhan_vien" class="btn btn-danger me-3">Thoát</a>
+                            <a href="?page=nguoi_dung" class="btn btn-danger me-3">Thoát</a>
                             <input style="float: right; margin-bottom: 8px;" type="submit" class="btn btn-success" name="add_user" id="add_user" value="Thêm">
                         </div>
                     <!-- </div> -->

@@ -91,7 +91,7 @@ session_start();
 </head>
 
 <body id="top">
-  <nav class="navbar navbar-expand-lg p-3" style="background-color: #333; position:fixed;left:0;right:0;top:0;z-index: 100">
+  <nav class="navbar navbar-expand-lg p-3" style="background-color:darkgreen; position:fixed;left:0;right:0;top:0;z-index: 100">
     <div class="container-fluid">
     <img src="./image/logo_header.png" alt="" width="80px">
       <span class="navbar-brand">Trung tâm nhà trọ</span>
@@ -115,14 +115,14 @@ session_start();
             <a class="nav-link mx-2 <?= ($page == "home" || $page == "") ? "bg-primary rounded" : ""; ?>" aria-current="page" href="?page=home"><i class="nav-icon fas fa-home"></i> Trang chủ</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link mx-2 <?= ($page == "my_home") ? "bg-primary rounded" : ""; ?>" href="?page=my_home">Quản lý nhà</a>
+            <a class="nav-link mx-2 <?= ($page == "my_home" || $page == "add_home") ? "bg-primary rounded" : ""; ?>" href="?page=my_home">Quản lý nhà</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-2 <?= ($page == "blog") ? "bg-primary rounded" : ""; ?>" href="?page=blog">Blog</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link mx-2 <?= ($page == "gioi_thieu") ? "bg-primary rounded" : ""; ?>" href="?page=gioi_thieu">About</a>
+            <a class="nav-link mx-2 <?= ($page == "gioi_thieu") ? "bg-primary rounded" : ""; ?>" href="?page=gioi_thieu">Giới thiệu</a>
           </li>
           <li class="nav-item">
             <a class="nav-link mx-2 <?= ($page == "contact") ? "bg-primary rounded" : ""; ?>" href="?page=contact">Liên hệ</a>

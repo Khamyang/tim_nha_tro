@@ -67,7 +67,7 @@ include "./controller/check_access.php";
   #btn_add {
     math-depth: 5px;
     margin-bottom: 10px;
-    border-radius: 8px;
+    border-radius: 5px;
     background: #2196F3;
     text-align: center;
     text-decoration: none;
@@ -79,13 +79,13 @@ include "./controller/check_access.php";
   #btn_edit {
     margin-left: 30px;
     margin-right: 30px;
-    border-radius: 8px;
+    border-radius: 5px;
     padding: 3px 16px;
     background: green;
   }
 
   #btn_del {
-    border-radius: 8px;
+    border-radius: 5px;
     padding: 3px 16px;
     background: red;
   }
@@ -117,7 +117,7 @@ include "./controller/check_access.php";
       <div class="" style="font-size: 24pt;">Danh sách nhà bạn đang có hiện tại</div>
       <a href="?page=add_home" class="btn btn-primary" id="btn_add">Thêm mới</a>
     </div>
-    <div class="card p-3">
+    <div class="card p-3 mb-3">
       <div class="row pt-3 pb-3" id="content_all">
         <?php
         // Check connection
@@ -130,6 +130,8 @@ include "./controller/check_access.php";
         $res = $sql1->fetch_object();
         if($sql1->num_rows > 0){
           $trang_thai_dondk = $res->TrangThai;
+        } else {
+          $trang_thai_dondk = 0;
         }
         
         $sql = "SELECT * FROM tb_thong_tin_nha WHERE MaTK = $MaTK";
@@ -142,7 +144,7 @@ include "./controller/check_access.php";
               <div class="card d-flex align-items-lg-center " style="width: 18rem; margin-bottom: 20px;">
                 <img style="height: 180px;" src=<?php echo '"./image/product_image/' . $row_nha['HinhAnh'] . '"'; ?> class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h3><?php echo $row_nha['TenNha']; ?></h3>
+                  <h5 class="text-center"><?php echo $row_nha['TenNha']; ?></h5>
                   <textarea name="" id="" cols="30" rows="5" disabled class="form-control" style="background: #FFF;"><?php echo $row_nha['MoTa'] . '"'; ?></textarea>
                 </div>
                 <form action="" method="post" enctype="multipart/form-data">
@@ -150,11 +152,7 @@ include "./controller/check_access.php";
                     <tr>
                       <td>
                         <label class="switch">
-                          <input type="checkbox" id="dang_nha<?= $row_nha['MaNha'] ?>" name="dang_nha<?= $row_nha['MaNha'] ?>" value="<?php echo $row_nha['MaNha']; ?>" <?php if ($row_nha['TrangThai'] == 1) {
-                                                                                                                                                                      echo "checked";
-                                                                                                                                                                    } else {
-                                                                                                                                                                      echo "";
-                                                                                                                                                                    } ?> onclick="dang_nha('dang_nha<?= $row_nha['MaNha'] ?>','<?= $trang_thai_dondk ?>','<?= $row_nha['MaNha'] ?>')">
+                          <input type="checkbox" id="dang_nha<?= $row_nha['MaNha'] ?>" name="dang_nha<?= $row_nha['MaNha'] ?>" value="<?php echo $row_nha['MaNha']; ?>" <?php if ($row_nha['TrangThai'] == 1) {echo "checked"; } else {echo "unchecked";} ?> onclick="dang_nha('dang_nha<?= $row_nha['MaNha'] ?>','<?= $trang_thai_dondk ?>','<?= $row_nha['MaNha'] ?>')">
                           <span class="slider round"></span>
                         </label>
                       </td>
@@ -172,7 +170,7 @@ include "./controller/check_access.php";
         <?php
           }
         } else {
-          echo "Bạn chưa có nhà trọ nào cho cho thuê";
+          echo "<h2 class='text-danger text-center'>Bạn chưa có nhà trọ nào cho cho thuê</h2>";
         }
         // mysqli_close($conn);
         ?>
