@@ -23,11 +23,16 @@
                                 <input type="text" class="form-control" name="home_name" id="home_name" placeholder="" required >
                                 <span class="text-danger" id="home_name_err"></span>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mb-2">
                                 <label for="address">Chọn ảnh</label>
                                 <input type="file"  name="image" id="image" class="form-control" accept="image/png, image/jpeg, image/jpg" onchange="loadFile(event)">
                                 <img src="../../image/profile_image/user_img1.png" class="border rounded p-1" src="" alt="" width="150" id="output" style="width: 150px; height: 150px; margin-top: 5px;" />
                             </div>
+                            <div class="form-group mb-3">
+                                    <label for="text">Giá thuê/tháng</label>
+                                    <input type="text" class="form-control" name="fee" id="fee" placeholder="">
+                                    <span class="text-danger" id="fee_err"></span>
+                                </div>
                     </div>
                     <div class="col-sm-6">
                             <div class="form-group mb-2">

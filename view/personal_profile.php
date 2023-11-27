@@ -16,6 +16,19 @@ include "./controller/check_access.php";
                     $sql = "SELECT * FROM tb_taikhoan WHERE MaTK= " . $_SESSION['matk'] . "";
                     $query = mysqli_query($conn, $sql);
                     $res = mysqli_fetch_object($query);
+                    if($query->num_rows > 0){
+                        $HoTen = $res->HoTen;
+                        $NgaySinh = $res->NgaySinh;
+                        $GioiTinh = $res->GioiTinh;
+                        $SoDT = $res->SoDT;
+                        $DiaChi = $res->DiaChi;
+                    } else {
+                        $HoTen = '';
+                        $NgaySinh = '';
+                        $GioiTinh = '';
+                        $SoDT = '';
+                        $DiaChi = '';
+                    }
                     ?>
                     <form action="./controller/ControllerPersonalProfile.php?act=user" method="post" enctype="multipart/form-data">
                         <div class="row mb-4">

@@ -54,16 +54,19 @@
                                 <div class="form-group ">
                                     <label for="username_res"> Tên đăng nhập</label>
                                     <input type="text" class="form-control" name="username_res" id="username_res" placeholder="Tên đăng nhập" required>
+                                    <span class="text-danger" id="_username_res_err"></span>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="password"> Số điện thoại</label>
-                                    <input type="text" class="form-control" name="so_dien_thoai" id="so_dien_thoai" placeholder="Số điện thoại" >
+                                    <input type="text" class="form-control" name="so_dien_thoai" id="so_dien_thoai" placeholder="Số điện thoại" required>
+                                    <span class="text-danger" id="_so_dien_thoai_err"></span>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="password"> Mật khẩu</label>
                                     <input type="password" class="form-control" name="password_res" id="password_res" placeholder="Mật khẩu" required>
+                                    <span class="text-danger" id="_password_res_err"></span>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Xác nhận mật khẩu</label>
@@ -102,11 +105,15 @@
             e.preventDefault();
             var username = $('#username').val();
             var password = $('#password').val();
+            var so_dien_thoai=  $('#so_dien_thoai').val();
             if (username == '') {
                 $('#username_err').text('Tên đăng nhập không thể để trống');
             }
             if (password == '') {
                 $('#password_err').text('Mật khẩu không thể để trống');
+            }
+            if(so_dien_thoai == ''){
+
             }
             if (username != '' && password != '') {
                 $.ajax({

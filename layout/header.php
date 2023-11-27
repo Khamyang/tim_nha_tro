@@ -99,7 +99,6 @@ session_start();
         <span class="navbar-toggler-icon"></span>
       </button>
       <?php
-
       if (isset($_GET['page'])) {
         $page = $_GET['page'];
         // if($_GET['page'] == "login"){

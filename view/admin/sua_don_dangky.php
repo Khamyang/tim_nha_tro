@@ -35,7 +35,7 @@ if($_GET['ma_don_dangky']){
                         
                         $sql = mysqli_query($conn, "SELECT MaTK, TenDN FROM tb_taikhoan WHERE MaQuyen in('2','3','4')");
                         while ($row = mysqli_fetch_object($sql)) {
-                            if($row->MaDk == $res->MaDK){
+                            if($row->MaTK == $res->MaTK){
                         ?>
                             <option selected value="<?= $row->MaTK ?>"><?= $row->TenDN ?></option>
                             <?php } else {?>
